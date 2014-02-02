@@ -1,0 +1,4 @@
+#define batt1full_width 8
+#define batt1full_height 8
+static unsigned char batt1full_bits[] = {
+   0x30, 0xfc, 0x84, 0xb4, 0xb4, 0xb4, 0x84, 0xfc};
