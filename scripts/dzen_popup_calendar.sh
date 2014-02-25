@@ -18,6 +18,9 @@ YPOS=30
 # define pipe
 PIPE=/tmp/calendar_pipe
 
+# if terminated by TERM
+trap "rm -f $PIPE" SIGTERM
+
 TODAY=$(expr `date +'%d'` + 0)
 MONTH=$(date +'%m')
 YEAR=$(date +'%Y')

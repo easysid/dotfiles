@@ -1,0 +1,172 @@
+#
+# bspwm hotkeys
+#
+
+super + alt + Escape
+    bspc quit
+
+#
+#--- windows ---#
+#
+
+# close focussed window
+super + w
+    bspc window -c
+
+# toogle pseudo tiled
+super + shift + t
+    bspc window -t pseudo_tiled
+
+# toggle floating window
+super + shift + f
+    bspc window -t floating
+
+# swap with last window
+super + apostrophe
+    bspc window -s last
+
+# move into biggest space
+super + b
+    bspc window -s biggest
+
+# cycle windows forward backward
+alt + {_,shift + }Tab
+    bspc window -f {next,prev}
+
+# focus or swap windows
+super + {_,shift + }{h,j,k,l}
+    bspc window -{f,s} {left,down,up,right}
+
+# preselect the splitting area
+super + ctrl + {h,j,k,l}
+    bspc window -p {left,down,up,right}
+
+# move the window into the selected area
+super + shift + {w,s,a,d}
+    bspc window -w {up,down,left,right}
+
+# resize window
+super + alt + {h,j,k,l}
+    bspc window -e {left -10,down +10,up -10,right +10}
+
+super + alt + shift + {h,j,k,l}
+    bspc window -e {right -10,up +10,down -10,left +10}
+
+# set split ratio of window
+super + ctrl + {1-9}
+    bspc window -r 0.{1-9}
+
+#
+#--- common ---#
+#
+
+# focus last window, desktop
+super + {grave,Tab}
+    bspc {window,desktop} -f last
+
+# focus desktop / send window to desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,window -d} ^{1-9,10}
+
+#
+#--- desktop ---#
+#
+
+# next layout (monocle or tiled)
+super + t
+    bspc desktop -l next
+
+# balance the desktop (adjust split area)
+super + shift + b
+    bspc desktop -B
+
+# cycle next / prev desktop
+super + {comma, period}
+    bspc desktop -f {prev,next}.occupied
+
+# rotate the leaves of the tree
+super + bracket{left,right}
+    bspc desktop -R {270,90}
+
+# flip the desktop tree
+super + shift + bracket{left,right}
+    bspc desktop -F {horizontal,vertical}
+
+# adjust window gap
+super + {KP_Add, KP_Subtract}
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+
+#
+#--- mouse ---#
+#
+
+# grab focus on mouse click
+~button1
+    bspc pointer -g focus
+
+# move/resize with mouse
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+    bspc pointer -t %i %i
+
+super + @button{1-3}
+    bspc pointer -u
+
+#
+#--- application launchers ---#
+#
+
+super + x
+    urxvt
+
+super + space
+    interrobang
+
+super + f
+    firefox -private-window
+
+super + z
+    thunar
+
+super + v
+    gvim
+
+super + e
+    geany
+
+super + p
+    lxtask
+
+super + n
+    nitrogen --no-recurse --sort=alpha
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# Volume control
+XF86AudioRaiseVolume
+    dzen_volume.sh -i 5
+
+XF86AudioLowerVolume
+    dzen_volume.sh -d 5
+
+XF86AudioMute
+    dzen_volume.sh -t
+
+# Brightness control
+XF86MonBrightnessUp
+    dzen_brightness.sh up
+
+XF86MonBrightnessDown
+    dzen_brightness.sh down
+
+# screenshot
+Print
+    scrot.sh 0
+
+# exit
+super + F4
+    exit-box.sh

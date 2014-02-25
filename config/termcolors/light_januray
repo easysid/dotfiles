@@ -1,0 +1,55 @@
+!----------------------------------------------------
+! color settings
+!----------------------------------------------------
+! Custom
+! Wednesday, 01 January 2014 22:37
+
+*background:  #d0d0d0
+*foreground:  #222222
+
+
+! BLACK
+*color0:      #c0c0c0
+*color8:      #c0c0c0
+
+! WHITE
+*color7:      #222222
+*color15:     #222222
+
+! RED
+*color1:      #B21522
+*color9:      #B21522
+
+! GREEN
+*color2:      #2b874a
+*color10:     #2b874a
+
+! YELLOW
+*color3:      #965617
+*color11:     #965617
+
+! BLUE
+*color4:      #293f91
+*color12:     #293f91
+
+! MAGENTA
+*color5:      #7f2e93
+*color13:     #7f2e93
+
+! CYAN
+*color6:      #297b70
+*color14:     #297b70
+
+
+! tab bar colors
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+! man pages
+*colorBD: 11
+*colorUL: 13
+*colorIT: #8cd0d3
+
+! vim: set ft=css:

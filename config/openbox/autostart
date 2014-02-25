@@ -1,0 +1,25 @@
+#
+# These things are run when an Openbox X Session is started.
+
+# Compositor
+compton &
+
+
+# launch conky before tint2
+#conky -c ~/Conky/simple/panel_20px_conkyrc &
+
+# Wallpaper
+nitrogen --restore  # no background as this process exits
+
+# utilities
+tint2 -c ~/.config/tint2/tint2rc_dzen &
+numlockx &
+#volumeicon &
+#nm-applet &
+
+#dzen2
+dzen_panel.sh &
+
+# second conky
+#conky -c ~/Conky/simple/tree_conkyrc &
+#conky -c /home/siddharth/Conky/simple/topbars_conkyrc &
