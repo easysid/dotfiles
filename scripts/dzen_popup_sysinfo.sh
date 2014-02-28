@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $(dirname $0)/dzen_popup_config.sh
+source $(dirname $0)/dzen_popup_config
 
 LINES=5
 WIDTH=220

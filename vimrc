@@ -16,6 +16,7 @@ call vundle#rc()
  Bundle 'ervandew/supertab'
  Bundle 'jiangmiao/auto-pairs'
  Bundle 'kien/ctrlp.vim'
+ Bundle 'tpope/vim-surround'
  Bundle 'bling/vim-airline'
  Bundle 'xuhdev/SingleCompile'
  Bundle 'smancill/conky-syntax.vim'

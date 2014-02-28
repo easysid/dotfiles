@@ -7,7 +7,7 @@
 #
 
 
-source $(dirname $0)/dzen_popup_config.sh
+source $(dirname $0)/dzen_popup_config
 
 #Customize this stuff
 SECS="1"            # sleep $SECS

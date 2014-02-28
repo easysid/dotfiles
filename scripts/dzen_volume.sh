@@ -4,7 +4,7 @@
 #
 #source /home/sunn/.xmonad/scripts/config.sh
 
-source $(dirname $0)/dzen_popup_config.sh
+source $(dirname $0)/dzen_popup_config
 
 #Customize this stuff
 IF="Master"         # audio channel: Master|PCM

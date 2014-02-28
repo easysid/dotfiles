@@ -38,4 +38,4 @@ compton &
 nitrogen --restore
 numlockx &
 xsetroot -cursor_name left_ptr
-bspwm_panel_dzen2 &
+bspwm_panel.sh &

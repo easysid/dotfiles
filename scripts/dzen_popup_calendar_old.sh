@@ -8,7 +8,7 @@
 # modified by senft
 # modified by easysid
 
-source $(dirname $0)/dzen_popup_config.sh
+source $(dirname $0)/dzen_popup_config
 
 
 WIDTH=150
