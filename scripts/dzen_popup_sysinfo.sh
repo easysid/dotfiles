@@ -5,7 +5,6 @@ source $(dirname $0)/dzen_popup_config
 LINES=5
 WIDTH=220
 XPOS=800
-YPOS=30
 
 KERNEL=$(uname -r)
 UPTIME=$( uptime | sed 's/.* up *//' | sed 's/[0-9]* us.*//' | sed 's/ day, /d /' | sed 's/ days, /d /' | sed 's/:/h /' | sed 's/ min//'|  sed 's/,/m/' | sed 's/  / /')

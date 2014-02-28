@@ -10,7 +10,7 @@ source $(dirname $0)/dzen_popup_config
 IF="Master"         # audio channel: Master|PCM
 SECS="1"            # sleep $SECS
 XPOS="1000"          # horizontal positioning
-YPOS="30"          # vertical positioning
+#YPOS="30"          # vertical positioning
 HEIGHT="30"         # window height
 WIDTH="250"         # window width
 BAR_WIDTH="150"     # width of volume bar

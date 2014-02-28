@@ -8,12 +8,12 @@ FUNC=${1:-"dzen_icon"}
 bar_font() {
     if amixer get Master | grep '\[on\]' > /dev/null; then
        if [ "$VOL" -lt "50" ]; then
-           ICON='%{F\#888888}%{F-}'
+           ICON='%{F\#FF9c818e}%{F-}'
        else
-           ICON='%{F\#888888}%{F-}'
+           ICON='%{F\#FF9c818e}%{F-}'
        fi
     else
-           ICON='%{F\#b45a5a}%{F-}'
+           ICON='%{F\#FFb45a5a}%{F-}'
     fi
 }
 

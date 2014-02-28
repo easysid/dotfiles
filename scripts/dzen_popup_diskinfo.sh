@@ -5,7 +5,6 @@ source $(dirname $0)/dzen_popup_config
 LINES=5
 WIDTH=350
 XPOS=900
-YPOS=30
 
 (echo "Diskinfo"
 echo " "
@@ -20,5 +19,5 @@ for i in sda{6,7,5}; do
     else
         BAR=$(echo "$USE" | gdbar -bg $bar_bg -fg $bar_fg -h 2 -w 130)
     fi
-    echo -e "$PAD ^fg({$label})$(printf '%-6s' $MOUNT)^fg() $BAR  $USED / $TOTAL ($AVAIL free)$PAD"
+    echo -e "$PAD ^fg(${label})$(printf '%-6s' $MOUNT)^fg() $BAR  $USED / $TOTAL ($AVAIL free)$PAD"
 done) | dzen2 -p -fn "${FONT}:pixelsize=${FONTSIZE}" -fg "$FG" -bg "$BG" -x "$XPOS" -y "$YPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -e "$ACT" -ta 'c' -title-name "popup_diskinfo"

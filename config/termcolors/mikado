@@ -1,0 +1,42 @@
+! mikado colors
+
+*background: #323333
+*foreground: #bcbcbc
+
+!black
+*color0:    #323333
+*color8:    #46423b
+
+!red
+*color1:    #a04363
+*color9:    #a04363
+
+!green
+*color2:    #b4aa30
+*color10:   #b4aa30
+
+!yellow
+*color3:    #bf7a29
+*color11:   #BF7A29
+
+!blue
+*color4:    #74999e
+*color12:   #74999e
+
+!magenta
+*color5:    #9fa590
+*color13:   #9fa590
+
+!cyan
+*color6:    #9c818e
+*color14:   #9c818e
+
+!white
+*color7:    #bcbcaf
+*color15:   #bcbcaf
+
+! man pages
+*colorBD: 4
+*colorUL: 2
+*colorIT: #5AB45A
+

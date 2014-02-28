@@ -1,17 +1,20 @@
 #!/bin/bash
 
+# Edited for March desktop
+
 FONT="tamsynmod"
 FONTSIZE="10"
 PAD='  '
 ACT='onstart=uncollapse;button1=exit;button3=exit'
+YPOS='25'
 
 # Colors
-FG="#a0a0a0"
-BG="#202020"
+FG="#acacac"
+BG="#323333"
 
-bar_bg="#888888"
-bar_fg="#123499"
-label="#888888"
-highlight="#ffffff"
-highlight2="#3f3f3f"
-warn="#a01234"
+bar_bg="#555555"
+bar_fg="#b4aa30"
+label="#8296A9"
+highlight="#C4D8EB"
+highlight2="#101010"
+warn="#a04363"

@@ -11,13 +11,13 @@ PADDING='  '
 #
 #------Colors definition-------#
 #
-COLOR_FOCUSED_OCCUPIED_FG='#FFF6F9FF'
-COLOR_FOCUSED_OCCUPIED_BG='#FF5C5955'
-COLOR_FOCUSED_FREE_FG='#FFF6F9FF'
-COLOR_FOCUSED_FREE_BG='#FF6D561C'
+COLOR_FOCUSED_OCCUPIED_FG='#FFB63985'
+COLOR_FOCUSED_OCCUPIED_BG='#FF34322E'
+COLOR_FOCUSED_FREE_FG='#FFb4aa30'
+COLOR_FOCUSED_FREE_BG='#FF34322E'
 COLOR_FOCUSED_URGENT_FG='#FF34322E'
-COLOR_FOCUSED_URGENT_BG='#FFF9A299'
-COLOR_OCCUPIED_FG='#FFA3A6AB'
+COLOR_FOCUSED_URGENT_BG='#FF34322E'
+COLOR_OCCUPIED_FG='#FFAAAAAA'
 COLOR_OCCUPIED_BG='#FF34322E'
 COLOR_FREE_FG='#FF6F7277'
 COLOR_FREE_BG='#FF34322E'
@@ -25,7 +25,7 @@ COLOR_URGENT_FG='#FFF9A299'
 COLOR_URGENT_BG='#FF34322E'
 COLOR_LAYOUT_FG='#FFA3A6AB'
 COLOR_LAYOUT_BG='#FF34322E'
-COLOR_TITLE_FG='#FFA3A6AB'
+COLOR_TITLE_FG='#FF7B9DBD'
 COLOR_TITLE_BG='#FF34322E'
 COLOR_STATUS_FG='#FFA3A6AB'
 COLOR_STATUS_BG='#FF34322E'
@@ -91,7 +91,7 @@ while read -r line ; do
                     L*)
                         # layout
                         layout=$(printf "[%s]" $( echo "${item#?}" | sed 's/^\(.\).*/\U\1/'))
-                        wm_infos="${wm_infos}%{F- B-}${PADDING}${PADDING}%{F$COLOR_LAYOUT_FG B$COLOR_LAYOUT_BG A:bspc desktop -l next:}${PADDING}$layout${PADDING}%{A}"
+                        wm_infos="${wm_infos}%{F- B-}${PADDING}%{F$COLOR_LAYOUT_FG B$COLOR_LAYOUT_BG A:bspc desktop -l next:}$layout%{A}"
                         ;;
                 esac
                 shift
@@ -99,5 +99,5 @@ while read -r line ; do
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l}$wm_infos $PADDING $title %{r}$sys_infos  "
+    printf "%s\n" "%{l}$wm_infos  $title %{r}$sys_infos  "
 done
