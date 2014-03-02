@@ -20,4 +20,4 @@ for i in sda{6,7,5}; do
         BAR=$(echo "$USE" | gdbar -bg $bar_bg -fg $bar_fg -h 2 -w 130)
     fi
     echo -e "$PAD ^fg(${label})$(printf '%-6s' $MOUNT)^fg() $BAR  $USED / $TOTAL ($AVAIL free)$PAD"
-done) | dzen2 -p -fn "${FONT}:pixelsize=${FONTSIZE}" -fg "$FG" -bg "$BG" -x "$XPOS" -y "$YPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -e "$ACT" -ta 'c' -title-name "popup_diskinfo"
+done) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -ta 'c' -title-name "popup_diskinfo" ${OPTIONS}

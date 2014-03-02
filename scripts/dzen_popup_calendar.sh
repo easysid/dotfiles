@@ -50,7 +50,7 @@ fi
 # read from pipe
 if [ ! -e "$PIPE" ]; then
   mkfifo "$PIPE"
-  ( dzen2 -u -bg $BG -fg $FG -fn "${FONT}:pixelsize=${FONTSIZE}" -x $XPOS -y $YPOS -w $WIDTH -l $LINES -sa 'c' -e "$ACT" -title-name 'popup_calendar' < "$PIPE"
+  ( dzen2 -u -x $XPOS -w $WIDTH -l $LINES -sa 'c' -title-name 'popup_calendar' ${OPTIONS} < "$PIPE"
    rm -f "$PIPE") &
 fi
 

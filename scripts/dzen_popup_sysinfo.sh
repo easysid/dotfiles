@@ -17,4 +17,5 @@ echo "$PAD ^fg("$label")Uptime:^fg() $UPTIME "
 echo "$PAD ^fg("$label")Kernel:^fg() $KERNEL"
 echo "$PAD ^fg("$label")Pacman:^fg() $PACKAGES packages"
 echo "$PAD ^fg("$label")Last updated on:^fg() $UPDATE $PAD"
-) | dzen2 -p -bg "$BG" -fg "$FG" -fn "${FONT}:pixelsize=${FONTSIZE}" -x "$XPOS" -y "$YPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -e "$ACT" -ta 'c' -title-name 'popup_sysinfo'
+) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -ta 'c' -title-name 'popup_sysinfo' ${OPTIONS}
+

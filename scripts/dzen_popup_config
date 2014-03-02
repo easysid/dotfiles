@@ -7,6 +7,7 @@ FONTSIZE="10"
 PAD='  '
 ACT='onstart=uncollapse;button1=exit;button3=exit'
 YPOS='25'
+TIME='4'
 
 # Colors
 FG="#acacac"
@@ -18,3 +19,5 @@ label="#8296A9"
 highlight="#C4D8EB"
 highlight2="#101010"
 warn="#a04363"
+
+OPTIONS="-bg ${BG} -fg ${FG} -fn ${FONT}:pixelsize=${FONTSIZE} -y ${YPOS} -e ${ACT}"

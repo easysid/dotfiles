@@ -74,7 +74,7 @@ fi
 #Also prevents multiple volume bar instances
 if [ ! -e "$PIPE" ]; then
   mkfifo "$PIPE"
-  (dzen2 -tw "$WIDTH" -h "$HEIGHT" -x "$XPOS" -y "$YPOS" -fn "$FONT:pixelsize=${FONTSIZE}" -bg "$BG" -fg "$FG" < "$PIPE"
+  (dzen2 -tw "$WIDTH" -h "$HEIGHT" -x "$XPOS" ${OPTIONS} < "$PIPE"
    rm -f "$PIPE") &
 fi
 
