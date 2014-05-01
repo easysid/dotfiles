@@ -1,0 +1,35 @@
+#
+# Powerline like conky for bar
+# Thursday, 01 May 2014 19:08
+
+# conky settings
+# symbols according to tamsynmod font and terminess powerline font
+
+background no
+update_interval 2
+cpu_avg_samples 1
+total_run_times 0
+override_utf8_locale yes
+short_units yes
+pad_percents 2
+top_name_width 9
+uppercase no
+out_to_console yes
+out_to_x no
+#  #0f4761 #182434 #ab6e69  
+
+TEXT
+S\
+%{F\#FF610f34}%{F-}%{B\#FF610f34}%{A:dzen_popup_toggle.sh sysinfo:} Ñ ${cpu cpu0}%%%{A}\
+%{A:dzen_popup_toggle.sh diskinfo:} Î% ${mem} %{A}\
+%{F\#FFB03E18}%{F-}%{B\#FFB03E18} Ò% ${platform coretemp.0 temp 2}° \
+Ò% ${execi 3 sensors radeon-pci-0100 | grep temp1 | cut -c16-17}° \
+%{F\#FF232A6D}%{F-}%{B\#FF232A6D}${if_existing /proc/net/route wlan0} \
+À ${wireless_essid wlan0}${else}\
+%{F\#FF707070} x none %{F-}${endif} \
+${if_match "${acpiacadapter}" == "on-line"}\
+%{F\#FF26574B}%{F-}%{B\#FF26574B} Â ${battery_percent}%% ${else}\
+${if_match ${battery_percent BAT0} <= 25}\
+%{F\#FFBD141C}%{F-}%{B\#FFBD141C} ï% ${else}\
+%{F\#FF5A6E10}%{F-}%{B\#FF5A6E10} ð% ${endif}${battery_percent}%% ${endif}\
+%{F\#FF0f4761}%{F-}%{B\#FF0f4761} É%{A:dzen_popup_toggle.sh calendar:} ${time %H:%M} %{A B-}\

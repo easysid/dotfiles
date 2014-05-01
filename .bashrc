@@ -24,7 +24,7 @@ set_ps1 () {
     #local wht="\[\033[0;37m\]" # White
     #local bblk="\[\033[1;30m\]" # Black - Bold
     local bred="\[\033[1;31m\]" # Red
-    local bgrn="\[\033[1;32m\]" # Green
+    local bgrn="\[\033[1;31m\]" # Green
     #local bylw="\[\033[1;33m\]" # Yellow
     local bblu="\[\033[1;34m\]" # Blue
     #local bpur="\[\033[1;35m\]" # Purple

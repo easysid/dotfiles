@@ -4,7 +4,7 @@ bspc monitor -d main web misc music
 
 # config options
 bspc config border_width            2
-bspc config top_padding             20
+bspc config top_padding             18
 bspc config window_gap              10
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
@@ -16,22 +16,23 @@ bspc config auto_cancel             true
 bspc desktop ^2 -l monocle
 
 # Rules
-bspc rule -a Firefox desktop=^2 follow=on
+bspc rule -a Firefox desktop=^2 
 bspc rule -a Gimp-2.8 desktop=^3 follow=on floating=on
 bspc rule -a Gimp desktop=^3 follow=on floating=on
-bspc rule -a deadbeef desktop=^4
+bspc rule -a clementine desktop=^4
 bspc rule -a lxappearance floating=on center=true
 bspc rule -a nitrogen floating=on center=true
+bspc rule -a file-roller floating=on center=true
 
 # colors
-bspc config focused_border_color "#AFDCE2"
+bspc config focused_border_color "#2378DD"
 bspc config normal_border_color "#555555"
 bspc config active_border_color "#5C5955"
 bspc config focused_locked_border_color "#00C7D8"
 bspc config normal_locked_border_color "#708D8F"
 bspc config active_locked_border_color "#808C8D"
-bspc config urgent_border_color "#93F388"
-bspc config presel_border_color "#a04363"
+bspc config urgent_border_color "#6CE75E"
+bspc config presel_border_color "#9B112E"
 
 # Autostart apps
 sxhkd &

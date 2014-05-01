@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Edited for March desktop
+# Edited for May desktop. See panel config and termcolors.
 
 FONT="tamsynmod"
 FONTSIZE="10"
@@ -10,14 +10,14 @@ YPOS='25'
 TIME='4'
 
 # Colors
-FG="#acacac"
-BG="#323333"
+FG="#aaaaaa"
+BG="#404040"
 
 bar_bg="#555555"
-bar_fg="#b4aa30"
-label="#8296A9"
+bar_fg="#34917A"
+label="#489CC3"
 highlight="#C4D8EB"
 highlight2="#101010"
-warn="#a04363"
+warn="#BB5587"
 
 OPTIONS="-bg ${BG} -fg ${FG} -fn ${FONT}:pixelsize=${FONTSIZE} -y ${YPOS} -e ${ACT}"
