@@ -20,12 +20,12 @@ xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/A\1/p' > "$PANEL_FIF
 case "$flavor" in
     bar)
         # start the bar conky
-        #conky -c ~/Conky/bspwm_bar_conkyrc > "$PANEL_FIFO" &
-        conky -c ~/Conky/bar_powerline_conkyrc > "$PANEL_FIFO" &
+        #conky -c ~/Conky/bspwm_july_conkyrc > "$PANEL_FIFO" &
+        #conky -c ~/Conky/bar_powerline_conkyrc > "$PANEL_FIFO" &
 
         # launch panel
         bspwm_panel_bar_pl.sh < "$PANEL_FIFO" | bar -p -g 1356x18+5 \
-           -f "-*-tamsynmod-medium-r-normal-*-12-*-*-*-c-*-*-1","-*-terminesspowerline-medium-r-normal-*-16-*-*-*-c-*-*-1" \
+           -f "-*-terminesspowerline-medium-r-normal-*-16-*-*-*-c-*-*-1" \
            -B '#FF34322E' -F '#FFAAAAAA' | while read line; do eval "$line"; done &
         ;;
     dzen2)

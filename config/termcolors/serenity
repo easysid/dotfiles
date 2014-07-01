@@ -1,0 +1,53 @@
+!----------------------------------------------------
+! color settings
+!----------------------------------------------------
+! easysid colorful_pencils_xhoop
+!
+
+*background:  #0a0a0a
+*foreground:  #AAAAAA
+
+
+! BLACK
+*color0:      #0a0a0a
+*color8:      #0a0a0a
+
+! WHITE
+*color7:      #AAAAAA
+*color15:     #AAAAAA
+
+! RED
+*color1:      #9B4971
+*color9:      #9B4971
+
+! GREEN
+*color2:      #0a2b42
+*color10:     #0a2b42
+
+! YELLOW
+*color3:      #b0945d
+*color11:     #b0945d
+
+! BLUE
+*color4:      #2c3154
+*color12:     #2c3154
+
+! MAGENTA
+*color5:      #52436C
+*color13:     #52436C
+
+! CYAN
+*color6:      #3a697f
+*color14:     #3a697f
+
+
+! tab bar colors
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+! man pages
+*colorBD: 1
+*colorUL: 4
+*colorIT: #5ab45a

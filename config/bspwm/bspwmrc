@@ -25,7 +25,7 @@ bspc rule -a nitrogen floating=on center=true
 bspc rule -a file-roller floating=on center=true
 
 # colors
-bspc config focused_border_color "#2378DD"
+bspc config focused_border_color "#154478"
 bspc config normal_border_color "#555555"
 bspc config active_border_color "#5C5955"
 bspc config focused_locked_border_color "#00C7D8"

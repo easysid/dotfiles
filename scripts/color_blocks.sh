@@ -19,14 +19,11 @@ cat << EOF
 
 
 
+
     ${f1}▀ █ ${bld}${f1}█ ▀${rst}    ${f2}▀ █ ${bld}${f2}█ ▀${rst}    ${f3}▀ █ ${bld}${f3}█ ▀${rst}    ${f4}▀ █ ${bld}${f4}█ ▀${rst}    ${f5}▀ █ ${bld}${f5}█ ▀${rst}    ${f6}▀ █ ${bld}${f6}█ ▀${rst}
     ${f1}██  ${bld}${f1} ██${rst}    ${f2}██  ${bld}${f2} ██${rst}    ${f3}██  ${bld}${f3} ██${rst}    ${f4}██  ${bld}${f4} ██${rst}    ${f5}██  ${bld}${f5} ██${rst}    ${f6}██  ${bld}${f6} ██${rst}
     ${f1}▄ █ ${bld}${f1}█ ▄${rst}    ${f2}▄ █ ${bld}${f2}█ ▄${rst}    ${f3}▄ █ ${bld}${f3}█ ▄${rst}    ${f4}▄ █ ${bld}${f4}█ ▄${rst}    ${f5}▄ █ ${bld}${f5}█ ▄${rst}    ${f6}▄ █ ${bld}${f6}█ ▄${rst}
 
-
-                          ${f0}▀ █ ${bld}${f0}█ ▀${rst}    ${f7}▀ █ ${bld}${f7}█ ▀${rst}
-                          ${f0}██  ${bld}${f0} ██${rst}    ${f7}██  ${bld}${f7} ██${rst}
-                          ${f0}▄ █ ${bld}${f0}█ ▄${rst}    ${f7}▄ █ ${bld}${f7}█ ▄${rst}
 
 
 
