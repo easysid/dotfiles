@@ -1,0 +1,53 @@
+!----------------------------------------------------
+! color settings
+!----------------------------------------------------
+! easysid beatles_by_filsru 1-July-2014
+!
+
+*background:  #303030
+*foreground:  #f0f0f0
+
+
+! BLACK
+*color0:      #303030
+*color8:      #303030
+
+! WHITE
+*color7:      #f0f0f0
+*color15:     #f0f0f0
+
+! RED
+*color1:      #d45673
+*color9:      #d45673
+
+! GREEN
+*color2:      #719A6D
+*color10:     #719A6D
+
+! YELLOW
+*color3:      #6dbcbb
+*color11:     #6dbcbb
+
+! BLUE
+*color4:      #4169a6
+*color12:     #4169a6
+
+! MAGENTA
+*color5:      #bd3d6e
+*color13:     #bd3d6e
+
+! CYAN
+*color6:      #e7be8c
+*color14:     #e7be8c
+
+
+! tab bar colors
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+! man pages
+*colorBD: 1
+*colorUL: 4
+*colorIT: 2
