@@ -2,22 +2,22 @@
 
 # Edited for May desktop. See panel config and termcolors.
 
-FONT="tamsynmod"
-FONTSIZE="10"
+FONT='tamsynmod'
+FONTSIZE="11"
 PAD='  '
 ACT='onstart=uncollapse;button1=exit;button3=exit'
 YPOS='25'
 TIME='4'
 
 # Colors
-FG="#aaaaaa"
-BG="#404040"
+FG="#cccccc"
+BG="#303030"
 
 bar_bg="#555555"
-bar_fg="#34917A"
-label="#489CC3"
-highlight="#C4D8EB"
+bar_fg="#4169A6"
+label="#C14474"
+highlight="#E86969"
 highlight2="#101010"
-warn="#BB5587"
+warn="#C5A03F"
 
 OPTIONS="-bg ${BG} -fg ${FG} -fn ${FONT}:pixelsize=${FONTSIZE} -y ${YPOS} -e ${ACT}"

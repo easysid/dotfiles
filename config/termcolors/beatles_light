@@ -50,4 +50,4 @@ URxvt.tabbed.tab-bg:    0
 ! man pages
 *colorBD: 1
 *colorUL: 4
-*colorIT: 2
+! *colorIT: 2
