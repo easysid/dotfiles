@@ -26,7 +26,7 @@ case "$flavor" in
 
         # launch panel
         bspwm_panel_bar_july.sh < "$PANEL_FIFO" | bar -p -g 1346x14+10 \
-           -f "-benis-uushi-medium-r-normal--11-90-75-75-p-58-iso10646-1" \
+           -f "-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1" \
            -B '#FFC0C0C0' -F '#FFCCCCCC' | while read line; do eval "$line"; done &
         ;;
     dzen2)

@@ -2,8 +2,8 @@
 
 # Edited for May desktop. See panel config and termcolors.
 
-FONT='tamsynmod'
-FONTSIZE="11"
+FONT="tamsynmod:pixelsize=11"
+#FONT="-benis-uushi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
 PAD='  '
 ACT='onstart=uncollapse;button1=exit;button3=exit'
 YPOS='25'
@@ -20,4 +20,4 @@ highlight="#E86969"
 highlight2="#101010"
 warn="#C5A03F"
 
-OPTIONS="-bg ${BG} -fg ${FG} -fn ${FONT}:pixelsize=${FONTSIZE} -y ${YPOS} -e ${ACT}"
+ OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"
