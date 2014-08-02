@@ -20,16 +20,16 @@ PIPE=/tmp/calendar_pipe
 # if terminated by TERM
 trap "rm -f $PIPE" SIGTERM
 
-TODAY=$(expr `date +'%d'` + 0)
-MONTH=$(date +'%m')
-YEAR=$(date +'%Y')
+TODAY="10#$(date +'%d')"
+MONTH="10#$(date +'%m')"
+YEAR="10#$(date +'%Y')"
 
 MM=${1:-"$MONTH"}
 YY=${2:-"$YEAR"}
 NEXT=$((MM+1))
 PREV=$((MM-1))
 let Y_NEXT=Y_PREV=YY
-
+echo -e "mm $MM  yy $YY nx $NEXT prev $PREV"
 if [[ $NEXT -eq 13 ]]; then
     NEXT=1
     Y_NEXT=$((YY+1))
