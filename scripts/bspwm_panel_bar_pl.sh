@@ -6,29 +6,29 @@
 
 NORMIFS=$IFS
 FIELDIFS=':'
-PADDING='  '
-
+PAD='  '
+LPAD='                     '
 #
 #------Colors definition-------#
 #
-COLOR_FOCUSED_OCCUPIED_FG='#FF268bd2'
-COLOR_FOCUSED_OCCUPIED_BG='#FF182434'
-COLOR_FOCUSED_FREE_FG='#FFb58900'
-COLOR_FOCUSED_FREE_BG='#FF182434'
-COLOR_FOCUSED_URGENT_FG='#FFa55050'
-COLOR_FOCUSED_URGENT_BG='#FF182434'
-COLOR_OCCUPIED_FG='#FFBBBBBB'
-COLOR_OCCUPIED_BG='#FF182434'
-COLOR_FREE_FG='#FF808080'
-COLOR_FREE_BG='#FF182434'
-COLOR_URGENT_FG='#FFF9A299'
-COLOR_URGENT_BG='#FF182434'
-COLOR_LAYOUT_FG='#FFAAAAAA'
-COLOR_LAYOUT_BG='#FF505050'
-COLOR_TITLE_FG='#FFc7bda4'
-COLOR_TITLE_BG='#FF182434'
-COLOR_STATUS_FG='#FFA3A6AB'
-COLOR_STATUS_BG='#FF182434'
+F_O_FG='#FFC5A854'
+F_O_BG='#FF383A3B'
+F_F_FG='#FFc9c9c9'
+F_F_BG='#FF383A3B'
+F_U_FG='#FF9D3535'
+F_U_BG='#FF383A3B'
+O_FG='#FFc9c9c9'
+O_BG='#FF383A3B'
+F_FG='#FF696969'
+F_BG='#FF383A3B'
+U_FG='#FF9D3535'
+U_BG='#FF383A3B'
+#LAYOUT_FG='#FFAAAAAA'
+#LAYOUT_BG='#FF505050'
+TITLE_FG='#FFb0b0b0'
+TITLE_BG='#FF383A3B'
+#STATUS_FG='#FFA3A6AB'
+#STATUS_BG='#FF383A3B'
 #
 #-----------------------------#
 #
@@ -39,9 +39,14 @@ while read -r line ; do
             # conky
             sys_infos="${line#?}"
             ;;
-        A*)
-            # custom window title using xprop xwinfo
-            title="%{F$COLOR_TITLE_FG B-}${PADDING}$(xwinfo -c ${line#?} | sed 's@N/A@@')${PADDING}%{F- B-}"
+        #A*)
+            ## custom window title using xprop xwinfo
+            #title="%{F$TITLE_FG B-}${PAD}$(xwinfo -c ${line#?} | sed 's@N/A@@')${PAD}%{F- B-}"
+            #;;
+        T*)
+            # window title
+            title=$(echo ${line#?} | sed 's^\(.\{40\}\).*^\1...^')
+            title="%{F$TITLE_FG} ${title} ${LPAD} %{F-}"
             ;;
         W*)
             # bspwm internal state
@@ -57,47 +62,47 @@ while read -r line ; do
                         case $item in
                             O*)
                                 # focused occupied desktop
-                                FG=$COLOR_FOCUSED_OCCUPIED_FG
-                                BG=$COLOR_FOCUSED_OCCUPIED_BG
+                                FG=$F_O_FG
+                                BG=$F_O_BG
                                 ;;
                             F*)
                                 # focused free desktop
-                                FG=$COLOR_FOCUSED_FREE_FG
-                                BG=$COLOR_FOCUSED_FREE_BG
+                                FG=$F_F_FG
+                                BG=$F_F_BG
                                 ;;
                             U*)
                                 # focused urgent desktop
-                                FG=$COLOR_FOCUSED_URGENT_FG
-                                BG=$COLOR_FOCUSED_URGENT_BG
+                                FG=$F_U_FG
+                                BG=$F_U_BG
                                 ;;
                             o*)
                                 # occupied desktop
-                                FG=$COLOR_OCCUPIED_FG
-                                BG=$COLOR_OCCUPIED_BG
+                                FG=$O_FG
+                                BG=$O_BG
                                 ;;
                             f*)
                                 # free desktop
-                                FG=$COLOR_FREE_FG
-                                BG=$COLOR_FREE_BG
+                                FG=$F_FG
+                                BG=$F_BG
                                 ;;
                             u*)
                                 # urgent desktop
-                                FG=$COLOR_URGENT_FG
-                                BG=$COLOR_URGENT_BG
+                                FG=$U_FG
+                                BG=$U_BG
                                 ;;
                         esac
-                        wm_infos="${wm_infos}%{F$FG B$BG A:bspc desktop -f ${name}:}${PADDING}${name}${PADDING}%{A}"
+                        wm_infos="${wm_infos}%{F$FG B$BG A:bspc desktop -f ${name}:}${PAD}${name}${PAD}%{A B- F-}"
                         ;;
-                    L*)
-                        # layout
-                        layout=$(printf "[%s]" $( echo "${item#?}" | sed 's/^\(.\).*/\U\1/'))
-                        wm_infos="${wm_infos}%{F$BG B$COLOR_LAYOUT_BG}%{F$COLOR_LAYOUT_FG A:bspc desktop -l next:} $layout %{A F$COLOR_LAYOUT_BG B-}"
-                        ;;
+                    #L*)
+                        ## layout
+                        #layout=$(printf "[%s]" $( echo "${item#?}" | sed 's/^\(.\).*/\U\1/'))
+                        #wm_infos="${wm_infos}%{F$BG B$LAYOUT_BG}%{F$LAYOUT_FG A:bspc desktop -l next:} $layout %{A F$LAYOUT_BG B-}"
+                        #;;
                 esac
                 shift
             done
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l}$wm_infos %{c}$title %{r}$sys_infos"
+    printf "%s\n" "%{l}$wm_infos %{c}$title %{r}$sys_infos "
 done

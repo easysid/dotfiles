@@ -20,8 +20,7 @@ call vundle#rc()
  Bundle 'bling/vim-airline'
  Bundle 'xuhdev/SingleCompile'
  Bundle 'smancill/conky-syntax.vim'
-
-
+ Bundle 'lilydjwg/colorizer'
 " general settings
 "
 autocmd! bufwritepost .vimrc source %   " apply changes to vimrc

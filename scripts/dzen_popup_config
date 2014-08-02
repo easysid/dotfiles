@@ -1,23 +1,23 @@
 #!/bin/bash
 
-# Edited for May desktop. See panel config and termcolors.
+# Edited for August desktop. See panel config and termcolors.
 
-FONT="tamsynmod:pixelsize=11"
-#FONT="-benis-uushi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
+#FONT="tamsynmod:pixelsize=11"
+FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
 PAD='  '
 ACT='onstart=uncollapse;button1=exit;button3=exit'
-YPOS='25'
+YPOS='20'
 TIME='4'
 
 # Colors
-FG="#cccccc"
-BG="#303030"
+FG="#c0c0c0"
+BG="#383a3b"
 
 bar_bg="#555555"
-bar_fg="#4169A6"
-label="#C14474"
-highlight="#E86969"
-highlight2="#101010"
-warn="#C5A03F"
+bar_fg="#aba25b"
+label="#C5A854"
+highlight="#C5A854"
+highlight2="#999999"
+warn="#8f4051"
 
- OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"
+OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"

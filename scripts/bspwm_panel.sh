@@ -13,21 +13,21 @@ mkfifo "$PANEL_FIFO"
 flavor=${1:-bar}
 
 bspc control --subscribe > "$PANEL_FIFO" &
-clock -sf 'C%a %d-%b %H:%M' > "$PANEL_FIFO" &
-#xtitle -sf 'T%s' > "$PANEL_FIFO" &
+#clock -sf 'C%a %d-%b %H:%M' > "$PANEL_FIFO" &
+xtitle -sf 'T%s' > "$PANEL_FIFO" &
 #xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/A\1/p' > "$PANEL_FIFO" &
 
 
 case "$flavor" in
     bar)
         # start the bar conky
-        conky -c ~/Conky/bspwm_july_conkyrc > "$PANEL_FIFO" &
-        #conky -c ~/Conky/bar_powerline_conkyrc > "$PANEL_FIFO" &
+        #conky -c ~/Conky/bspwm_july_conkyrc > "$PANEL_FIFO" &
+        conky -c ~/Conky/bspwm_bar_conkyrc > "$PANEL_FIFO" &
 
         # launch panel
-        bspwm_panel_bar_july.sh < "$PANEL_FIFO" | bar -p -g 1346x14+10 \
-           -f "-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1" \
-           -B '#FFC0C0C0' -F '#FFCCCCCC' | while read line; do eval "$line"; done &
+        bspwm_panel_bar_pl.sh < "$PANEL_FIFO" | bar -p -g 1346x14+10 \
+           -f "-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1" \
+           -B '#FF383A3B' -F '#FFBBBBBB' | while read line; do eval "$line"; done &
         ;;
     dzen2)
         # Launch right panel

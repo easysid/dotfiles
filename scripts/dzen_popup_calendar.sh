@@ -12,7 +12,7 @@ source $(dirname $0)/dzen_popup_config
 
 WIDTH=150
 LINES=8
-XPOS=650
+XPOS=1200
 
 # define pipe
 PIPE=/tmp/calendar_pipe
@@ -29,7 +29,6 @@ YY=${2:-"$YEAR"}
 NEXT=$((MM+1))
 PREV=$((MM-1))
 let Y_NEXT=Y_PREV=YY
-echo -e "mm $MM  yy $YY nx $NEXT prev $PREV"
 if [[ $NEXT -eq 13 ]]; then
     NEXT=1
     Y_NEXT=$((YY+1))

@@ -1,0 +1,53 @@
+!----------------------------------------------------
+! color settings
+!----------------------------------------------------
+! easysid street 1-August-2014
+!
+
+*background:  #383A3B
+*foreground:  #cccccc
+
+
+! BLACK
+*color0:      #383A3B
+*color8:      #383A3B
+
+! WHITE  --general
+*color7:      #cccccc
+*color15:     #cccccc
+
+! RED
+*color1:      #B79696
+*color9:      #B79696
+
+! GREEN  --executables
+*color2:      #aba25b
+*color10:     #aba25b
+
+! YELLOW
+*color3:      #B7B796
+*color11:     #B7B796
+
+! BLUE  --directories
+*color4:      #C5A854
+*color12:     #C5A854
+
+! MAGENTA
+*color5:      #969696
+*color13:     #969696
+
+! CYAN  --symlinks
+*color6:      #96B7B7
+*color14:     #96B7B7
+
+
+! tab bar colors
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+! man pages
+*colorBD: 6
+*colorUL: 4
+!*colorIT: 5
