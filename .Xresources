@@ -1,0 +1,69 @@
+!----------------------------------------------------
+! color settings
+!----------------------------------------------------
+! Custom
+! Friday, 01 August 2014 22:44
+
+#include "/home/siddharth/.config/termcolors/street"
+
+
+!---------------------------------------------------
+! urxvt config settings
+!---------------------------------------------------
+
+URxvt*geometry:         80x21
+
+! xft fonts
+!URxvt*font:             xft:droid sans mono slashed for powerline:size=9:antialias=false:hinting=false:autohint=false
+!URxvt*boldFont:         xft:droid sans mono slashed for powerline:bold:size=9:antialias=false:hinting=false:autohint=false
+
+!URxvt*font:             xft:dejavu sans mono for powerline:size=9:antialias=false:hinting=false:autohint=false
+!URxvt*boldFont:         xft:dejavu sans mono for powerline:bold:size=9:antialias=false:hinting=false:autohint=false
+
+URxvt*font:              xft:Ubuntu Mono derivative Powerline:size=11:antialias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:Ubuntu Mono derivative Powerline:bold:size=11:antialias=false:hinting=false:autohint=false
+URxvt*italicFont:        xft:Ubuntu Mono derivative Powerline:italic:size=11:antialias=false:hinting=false:autohint=false
+URxvt*bolditalicFont:    xft:Ubuntu Mono derivative Powerline:bolditalic:size=11:antialias=false:hinting=false:autohint=false
+
+!URxvt*font:              xft:Monaco for Powerline:size=9:antialias=false:hinting=false:autohint=false
+!URxvt*boldFont:          xft:Monaco for Powerline:bold:size=9:antialias=false:hinting=false:autohint=false
+!URxvt*italicFont:        xft:Monaco for Powerline:italic:size=9:antialias=false:hinting=false:autohint=false
+!URxvt*bolditalicFont:    xft:Monaco for Powerline:bolditalic:size=9:antialias=false:hinting=false:autohint=false
+
+! Traditional fonts - a more traditional font setup in lieu of xft
+!URxvt*font:    tamsynmod-medium-r-normal-*-8-*-*-*-*-*-*-*
+
+URxvt*letterSpace: -1
+URxvt.savelines:        500
+URxvt*scrollBar:        false
+
+! do not scroll with output
+URxvt*scrollTtyOutput:  false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+! clipboard management
+URxvt.perl-ext-common:  default,clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+
+!---------------------------------------------------
+! Font Rendering
+!---------------------------------------------------
+Xft.dpi:       96
+Xft.antialias: 1
+Xft.rgba:      rgb
+Xft.autohint:  0
+Xft.lcdfilter: lcddefault
+Xft.hinting:   1
+Xft.hintstyle: hintfull
+
+! dzen2
+dzen2.font:      -*-tamsynmod-medium-r-normal--*-*-*-*-*-*-*-*
+dzen2.foreground: #dddddd
+dzen2.background: #989898
+
