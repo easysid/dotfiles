@@ -1,0 +1,77 @@
+#!/bin/sh
+
+case "$1" in
+	true) # Enable power saving settings on battery
+	  logger "power saving mode enabled"
+
+      # dim the brightness
+	  echo 1 > /sys/class/backlight/acpi_video0/brightness
+
+	  # bus
+	  for i in /sys/bus/pci/devices/*/power/control; do echo auto > $i; done
+
+	  # usb autosuspend
+	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 1 > $i; done
+	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
+
+	  ## disable nmi_watchdog
+	  echo 0 > /proc/sys/kernel/nmi_watchdog
+
+	  ## aspm
+	  ##echo powersave > /sys/module/pcie_aspm/parameters/policy
+
+	  ## kernel write mode
+	  echo 5 > /proc/sys/vm/laptop_mode
+	  echo 90 > /proc/sys/vm/dirty_ratio
+	  echo 1 > /proc/sys/vm/dirty_background_ratio
+	  echo 60000 > /proc/sys/vm/dirty_expire_centisecs
+	  echo 60000 > /proc/sys/vm/dirty_writeback_centisecs
+
+	  ## SATA Active Link Power management
+	  for i in /sys/class/scsi_host/host*/link_power_management_policy; do echo min_power > $i; done
+
+	  ## sound card powersave
+	  echo 1 > /sys/module/snd_hda_intel/parameters/power_save
+	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
+
+	  ;;
+
+	false) # Return to default on AC power
+
+	  logger "return to default AC power"
+
+	  # brighten up the screen
+	  echo 7 > /sys/class/backlight/acpi_video0/brightness
+
+	  ## bus
+	  for i in /sys/bus/pci/devices/*/power/control; do echo on > $i; done
+
+	  ## usb autosuspend
+	  for i in /sys/bus/usb/devices/*/power/autosuspend; do echo 2 > $i; done
+	  for i in /sys/bus/usb/devices/*/power/control; do echo auto > $i; done
+
+	  ## enable nmi_watchdog
+	  echo 1 > /proc/sys/kernel/nmi_watchdog
+
+	  ## cpu frequency scaling
+      #for i in /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor; do echo ondemand > $i; done
+
+	  ## aspm
+	  ##echo default > /sys/module/pcie_aspm/parameters/policy
+
+	  ## kernel write mode
+	  echo 0 > /proc/sys/vm/laptop_mode
+	  echo 30 > /proc/sys/vm/dirty_ratio
+	  echo 30 > /proc/sys/vm/dirty_background_ratio
+	  echo 3000 > /proc/sys/vm/dirty_expire_centisecs
+	  echo 600 > /proc/sys/vm/dirty_writeback_centisecs
+
+	  ## SATA Active Link Power management
+	  for i in /sys/class/scsi_host/host0/link_power_management_policy; do echo max_performance > $i; done
+
+	  ## sound card powersave
+	  echo 0 > /sys/module/snd_hda_intel/parameters/power_save
+	  echo Y > /sys/module/snd_hda_intel/parameters/power_save_controller
+	  ;;
+esac
+exit 0

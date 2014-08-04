@@ -37,10 +37,20 @@ alt + {_,shift + }Tab
 super + {_,shift + }{h,j,k,l}
     bspc window -{f,s} {left,down,up,right}
 
+# Same thing with arrow keys
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc window -{f,s} {left,down,up,right}
+
 # preselect the splitting area
 super + ctrl + {h,j,k,l}
     bspc window -p {left,down,up,right}
 
+# same thing with arrow keys
+super + ctrl + {Left,Down,Up,Right}
+    bspc window -p {left,down,up,right}
+
+# preselect the splitting area
+super + ctrl + {h,j,k,l}
 # move the window into the selected area
 super + shift + {w,s,a,d}
     bspc window -w {up,down,left,right}
@@ -143,7 +153,7 @@ super + n
     nitrogen --no-recurse --sort=alpha
 
 # make sxhkd reload its configuration files:
-super + Escape
+super + shift + Escape
     pkill -USR1 -x sxhkd
 
 # Volume control
