@@ -1,0 +1,34 @@
+#
+# conky for bspwm (july)
+# Tuesday, 1 July 2014
+
+# conky settings
+
+
+background no
+update_interval 2
+cpu_avg_samples 1
+total_run_times 0
+override_utf8_locale yes
+short_units yes
+pad_percents 2
+top_name_width 9
+uppercase no
+out_to_console yes
+out_to_x no
+#  ⮂ ⮀
+
+TEXT
+S\
+%{F\#FF294375}⮂%{F- B\#FF294375 A:dzen_popup_toggle.sh sysinfo:}%{F\#FFB07F97} cpu%{F-} ${cpu cpu0}%%%{A}\
+%{A:dzen_popup_toggle.sh diskinfo:}%{F\#FFB07F97}  ram%{F-} ${mem} %{A}\
+|%{F\#FFC5A03F} cpu%{F-} ${execi 3 sensors coretemp-isa-000 | grep 'Core 0' | cut -c16-17}°\
+%{F\#FFC5A03F} ati%{F-} ${execi 3 sensors radeon-pci-0100 | grep temp1 | cut -c16-17}° \
+|%{F\#FF82A6C9} net %{F-}${if_existing /proc/net/route wlan0}\
+${wireless_essid wlan0} ${else}\
+%{F\#FF888888}none %{F-}${endif}\
+|${if_match "${acpiacadapter}" == "on-line"}\
+%{F\#FF67BE80} ac%{F-} ${battery_percent}%% ${else}\
+${if_match ${battery_percent BAT0} <= 30}\
+%{F\#FFF94F5C} bat%{F-} ${else}\
+%{F\#FFFEA16B} bat%{F-} ${endif}${battery_percent}%% ${endif}\

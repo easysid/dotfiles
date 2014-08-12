@@ -22,7 +22,7 @@ TEXT
 S\
 %{F\#FF610f34}%{F-}%{B\#FF610f34}%{A:dzen_popup_toggle.sh sysinfo:} Ñ ${cpu cpu0}%%%{A}\
 %{A:dzen_popup_toggle.sh diskinfo:} Î% ${mem} %{A}\
-%{F\#FFB03E18}%{F-}%{B\#FFB03E18} Ò% ${platform coretemp.0 temp 2}° \
+%{F\#FFB03E18}%{F-}%{B\#FFB03E18} Ò% ${execi 3 sensors coretemp-isa-000 | grep 'Core 0' | cut -c16-17}° \
 Ò% ${execi 3 sensors radeon-pci-0100 | grep temp1 | cut -c16-17}° \
 %{F\#FF232A6D}%{F-}%{B\#FF232A6D}${if_existing /proc/net/route wlan0} \
 À ${wireless_essid wlan0}${else}\
