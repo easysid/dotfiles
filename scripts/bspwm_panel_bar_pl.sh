@@ -8,30 +8,8 @@ NORMIFS=$IFS
 FIELDIFS=':'
 PAD='  '
 LPAD='                     '
-#
-#------Colors definition-------#
-#
-F_O_FG='#FFC5A854'
-F_O_BG='#FF383A3B'
-F_F_FG='#FFc9c9c9'
-F_F_BG='#FF383A3B'
-F_U_FG='#FF9D3535'
-F_U_BG='#FF383A3B'
-O_FG='#FFc9c9c9'
-O_BG='#FF383A3B'
-F_FG='#FF696969'
-F_BG='#FF383A3B'
-U_FG='#FF9D3535'
-U_BG='#FF383A3B'
-#LAYOUT_FG='#FFAAAAAA'
-#LAYOUT_BG='#FF505050'
-TITLE_FG='#FFb0b0b0'
-TITLE_BG='#FF383A3B'
-#STATUS_FG='#FFA3A6AB'
-#STATUS_BG='#FF383A3B'
-#
-#-----------------------------#
-#
+
+source $(dirname $0)/panel_config
 
 while read -r line ; do
     case $line in
