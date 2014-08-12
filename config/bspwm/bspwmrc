@@ -36,7 +36,6 @@ bspc config urgent_border_color "#C04747"
 bspc config presel_border_color "#A03C31"
 
 # Autostart apps
-sxhkd &
 compton &
 nitrogen --restore
 numlockx &

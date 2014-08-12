@@ -16,4 +16,4 @@ XPOS=1000
   echo -e "$PAD ^fg(${label})Usage:  Down       Up     Total"
   echo -e "$PAD ^fg(${label})Month: ^fg() ${MONTH}"
   echo -e "$PAD ^fg(${label})Today: ^fg() ${TODAY}"
-) | dzen2 -p  -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -title-name "popup_netinfo" -fn "$FONT" ${OPTIONS}
+) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l' -title-name "popup_netinfo" -fn "$FONT" ${OPTIONS}
