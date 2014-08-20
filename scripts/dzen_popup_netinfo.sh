@@ -2,12 +2,11 @@
 
 source $(dirname $0)/dzen_popup_config
 
-LINES=6
+LINES=5
 WIDTH=240
 XPOS=1000
 
 ( echo "Netinfo"
-  echo " "
   QUAL=$(iwconfig wlan0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p' | bc)
   BAR=$(echo $QUAL | gdbar -bg $bar_bg -fg $bar_fg -h 2 -w 130)
   MONTH=$(vnstat --short | grep $(date +%b) | awk '{ gsub("iB",""); printf "%s%-4s %s%-3s %s%-3s",$3,$4,$6,$7,$9,$10}')
