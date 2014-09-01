@@ -10,14 +10,14 @@ YPOS='20'
 TIME='4'
 
 # Colors
-FG="#c0c0c0"
-BG="#383a3b"
+FG="#bbbbbb"
+BG="#1a1a1a"
 
-bar_bg="#555555"
-bar_fg="#aba25b"
-label="#C5A854"
-highlight="#C5A854"
-highlight2="#999999"
+bar_bg="#444444"
+bar_fg="#076580"
+label="#00adca"
+highlight="#00adca"
+highlight2="#0a0a0a"
 warn="#8f4051"
 
 OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"

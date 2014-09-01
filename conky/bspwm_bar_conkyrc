@@ -20,17 +20,17 @@ out_to_x no
 
 TEXT
 S\
-%{A:dzen_popup_toggle.sh sysinfo:}%{F\#FFB79696} cpu%{F-} ${cpu cpu0}%%%{A}\
-%{A:dzen_popup_toggle.sh diskinfo:}%{F\#FFB79696}  ram%{F-} ${mem} %{A}\
-%{F\#FF808080}|%{F\#FFA5835B} cpu%{F-} ${execi 3 sensors coretemp-isa-000 | grep 'Core 0' | cut -c16-17}°\
-%{F\#FFA5835B} ati%{F-} ${execi 3 sensors radeon-pci-0100 | grep temp1 | cut -c16-17}° \
-%{F\#FF808080}|%{F\#FF96B7B7} net %{F-}${if_existing /proc/net/route wlan0}\
+%{A:dzen_popup_toggle.sh sysinfo:}%{F\#FF076580} cpu%{F-} ${cpu cpu0}%%%{A}\
+%{A:dzen_popup_toggle.sh diskinfo:}%{F\#FF076580}  ram%{F-} ${mem} %{A}\
+%{F\#FF808080}|%{F\#FF076580} cpu%{F-} ${execi 3 sensors coretemp-isa-000 | grep 'Core 0' | cut -c16-17}°\
+%{F\#FF076580} ati%{F-} ${execi 3 sensors radeon-pci-0100 | grep temp1 | cut -c16-17}° \
+%{F\#FF808080}|%{F\#FF076580} net %{F-}${if_existing /proc/net/route wlan0}\
 %{A:dzen_popup_toggle.sh netinfo:}${wireless_essid wlan0} %{A}${else}\
 %{F\#FF888888}none %{F-}${endif}\
 %{F\#FF808080}|${if_match "${acpiacadapter}" == "on-line"}\
-%{F\#FFaba25b} ac%{F-} ${battery_percent}%% ${else}\
+%{F\#FF076580} ac%{F-} ${battery_percent}%% ${else}\
 ${if_match ${battery_percent BAT0} <= 30}\
 %{F\#FFF94F5C} bat%{F-} ${else}\
 %{F\#FFFEA16B} bat%{F-} ${endif}${battery_percent}%% ${endif}\
-%{F\#FF808080}|%{F\#FFB7A090 A:dzen_popup_toggle.sh calendar:} ${time %d-%a}%{F-} ${time %H:%M}%{A}\
+%{F\#FF808080}|%{F\#FF076580 A:dzen_popup_toggle.sh calendar:} ${time %d-%a}%{F-} ${time %H:%M}%{A}\
 

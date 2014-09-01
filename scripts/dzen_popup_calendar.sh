@@ -20,7 +20,7 @@ PIPE=/tmp/calendar_pipe
 # if terminated by TERM
 trap "rm -f $PIPE" SIGTERM
 
-TODAY="10#$(date +'%d')"
+TODAY=$(expr `date +'%d'` + 0)
 MONTH="10#$(date +'%m')"
 YEAR="10#$(date +'%Y')"
 
