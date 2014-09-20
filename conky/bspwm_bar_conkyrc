@@ -26,7 +26,7 @@ S\
 %{F\#FF076580} ati%{F-} ${execi 3 sensors radeon-pci-0100 | grep temp1 | cut -c16-17}° \
 %{F\#FF808080}|%{F\#FF076580} net %{F-}${if_existing /proc/net/route wlan0}\
 %{A:dzen_popup_toggle.sh netinfo:}${wireless_essid wlan0} %{A}${else}\
-%{F\#FF888888}none %{F-}${endif}\
+%{F\#FF696969}none %{F-}${endif}\
 %{F\#FF808080}|${if_match "${acpiacadapter}" == "on-line"}\
 %{F\#FF076580} ac%{F-} ${battery_percent}%% ${else}\
 ${if_match ${battery_percent BAT0} <= 30}\
