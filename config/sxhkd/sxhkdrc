@@ -143,8 +143,8 @@ super + z
 super + v
     gvim
 
-super + e
-    geany
+# super + e
+#     geany
 
 super + p
     lxtask

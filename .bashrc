@@ -5,10 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# aliases
-alias ls='ls --color=auto'
-eval $(dircolors -b)
+# source my own .dir_colors file
+if [ -f $HOME/.dir_colors ]; then
+    eval $(dircolors -b $HOME/.dir_colors)
+fi
 
+# aliases
+
+alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 #PS1='[\u@\h \W]\$ '
