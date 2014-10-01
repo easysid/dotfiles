@@ -11,13 +11,13 @@ TIME='4'
 
 # Colors
 FG="#bbbbbb"
-BG="#1a1a1a"
+BG="#2c2e2f"
 
 bar_bg="#444444"
-bar_fg="#076580"
-label="#00adca"
-highlight="#00adca"
+bar_fg="#75691c"
+label="#a54745"
+highlight="#a54745"
 highlight2="#0a0a0a"
-warn="#8f4051"
+warn="#d4a457"
 
 OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"

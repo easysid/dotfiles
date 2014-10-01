@@ -12,19 +12,19 @@ bspc config history_aware_focus     true
 bspc config auto_cancel             true
 
 # desktops
-bspc monitor -d 000 001 010 011
+#bspc monitor -d 000 001 010 011
+bspc monitor -d     
 
 bspc desktop ^2 -l monocle
 
 # Rules
 bspc rule -a Firefox desktop=^2
-bspc rule -a Gimp-2.8 desktop=^3 floating=on
-bspc rule -a Gimp desktop=^3 floating=on
+bspc rule -a Gimp-2.8 desktop=^4 floating=on
+bspc rule -a Gimp desktop=^4 floating=on
 bspc rule -a clementine desktop=^4
 bspc rule -a lxappearance floating=on center=true
 bspc rule -a nitrogen floating=on center=true
 bspc rule -a file-roller floating=on center=true
-bspc rule -a "File Operation Progress" floating=on center=true
 
 # colors
 bspc config focused_border_color "#d0d0d0"
@@ -42,3 +42,5 @@ nitrogen --restore
 numlockx &
 xsetroot -cursor_name left_ptr
 bspwm_panel.sh &
+conky -c ~/Conky/tree_hor_nonet_conkyrc &
+

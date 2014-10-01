@@ -1,29 +1,32 @@
 # bspwm panel config
 
 geometry="1346x14+10"
-FONT1="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
+FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
 FONT2="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
 
 # color definitions
 
 BAR_BG="#FF1A1A1A"
-BAR_FG="#FFaaaaaa"
+BAR_FG="#FF999999"
 
-F_O_FG='#FF00ADCA'
-F_O_BG='#FF1A1A1A'
-F_F_FG='#ffb0b0b0'
-F_F_BG='#FF1A1A1A'
+F_O_FG='#FFa54745'
+F_O_BG=${BAR_BG}
+F_F_FG='#ff75691c'
+F_F_BG=${BAR_BG}
 F_U_FG='#FF9D3535'
-F_U_BG='#FF1A1A1A'
-O_FG='#FFc9c9c9'
-O_BG='#FF1A1A1A'
-F_FG='#FF606060'
-F_BG='#FF1A1A1A'
+F_U_BG=${BAR_BG}
+O_FG='#FF888888'
+O_BG=${BAR_BG}
+F_FG='#FF202020'
+F_BG=${BAR_BG}
 U_FG='#FF9D3535'
-U_BG='#FF1A1A1A'
+U_BG=${BAR_BG}
+#CLOCK_FG='#FFc7bda4'
+#CLOCK_BG='#FF25204c'
 #LAYOUT_FG='#FFAAAAAA'
 #LAYOUT_BG='#FF505050'
-TITLE_FG='#FF888888'
-TITLE_BG='#FF1A1A1A'
 #STATUS_FG='#FFA3A6AB'
-#STATUS_BG='#FF1A1A1A'
+#STATUS_BG=${BAR_BG}
+TITLE_FG='#FFd5a457'
+TITLE_BG=${BAR_BG}
+

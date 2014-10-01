@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 " other plugins
 
 Plugin 'bling/vim-airline'
+Plugin 'chrisbra/Colorizer'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
@@ -130,6 +131,9 @@ nnoremap <BS> :noh<CR>
 " indent code better
 vnoremap < <gv
 vnoremap > >gv
+
+" Insert timestamp
+nmap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
 
 
 " package specific keymappings

@@ -1,0 +1,54 @@
+
+!----------------------------------------------------
+! color settings
+!----------------------------------------------------
+! easysid Wednesday, 01 October 2014 11:55 IST
+!
+
+*background:  #2C2E2F
+*foreground:  #CCCCCC
+
+
+! BLACK
+*color0:      #1d1c21
+*color8:      #1d1c21
+
+! WHITE  --general
+*color7:      #CCCCCC
+*color15:     #CCCCCC
+
+! RED --directories
+*color1:      #883d3b
+*color9:      #a54745
+
+! GREEN  --executables
+*color2:      #75691c
+*color10:     #8c822b
+
+! YELLOW
+*color3:      #d5a457
+*color11:     #d6b36b
+
+! BLUE  --directories
+*color4:      #436476
+*color12:     #436476
+
+! MAGENTA
+*color5:      #b28c72
+*color13:     #b28c72
+
+! CYAN  --symlinks
+*color6:      #78959a
+*color14:     #7ea2a9
+
+
+! tab bar colors
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
+
+! man pages
+*colorBD: 9
+*colorUL: 3
+!*colorIT: 5

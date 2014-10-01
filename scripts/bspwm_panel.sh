@@ -17,9 +17,9 @@ bspc control --subscribe > "$PANEL_FIFO" &
 #clock -sf 'C%a %d-%b %H:%M' > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
 #xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/A\1/p' > "$PANEL_FIFO" &
-conky -c ~/Conky/bspwm_bar_conkyrc > "$PANEL_FIFO" &
+conky -c ~/Conky/min_conkyrc > "$PANEL_FIFO" &
 
-bspwm_panel_bar_pl.sh < "$PANEL_FIFO" \
+bspwm_panel_bar.sh < "$PANEL_FIFO" \
      | bar -p \
            -g "$geometry" \
            -f "$FONT1","$FONT2" \

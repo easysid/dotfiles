@@ -6,32 +6,10 @@
 
 NORMIFS=$IFS
 FIELDIFS=':'
-PADDING='  '
+PAD='  '
 
-#
-#------Colors definition-------#
-#
-F_O_FG='#FFD0D0D0'
-F_O_BG='#FF813d62'
-F_F_FG='#FFFFFFFF'
-#F_F_BG='#FFD45673'
-F_U_FG='#FF5F88C7'
-#F_U_BG='#FFD45673'
-O_FG='#FFAAAAAA'
-#O_BG='#FFD45673'
-F_FG='#FFAAAAAA'
-#F_BG='#FFD45673'
-U_FG='#FFF9A299'
-U_BG='#FF5F88C7'
-#LAYOUT_FG='#FFAAAAAA'
-#LAYOUT_BG='#FFD45673'
-#CLOCK_FG='#FFc7bda4'
-CLOCK_BG='#FF25204c'
-#STATUS_FG='#FFA3A6AB'
-#STATUS_BG='#FFD45673'
-#
-#-----------------------------#
-#
+
+source $(dirname $0)/panel_config
 
 while read -r line ; do
     case $line in
@@ -41,7 +19,7 @@ while read -r line ; do
             ;;
         #A*)
         #    # custom window title using xprop xwinfo
-        #    title="%{F$TITLE_FG B-}${PADDING}$(xwinfo -c ${line#?} | sed 's@N/A@@')${PADDING}%{F- B-}"
+        #    title="%{F$TITLE_FG B-}${PAD}$(xwinfo -c ${line#?} | sed 's@N/A@@')${PAD}%{F- B-}"
         #    ;;
         C*)
             #clock
@@ -85,7 +63,7 @@ while read -r line ; do
                                 desk="%{F$U_FG B$U_BG}□"
                                 ;;
                         esac
-                        wm_infos="${wm_infos}%{A:bspc desktop -f ${name}:}${PADDING}${desk}${PADDING}%{A}"
+                        wm_infos="${wm_infos}%{A:bspc desktop -f ${name}:}${PAD}${desk}${PAD}%{A}"
                         ;;
                     #L*)
                         # layout
