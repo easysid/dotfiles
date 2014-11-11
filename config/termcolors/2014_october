@@ -52,3 +52,7 @@ URxvt.tabbed.tab-bg:    0
 *colorBD: 9
 *colorUL: 3
 !*colorIT: 5
+
+
+
+! vim: ft=xdefaults
