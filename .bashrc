@@ -13,12 +13,15 @@ fi
 # aliases
 
 alias ls='ls --color=auto'
+alias la='ls -a'
 alias grep='grep --color=auto'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 #PS1='[\u@\h \W]\$ '
 
 set_ps1 () {
-    local bred="\[\033[1;31m\]" # Red -- error symbol
+    local red="\[\033[1;31m\]" # Red -- error symbol
     local col1="\[\033[1;31m\]" # Red - color for username@host
     local col2="\[\033[1;32m\]" # Green - color for directory
     local wht="\[\033[1;37m\]" # White
@@ -29,34 +32,7 @@ set_ps1 () {
 
 set_ps1
 
-# urxvt dynamic title
-
-case "$TERM" in
-    xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;urxvt :: ${PWD/~/~}\007"'
-
-        # Show the currently running command in the terminal title:
-        # http://www.davidpashley.com/articles/xterm-titles-with-bash.html
-        show_command_in_title_bar()
-        {
-            case "$BASH_COMMAND" in
-                *\033]0*)
-                    # The command is trying to set the title bar as well;
-                    # this is most likely the execution of $PROMPT_COMMAND.
-                    # In any case nested escapes confuse the terminal, so don't output them.
-                    ;;
-                *)
-                    echo -ne "\033]0;urxvt :: ${BASH_COMMAND}\007"
-                    ;;
-            esac
-        }
-        trap show_command_in_title_bar DEBUG
-        ;;
-    *)
-        ;;
-esac
-
-# set custom PATH
+#set custom PATH
 export PATH="${PATH}:~/.scripts"
 
 # create command not found hook
@@ -66,7 +42,35 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 export HISTSIZE=2000
 export HISTFILESIZE=2000
 export HISTCONTROL=ignoreboth
-export HISTIGNORE="cd *:ls:ls *:history*:cat *:clear"
+export HISTIGNORE="cd *:ls:ls *:history*:cat *:clear:..:..."
 
 # disable flow control
 stty -ixon
+
+# urxvt dynamic title
+# from https://mg.pov.lt/blog/bash-prompt.html
+
+case "$TERM" in
+    xterm*|rxvt*)
+        PROMPT_COMMAND='echo -ne "\033]0;urxvt :: ${PWD}\007"'
+
+        show_command_in_title_bar()
+        {
+            case "$BASH_COMMAND" in
+                *\033]0*|*\\e]0*)
+                    # nested escapes confuse the terminal, so don't output them.
+                    ;;
+                *\033*|*\007*|*\\e*)
+                    ;;
+                *)
+                    printf "\e]0;%s :: %s\a" "urxvt" "${BASH_COMMAND}"
+                    ;;
+            esac
+        }
+        trap show_command_in_title_bar DEBUG
+        ;;
+    *)
+        ;;
+esac
+
+
