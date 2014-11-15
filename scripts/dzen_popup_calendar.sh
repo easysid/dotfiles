@@ -8,11 +8,11 @@
 # modified by senft
 # modified by easysid
 
-source $(dirname $0)/dzen_popup_config
-
 WIDTH=150
 LINES=8
-XPOS=1200
+#XPOS=1200
+
+source $(dirname $0)/dzen_popup_config
 
 # define pipe
 PIPE=/tmp/calendar_pipe

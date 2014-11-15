@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source $(dirname $0)/dzen_popup_config
-
 LINES=5
 WIDTH=240
-XPOS=1000
+#XPOS=1000
+
+source $(dirname $0)/dzen_popup_config
 
 ( echo "Netinfo"
   QUAL=$(iwconfig wlan0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p' | bc)

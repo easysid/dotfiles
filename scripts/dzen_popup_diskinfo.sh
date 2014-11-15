@@ -1,10 +1,10 @@
 #!/bin/bash
 
-source $(dirname $0)/dzen_popup_config
-
 LINES=5
 WIDTH=350
-XPOS=900
+#XPOS=900
+
+source $(dirname $0)/dzen_popup_config
 
 (echo "Diskinfo"
 echo " "
