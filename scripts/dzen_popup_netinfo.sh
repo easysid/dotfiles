@@ -6,6 +6,8 @@ WIDTH=240
 
 source $(dirname $0)/dzen_popup_config
 
+source $(dirname $0)/mouselocation.sh
+
 ( echo "Netinfo"
   QUAL=$(iwconfig wlan0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p' | bc)
   BAR=$(echo $QUAL | gdbar -bg $bar_bg -fg $bar_fg -h 2 -w 130)

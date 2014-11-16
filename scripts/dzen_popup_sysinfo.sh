@@ -6,6 +6,8 @@ WIDTH=220
 
 source $(dirname $0)/dzen_popup_config
 
+source $(dirname $0)/mouselocation.sh
+
 KERNEL=$(uname -r)
 UPTIME=$( uptime | sed 's/.* up *//' | sed 's/[0-9]* us.*//' | sed 's/ day, /d /' | sed 's/ days, /d /' | sed 's/:/h /' | sed 's/ min//'|  sed 's/,/m/' | sed 's/  / /')
 PACKAGES=$(pacman -Q | wc -l)

@@ -13,6 +13,7 @@ LINES=8
 #XPOS=1200
 
 source $(dirname $0)/dzen_popup_config
+source $(dirname $0)/mouselocation.sh
 
 # define pipe
 PIPE=/tmp/calendar_pipe

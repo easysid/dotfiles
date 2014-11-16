@@ -6,6 +6,8 @@ WIDTH=350
 
 source $(dirname $0)/dzen_popup_config
 
+source $(dirname $0)/mouselocation.sh
+
 (echo "Diskinfo"
 echo " "
 for i in sda{6,7,5}; do
