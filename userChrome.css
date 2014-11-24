@@ -1,0 +1,200 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/* these settings used to be in userchrome.css */
+
+/* Define colors */
+
+:root {
+    --bgcolor-selected: rgba(100,100,100,1);
+    --fgcolor-selected: rgba(255,255,255,.8);
+    --bgcolor-hover: rgba(88,88,88,.9);
+    --bgcolor-url-hover: rgba(0,0,0,.3);
+    --font-family: ubuntu mono;
+    --font-size-url: 12px;
+    --font-size-tabs: 12px;
+}
+
+/* prevent the ugly white 'flash' while opening tabs */
+tabbrowser tabpanels {
+    background-color: #383A3B !important;
+}
+
+/* hide some stuff */
+#private-browsing-indicator,
+#alltabs-button,
+.tabs-newtab-button,
+#urlbar-go-button,
+#urlbar-stop-button,
+#urlbar-reload-button,
+.urlbar-history-dropmarker
+{
+    display: none !important;
+}
+
+/* remove the separator beside hamburger */
+#PanelUI-button {
+background-image: none !important;}
+
+/*show tab close button on hover and focus only*/
+.tabbrowser-tab:not([selected]):not(:hover)
+.tab-close-button {
+    opacity:0;
+}
+
+/* hide scrollbars */
+#content browser {
+    margin-right: -14px !important;
+    /*  margin-bottom: -14px !important;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/*Frank Reduce Toolbar Height...*/
+toolbarbutton {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+#nav-bar {
+    height: 23px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+/* Remove the pesky black lines */
+#TabsToolbar:not([collapsed="true"]) + #nav-bar {
+    border-top: none !important;
+}
+
+/* urlbar changes */
+#urlbar {
+    border: none !important;
+    background: none !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-url)  !important;
+    height: 20px !important;
+}
+
+.urlbar-textbox-container:hover,.urlbar-textbox-container[focused] {
+    background: var(--bgcolor-url-hover) !important;
+    border-color: transparent !important;
+}
+
+/* *** Back and forward buttons*** */
+
+/* always show forward button */
+#urlbar-wrapper > #forward-button {
+    margin:0 !important;
+}
+
+#urlbar-wrapper {
+    clip-path: none !important;
+}
+
+/* Strip all decorations */
+#main-window:not([customizing]) #back-button[disabled] > .toolbarbutton-icon,
+#back-button > .toolbarbutton-icon,
+#forward-button > .toolbarbutton-icon{
+    background: none !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* some adjustments */
+#back-button > .toolbarbutton-icon{
+    -moz-image-region: rect(0,54px,18px,36px) !important;
+    border-radius: 0 !important;
+    padding: 1px 2px !important;
+}
+
+#forward-button > .toolbarbutton-icon{
+    padding: 3px 2px !important;
+}
+
+/* add hover */
+#back-button:not([disabled]):-moz-any(:hover, [open]) > .toolbarbutton-icon,
+#forward-button:not([disabled]):-moz-any(:hover, [open]) > .toolbarbutton-icon {
+    background-image: linear-gradient(hsla(0,0%,100%,.7), hsla(0,0%,100%,.5)) !important;
+    box-shadow: 0 1px hsla(0,0%,100%,.3) inset,
+    0 1px hsla(210,54%,20%,.03),
+    0 0 2px hsla(210,54%,20%,.1) !important;
+}
+
+/* *** Square Tabs *** */
+
+#TabsToolbar {
+    background: transparent !important;
+    margin-bottom: 0 !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-tabs)  !important;
+}
+
+#TabsToolbar .arrowscrollbox-scrollbox {
+    padding: 0 !important;
+}
+
+#TabsToolbar .tabbrowser-tabs {
+    max-height: 24px !important;
+    min-height: 0px !important;
+    margin-top: 0px !important;
+}
+
+#TabsToolbar .tabbrowser-tab {
+    -moz-border-top-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-bottom-colors: none !important;
+    border-style: none !important;
+    padding: 4px 0px !important;
+    background: none !important;
+    background-clip: padding-box !important;
+    transition: all .1s !important;
+    margin-left: 1px !important;
+}
+
+#TabsToolbar .tabbrowser-tab[first-tab][last-tab],
+#TabsToolbar .tabbrowser-tab[last-visible-tab] {
+    border-right-width: 0px !important;
+}
+
+#TabsToolbar .tabbrowser-tab[afterselected] {
+    border-left-color: transparent !important;
+}
+
+#TabsToolbar .tabbrowser-tab[selected] {
+    color: var(--fgcolor-selected) !important;
+    background: var(--bgcolor-selected) !important;
+    /*   background-clip: padding-box !important;*/
+}
+
+#TabsToolbar .tabbrowser-tab:hover:not([selected]) {
+    background-color: var(--bgcolor-hover) !important;
+}
+
+#TabsToolbar .tab-background {
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+#TabsToolbar .tab-background-start,
+#TabsToolbar .tab-background-end,
+#TabsToolbar .tabbrowser-tab:after,
+#TabsToolbar .tabbrowser-tab:before {
+    display: none !important;
+}
+
+#TabsToolbar .tab-background-middle {
+    margin: -4px -2px !important;
+    background: transparent !important;
+}
+
+#addon-bar,
+#PersonalToolbar,
+#nav-bar {
+    background: none !important;
+    box-shadow: none !important;
+    background-clip: padding-box !important;
+    border-radius: 0 !important;
+}
+
