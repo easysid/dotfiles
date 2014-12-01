@@ -6,20 +6,20 @@ FONT2="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
 
 # color definitions
 
-BAR_BG="#FF1A1A1A"
-BAR_FG="#FF999999"
+BAR_BG="#FF101010"
+BAR_FG="#FFaaaaaa"
 
-F_O_FG='#FFa54745'
-F_O_BG=${BAR_BG}
-F_F_FG='#ff75691c'
-F_F_BG=${BAR_BG}
-F_U_FG='#FF9D3535'
+F_O_FG='#FFdddddd'
+F_O_BG='#FFA54242'
+F_F_FG='#ffffffff'
+F_F_BG='#ff5e8d87'
+F_U_FG='#FFAD3535'
 F_U_BG=${BAR_BG}
-O_FG='#FF888888'
+O_FG='#FFde935f'
 O_BG=${BAR_BG}
-F_FG='#FF202020'
+F_FG='#FF555555'
 F_BG=${BAR_BG}
-U_FG='#FF9D3535'
+U_FG='#FFAD3535'
 U_BG=${BAR_BG}
 #CLOCK_FG='#FFc7bda4'
 #CLOCK_BG='#FF25204c'
@@ -27,6 +27,6 @@ U_BG=${BAR_BG}
 #LAYOUT_BG='#FF505050'
 #STATUS_FG='#FFA3A6AB'
 #STATUS_BG=${BAR_BG}
-TITLE_FG='#FFd5a457'
+TITLE_FG='#FF81a2be'
 TITLE_BG=${BAR_BG}
 

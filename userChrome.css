@@ -5,24 +5,31 @@
 /* Define colors */
 
 :root {
-    --bgcolor-selected: rgba(100,100,100,1);
-    --fgcolor-selected: rgba(255,255,255,.8);
-    --bgcolor-hover: rgba(88,88,88,.9);
-    --bgcolor-url-hover: rgba(0,0,0,.3);
-    --font-family: ubuntu mono;
-    --font-size-url: 12px;
-    --font-size-tabs: 12px;
+    /* tabs */
+    --theme-bg: rgba(56,58,59,1);
+    --tabs-bg-selected: rgba(100,100,100,1);
+    --tabs-fg-selected: rgba(255,255,255,.8);
+    --tabs-bg-hover: rgba(88,88,88,.9);
+    --tabs-font: ubuntu mono;
+    --tabs-font-size: 12px;
+    /* urlbar */
+    --url-bg: rgba(100,100,100,1);
+    --url-fg: rgba(255,255,255,.8);
+    --url-bg-hover: rgba(0,0,0,.3);
+    --url-font: ubuntu mono;
+    --url-font-size: 13px;
 }
 
 /* prevent the ugly white 'flash' while opening tabs */
 tabbrowser tabpanels {
-    background-color: #383A3B !important;
+    background-color: var(--theme-bg) !important;
 }
 
 /* hide some stuff */
 #private-browsing-indicator,
 #alltabs-button,
 .tabs-newtab-button,
+.tab-icon-image,
 #urlbar-go-button,
 #urlbar-stop-button,
 #urlbar-reload-button,
@@ -70,13 +77,13 @@ toolbarbutton {
 #urlbar {
     border: none !important;
     background: none !important;
-    font-family: var(--font-family) !important;
-    font-size: var(--font-size-url)  !important;
+    font-family: var(--url-font) !important;
+    font-size: var(--url-font-size)  !important;
     height: 20px !important;
 }
 
 .urlbar-textbox-container:hover,.urlbar-textbox-container[focused] {
-    background: var(--bgcolor-url-hover) !important;
+    background: var(--url-bg-hover) !important;
     border-color: transparent !important;
 }
 
@@ -126,8 +133,9 @@ toolbarbutton {
 #TabsToolbar {
     background: transparent !important;
     margin-bottom: 0 !important;
-    font-family: var(--font-family) !important;
-    font-size: var(--font-size-tabs)  !important;
+    font-family: var(--tabs-font) !important;
+    font-size: var(--tabs-font-size) !important;
+    text-align: center !important;
 }
 
 #TabsToolbar .arrowscrollbox-scrollbox {
@@ -135,7 +143,7 @@ toolbarbutton {
 }
 
 #TabsToolbar .tabbrowser-tabs {
-    max-height: 24px !important;
+    max-height: 22px !important;
     min-height: 0px !important;
     margin-top: 0px !important;
 }
@@ -163,13 +171,13 @@ toolbarbutton {
 }
 
 #TabsToolbar .tabbrowser-tab[selected] {
-    color: var(--fgcolor-selected) !important;
-    background: var(--bgcolor-selected) !important;
+    color: var(--tabs-fg-selected) !important;
+    background: var(--tabs-bg-selected) !important;
     /*   background-clip: padding-box !important;*/
 }
 
 #TabsToolbar .tabbrowser-tab:hover:not([selected]) {
-    background-color: var(--bgcolor-hover) !important;
+    background-color: var(--tabs-bg-hover) !important;
 }
 
 #TabsToolbar .tab-background {
