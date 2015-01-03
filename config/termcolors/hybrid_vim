@@ -29,7 +29,7 @@
 *color15: #C5C8C6
 
 ! man pages
-*colorBD: 12 
+*colorBD: 12
 *colorUL: 11
 
 ! vim: ft=xdefaults

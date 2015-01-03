@@ -49,8 +49,6 @@ super + ctrl + {h,j,k,l}
 super + ctrl + {Left,Down,Up,Right}
     bspc window -p {left,down,up,right}
 
-# preselect the splitting area
-super + ctrl + {h,j,k,l}
 # move the window into the selected area
 super + shift + {w,s,a,d}
     bspc window -w {up,down,left,right}
@@ -89,10 +87,6 @@ super + t
 # balance the desktop (adjust split area)
 super + shift + b
     bspc desktop -B
-
-# cycle next / prev desktop
-super + {comma, period}
-    bspc desktop -f {prev,next}.occupied
 
 # rotate the leaves of the tree
 super + bracket{left,right}
