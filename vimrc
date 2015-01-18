@@ -27,7 +27,6 @@ filetype plugin indent on
 
 
 " general settings {{{
-au! bufwritepost .vimrc source %   " apply changes to vimrc
 set clipboard=unnamedplus          " normal clipboard
 syntax on                          " syntax highlight
 set autoread
@@ -46,21 +45,15 @@ if has('gui_running')
 endif
 set guiheadroom=0
 
-set nowrap                         " do not wrap lines
+set autochdir                      " cd to current file
 set cursorline                     " highlight current line
 set laststatus=2                   " Always display status bar
+set mouse=a
+set nowrap                         " do not wrap lines
+set number
 set showcmd
 set splitbelow                     " new splits below and to the right
 set splitright
-set mouse=a
-" }}}
-
-" line numbers {{{
-set number
-" normal numbers in insert mode and when out of focus
-au InsertEnter,BufLeave,FocusLost * :set nornu
-" relative numbers in normal mode and when in focus
-au InsertLeave,BufEnter,FocusGained * :set rnu
 " }}}
 
 " tabs  {{{
@@ -119,7 +112,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Delete current buffer
-inoremap <C-q> <Esc>:bp\|bd #<CR>
 nnoremap <C-q> :bd<CR>
 
 " tab and buffer navigation like firefox
@@ -130,9 +122,6 @@ nnoremap <C-t>     :tabnew<CR>
 " save with C-s
 inoremap <C-s> <Esc>:update<CR>
 nnoremap <C-s> :update<CR>
-
-" cd to current file
-cnoremap cd. :lcd%:p:h<CR>:pwd<CR>
 
 " Y consistent with D and C
 nnoremap Y y$
@@ -171,7 +160,7 @@ let g:ctrlp_custom_ignore = {
 " }}}
 
 " Jedi  {{{
-au FileType python setlocal completeopt-=preview
+autocmd FileType python setlocal completeopt-=preview
 " }}}
 
 " neocomplete  {{{
@@ -190,7 +179,7 @@ let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " }}}
 
 " startify {{{
-au FileType startify setlocal buftype=
+autocmd FileType startify setlocal buftype=
 let g:startify_bookmarks = [
     \ '~/xcomp_confs',
     \ '~/.vimrc',
@@ -222,8 +211,41 @@ let g:syntastic_python_flake8_args='--ignore=W391'
     function! TrimWhiteSpace()
         %s/\s\+$//e
     endfunction
-au filetype c,cpp,css,hmtl,java,lua,perl,python,sh,text,xml au BufWritePre * :call TrimWhiteSpace()
 
+"}}}
+
+
+" autocommands
+
+augroup vimrc_au " vimrc autocommands {{{
+    autocmd!
+
+    " reload vimrc when it is changed
+    autocmd! bufwritepost .vimrc source %
+
+    " normal numbers in insert mode and when out of focus
+    autocmd InsertEnter,BufLeave,FocusLost * :set norelativenumber
+    " relative numbers in normal mode and when in focus
+    autocmd InsertLeave,BufEnter,FocusGained * :set relativenumber
+
+    " Remove trailing whitespace
+    autocmd BufWritePre * :call TrimWhiteSpace()
+
+augroup END
+" }}}
+
+augroup programming "{{{
+    autocmd!
+    " mark the 80th column
+    autocmd FileType c,cpp,java,python,sh setlocal colorcolumn=80
+augroup END
+"}}}
+
+augroup textfiles " {{{
+    autocmd!
+    " enable wrapping text files
+    autocmd FileType text setlocal wrap linebreak nolist
+augroup END
 "}}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
