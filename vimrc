@@ -27,23 +27,24 @@ filetype plugin indent on
 
 
 " general settings {{{
-set clipboard=unnamedplus          " normal clipboard
 syntax on                          " syntax highlight
 set autoread
+set clipboard=unnamedplus          " normal clipboard
+set hidden
 set nobackup                       " no swap and backup files
 set noswapfile
 " }}}
 
 " UI  {{{
-set t_Co=256
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
-
 if has('gui_running')
+    set guifont=inconsolata-dz\ for\ Powerline\ 8" set font
     set guioptions = " remove everything gui
-    set guifont=Monaco\ for\ Powerline\ 9 " set font
+    set guiheadroom=0
+    set background=light
 endif
-set guiheadroom=0
+
+set t_Co=256
+colorscheme solarized
 
 set autochdir                      " cd to current file
 set cursorline                     " highlight current line
@@ -71,9 +72,9 @@ set nofoldenable
 
 " wildmode  {{{
 set completeopt=longest,menuone
-set wildignore+=*.so,*.swp,*.zip,*.o,*.pyc,*.javac,*.out,*.luac,*.class
 set wildignore+=*.bmp,*.jpg,*.jpeg,*.png,*.gif
 set wildignore+=*.exe,*.dll,*.manifest,*.gz
+set wildignore+=*.so,*.swp,*.zip,*.o,*.pyc,*.javac,*.out,*.luac,*.class
 set wildignore+=*/Downloads/*,*/temp/*,*/Documents/*,*/Pictures/*,*/Videos/*
 set wildmenu
 set wildmode=longest:full,full
@@ -116,8 +117,6 @@ nnoremap <C-q> :bd<CR>
 
 " tab and buffer navigation like firefox
 nnoremap <C-tab>   :bnext<CR>
-nnoremap <C-S-tab> :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
 
 " save with C-s
 inoremap <C-s> <Esc>:update<CR>
@@ -127,7 +126,7 @@ nnoremap <C-s> :update<CR>
 nnoremap Y y$
 
 " Clear search highlight
-nnoremap <BS> :noh<CR>
+nnoremap <CR> :noh<CR>
 
 " indent code better
 vnoremap < <gv
@@ -142,11 +141,7 @@ nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
 
 " airline  {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'wombat'
-" }}}
-
-" colorizer  {{{
-let g:colorizer_auto_filetype='css,html,xdefaults'
+"let g:airline_theme = 'wombat'
 " }}}
 
 " ctrl-p  {{{
@@ -161,17 +156,19 @@ let g:ctrlp_custom_ignore = {
 
 " Jedi  {{{
 autocmd FileType python setlocal completeopt-=preview
+" fix for neocomplete
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
 " }}}
 
 " neocomplete  {{{
 " use TAB completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:neocomplete#enable_at_startup = 1
-
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 " Fix for jedi-vim
 autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
 if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns = {}
 endif
@@ -249,4 +246,3 @@ augroup END
 "}}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
-
