@@ -1,25 +1,29 @@
 # bspwm panel config
 
 geometry="1346x14+10"
-FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT2="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
+#FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+#FONT2="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
+FONT1="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
+
+PAD='  '
+LPAD='    '
 
 # color definitions
 
-BAR_BG="#FF101010"
-BAR_FG="#FFaaaaaa"
+BAR_BG="#FFfdf6e3"
+BAR_FG="#FF93a1a1"
 
-F_O_FG='#FFdddddd'
-F_O_BG='#FFA54242'
-F_F_FG='#ffffffff'
-F_F_BG='#ff5e8d87'
-F_U_FG='#FFAD3535'
+F_O_FG='#FFb0b7b9'
+F_O_BG='#ff002b36'
+F_F_FG=${BAR_BG}
+F_F_BG=${BAR_BG}
+F_U_FG='#FF839496'
 F_U_BG=${BAR_BG}
-O_FG='#FFde935f'
+O_FG='#FF839496'
 O_BG=${BAR_BG}
-F_FG='#FF555555'
+F_FG='#FF839496'
 F_BG=${BAR_BG}
-U_FG='#FFAD3535'
+U_FG='#FFdc322f'
 U_BG=${BAR_BG}
 #CLOCK_FG='#FFc7bda4'
 #CLOCK_BG='#FF25204c'
@@ -27,6 +31,6 @@ U_BG=${BAR_BG}
 #LAYOUT_BG='#FF505050'
 #STATUS_FG='#FFA3A6AB'
 #STATUS_BG=${BAR_BG}
-TITLE_FG='#FF81a2be'
+TITLE_FG='#ff657bd3'
 TITLE_BG=${BAR_BG}
 

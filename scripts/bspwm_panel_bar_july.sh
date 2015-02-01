@@ -6,7 +6,6 @@
 
 NORMIFS=$IFS
 FIELDIFS=':'
-PAD='  '
 
 
 source $(dirname $0)/panel_config
@@ -21,10 +20,15 @@ while read -r line ; do
         #    # custom window title using xprop xwinfo
         #    title="%{F$TITLE_FG B-}${PAD}$(xwinfo -c ${line#?} | sed 's@N/A@@')${PAD}%{F- B-}"
         #    ;;
-        C*)
-            #clock
-            clock="${line#?}"
-            clock="%{F$CLOCK_BG}⮂%{F- B$CLOCK_BG A:dzen_popup_toggle.sh calendar:} ${clock} %{A B- F$CLOCK_BG}⮀%{F-}"
+        #C*)
+            ##clock
+            #clock="${line#?}"
+            #clock="%{F$CLOCK_BG}⮂%{F- B$CLOCK_BG A:dzen_popup_toggle.sh calendar:} ${clock} %{A B- F$CLOCK_BG}⮀%{F-}"
+            #;;
+        T*)
+            # window title
+            title=$(echo ${line#?} | sed 's^\(.\{40\}\).*^\1...^')
+            title="%{F$TITLE_FG} ${title} ${LPAD} %{F-}"
             ;;
         W*)
             # bspwm internal state
@@ -65,16 +69,11 @@ while read -r line ; do
                         esac
                         wm_infos="${wm_infos}%{A:bspc desktop -f ${name}:}${PAD}${desk}${PAD}%{A}"
                         ;;
-                    #L*)
-                        # layout
-                        #layout=$(printf "[%s]" $( echo "${item#?}" | sed 's/^\(.\).*/\U\1/'))
-                        #wm_infos="${wm_infos}%{F$BG B$LAYOUT_BG}%{F$LAYOUT_FG A:bspc desktop -l next:} $layout %{A F$LAYOUT_BG B-}"
-                     #   ;;
                 esac
                 shift
             done
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l B$F_O_BG}$wm_infos %{F$F_O_BG B-}⮀%{F-} %{c}${clock} %{r}$sys_infos %{B-}"
+    printf "%s\n" "%{l B$F_O_BG}$wm_infos %{F$F_O_BG B-}⮀%{F-} %{c}${title} %{r}$sys_infos%{B-}"
 done

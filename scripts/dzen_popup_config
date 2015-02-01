@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Edited for December desktop. See panel config and termcolors.
+# Edited for February 2015 desktop. See panel config and termcolors.
 
 #FONT="tamsynmod:pixelsize=11"
 FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
@@ -10,15 +10,15 @@ YPOS='20'
 TIME='4'
 
 # Colors
-FG="#c0c0c0"
-BG="#1d1f21"
+FG="#657b83"
+BG="#fdf6e3"
 
-bar_bg="#444444"
-bar_fg="#8c9440"
-label="#81a2be"
-highlight="#81a2be"
-highlight2="#0a0a0a"
-warn="#CC6666"
+bar_bg="#d0d0d0"
+bar_fg="#859900"
+label="#073642"
+highlight="#002b36"
+highlight2="#eee8d5"
+warn="#cb4b16"
 
 OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"
 

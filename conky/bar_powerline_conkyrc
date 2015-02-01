@@ -32,4 +32,4 @@ ${if_match "${acpiacadapter}" == "on-line"}\
 ${if_match ${battery_percent BAT0} <= 25}\
 %{F\#FFBD141C}%{F-}%{B\#FFBD141C} ï% ${else}\
 %{F\#FF5A6E10}%{F-}%{B\#FF5A6E10} ð% ${endif}${battery_percent}%% ${endif}\
-%{F\#FF0f4761}%{F-}%{B\#FF0f4761} É%{A:dzen_popup_toggle.sh calendar:} ${time %H:%M} %{A B-}\
+%{F\#FF0f4761}%{F-}%{B\#FF0f4761} É%{A:dzen_popup_toggle.sh calendar:} ${time %H:%M} %{A }\

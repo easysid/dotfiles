@@ -5,9 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# source my own .dir_colors file
-if [ -f $HOME/.dir_colors ]; then
-    eval $(dircolors -b $HOME/.dir_colors)
+# source my own .dircolors file
+if [ -f $HOME/.dircolors ]; then
+    eval $(dircolors -b $HOME/.dircolors)
 fi
 
 # aliases
@@ -31,9 +31,6 @@ set_ps1 () {
 }
 
 set_ps1
-
-#set custom PATH
-export PATH="${PATH}:~/.scripts"
 
 # create command not found hook
 source /usr/share/doc/pkgfile/command-not-found.bash
@@ -72,5 +69,4 @@ case "$TERM" in
     *)
         ;;
 esac
-
 
