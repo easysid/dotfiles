@@ -15,10 +15,10 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-startify'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'smancill/conky-syntax.vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
 call vundle#end()                  " required
@@ -91,11 +91,14 @@ set showmatch
 
 " keymappings  {{{
 
+" remove keymaps
+imap <F1>    <Nop>
+
 " friendly keymaps
 let mapleader="\<Space>"
 
-nnoremap ; :
-vnoremap ; :
+noremap ; :
+noremap : ;
 
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -107,15 +110,15 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 
 " split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-j>
+nnoremap <C-K> <C-W><C-k>
+nnoremap <C-L> <C-W><C-l>
+nnoremap <C-H> <C-W><C-h>
 
 " Delete current buffer
 nnoremap <C-q> :bd<CR>
 
-" tab and buffer navigation like firefox
+" cycle through buffers
 nnoremap <C-tab>   :bnext<CR>
 
 " save with C-s
@@ -128,9 +131,8 @@ nnoremap Y y$
 " Clear search highlight
 nnoremap <CR> :noh<CR>
 
-" indent code better
-vnoremap < <gv
-vnoremap > >gv
+" Toggle numbering
+nnoremap <F1>    :set relativenumber!<CR>
 
 " Insert timestamp
 nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
@@ -149,9 +151,9 @@ let g:ctrlp_reuse_window  = 'startify'
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$|\/images',
-  \ 'file': '\.(dat|DS_Store)$'
-  \ }
+            \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$|\/images',
+            \ 'file': '\.(dat|DS_Store)$'
+            \ }
 " }}}
 
 " Jedi  {{{
@@ -170,7 +172,7 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 " Fix for jedi-vim
 autocmd FileType python setlocal omnifunc=jedi#completions
 if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " }}}
@@ -178,17 +180,17 @@ let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " startify {{{
 autocmd FileType startify setlocal buftype=
 let g:startify_bookmarks = [
-    \ '~/xcomp_confs',
-    \ '~/.vimrc',
-    \ ]
+            \ '~/xcomp_confs',
+            \ '~/.vimrc',
+            \ ]
 let g:startify_list_order = [
-  \ ['   Bookmarks:'],
-  \ 'bookmarks',
-  \ ['   Recently used:'],
-  \ 'files',
-  \ ['   Sessions:'],
-  \ 'sessions',
-  \ ]
+            \ ['   Bookmarks:'],
+            \ 'bookmarks',
+            \ ['   Recently used:'],
+            \ 'files',
+            \ ['   Sessions:'],
+            \ 'sessions',
+            \ ]
 " }}}
 
 " syntastic {{{
@@ -201,14 +203,17 @@ let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=W391'
 " }}}
 
+" vim commentary {{{
+autocmd FileType xdefaults setlocal commentstring=!%s
+"}}}
+
 
 " custom functions {{{
 
 " Removes trailing spaces
-    function! TrimWhiteSpace()
-        %s/\s\+$//e
-    endfunction
-
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
 "}}}
 
 
@@ -220,10 +225,10 @@ augroup vimrc_au " vimrc autocommands {{{
     " reload vimrc when it is changed
     autocmd! bufwritepost .vimrc source %
 
-    " normal numbers in insert mode and when out of focus
-    autocmd InsertEnter,BufLeave,FocusLost * :set norelativenumber
-    " relative numbers in normal mode and when in focus
-    autocmd InsertLeave,BufEnter,FocusGained * :set relativenumber
+    " normal numbers in insert mode
+    autocmd InsertEnter * :set norelativenumber
+    " relative numbers in normal mode
+    autocmd InsertLeave * :set relativenumber
 
     " Remove trailing whitespace
     autocmd BufWritePre * :call TrimWhiteSpace()
@@ -231,15 +236,14 @@ augroup vimrc_au " vimrc autocommands {{{
 augroup END
 " }}}
 
-augroup programming "{{{
+augroup filetypes " FileType specific autocommands {{{
     autocmd!
-    " mark the 80th column
-    autocmd FileType c,cpp,java,python,sh setlocal colorcolumn=80
-augroup END
-"}}}
 
-augroup textfiles " {{{
-    autocmd!
+    " Programming languages
+    " mark the 80th column
+    autocmd FileType c,cpp,java,lua,python,sh setlocal colorcolumn=80
+
+    " Text files
     " enable wrapping text files
     autocmd FileType text setlocal wrap linebreak nolist
 augroup END
