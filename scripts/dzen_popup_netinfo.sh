@@ -5,7 +5,6 @@ WIDTH=240
 #XPOS=1000
 
 source $(dirname $0)/dzen_popup_config
-
 source $(dirname $0)/mouselocation.sh
 
 (
@@ -22,3 +21,4 @@ echo -e "$PAD ^fg("")Month: ^fg() $MONTH"
 echo -e "$PAD ^fg("")Today: ^fg() $TODAY"
 ) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l'\
           -title-name "popup_netinfo" -fn "$FONT" ${OPTIONS}
+

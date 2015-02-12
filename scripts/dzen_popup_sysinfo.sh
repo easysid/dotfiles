@@ -5,7 +5,6 @@ WIDTH=220
 #XPOS=800
 
 source $(dirname $0)/dzen_popup_config
-
 source $(dirname $0)/mouselocation.sh
 
 KERNEL=$(uname -r)
