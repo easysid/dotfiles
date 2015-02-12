@@ -41,14 +41,14 @@ if [[ $PREV -eq 0 ]]; then
 fi
 
 # generate calender
-if [[ "$MM" -eq "$MONTH" ]] && [[ "$YY" -eq "$YEAR" ]]; then  # current month, highlight header and date
+if [[ $MM -eq $MONTH ]] && [[ $YY -eq $YEAR ]]; then  # current month, highlight header and date
     CAL=$(cal | sed -re "s/^(.*[A-Za-z][A-Za-z]*.*)$/^fg($highlight)\1^fg()/;s/(^|[ ])($TODAY)($|[ ])/\1^bg($highlight2)^fg($highlight)\2^fg()^bg()\3/")
 else  # another month, just highlight header
     CAL=$(cal "$MM" "$YY" | sed -re "s/^(.*[A-Za-z][A-Za-z]*.*)$/^fg($highlight)\1^fg()/")
 fi
 
 # read from pipe
-if [ ! -e "$PIPE" ]; then
+if [[ ! -e $PIPE ]]; then
   mkfifo "$PIPE"
   ( dzen2 -u -x $XPOS -w $WIDTH -l $LINES -sa 'c' -title-name 'popup_calendar' -fn "$FONT" ${OPTIONS} < "$PIPE"
    rm -f "$PIPE") &
