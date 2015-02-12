@@ -81,4 +81,4 @@ fi
 BAR=$(echo "$VOL" | gdbar -fg "$bar_fg" -bg "$bar_bg" -w "$BAR_WIDTH" -h "$BAR_HEIGHT")
 
 #Feed the pipe!
-(echo "$ICON  $BAR  $VOL%"; sleep "$SECS"  ) > "$PIPE"
+(echo "$ICON  $BAR  $VOL%"; sleep "$SECS") > "$PIPE"
