@@ -29,29 +29,18 @@ filetype plugin indent on
 
 " general settings {{{
 syntax on                          " syntax highlight
-set autoread
-set clipboard=unnamedplus          " normal clipboard
-set hidden
-set nobackup                       " no swap and backup files
-set noswapfile
-" }}}
-
-" UI  {{{
-if has('gui_running')
-    set guifont=inconsolata-dz\ for\ Powerline\ 8" set font
-    set guioptions = " remove everything gui
-    set guiheadroom=0
-    set background=light
-endif
-
 set t_Co=256
-colorscheme solarized
-
 set autochdir                      " cd to current file
+set autoread
 set backspace=indent,eol,start
+set clipboard=unnamedplus          " normal clipboard
+set colorcolumn=80
 set cursorline                     " highlight current line
+set hidden
 set laststatus=2                   " Always display status bar
 set mouse=a
+set nobackup                       " no swap and backup files
+set noswapfile
 set nowrap                         " do not wrap lines
 set number
 set showcmd
@@ -91,6 +80,40 @@ set showmatch
 " }}}
 
 
+" custom functions {{{
+
+" Removes trailing spaces
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+"}}}
+
+
+" autocommands
+
+augroup vimrc   " vimrc autocommands {{{
+    autocmd!
+    " reload vimrc when it is changed
+    autocmd! bufwritepost .vimrc source %
+    " normal numbers in insert mode
+    autocmd InsertEnter * :set norelativenumber
+    " relative numbers in normal mode
+    autocmd InsertLeave * :set relativenumber
+    " Remove trailing whitespace
+    autocmd BufWritePre * :call TrimWhiteSpace()
+augroup END
+" }}}
+
+augroup filetypes   " FileType specific autocommands {{{
+    autocmd!
+    " text files - enable wrapping and remove colorcolumn
+    autocmd FileType text setlocal wrap linebreak nolist colorcolumn=
+    " vim commentary fix for xdefaults
+    autocmd FileType xdefaults setlocal commentstring=!\ %s
+augroup END
+"}}}
+
+
 " keymappings  {{{
 
 " remove keymaps
@@ -99,8 +122,8 @@ imap <F1>    <Nop>
 " friendly keymaps
 let mapleader="\<Space>"
 
-" noremap ; :
-" noremap : ;
+noremap ; :
+noremap : ;
 
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -153,6 +176,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 nnoremap ga :EasyAlign
 vnoremap <Enter> :EasyAlign
 " }}}
+
 
 " package specific options
 
@@ -210,56 +234,21 @@ let g:startify_list_order = [
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
 let g:syntastic_full_redraws = 1
-let g:syntastic_auto_jump = 2 " Jump to syntax errors
+let g:syntastic_auto_jump = 2     " Jump to syntax errors
 let g:syntastic_auto_loc_list = 1 " Auto-open the error list
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=W391'
 " }}}
 
-" vim commentary {{{
-autocmd FileType xdefaults setlocal commentstring=!%s
-"}}}
 
-
-" custom functions {{{
-
-" Removes trailing spaces
-function! TrimWhiteSpace()
-    %s/\s\+$//e
-endfunction
-"}}}
-
-
-" autocommands
-
-augroup vimrc_au " vimrc autocommands {{{
-    autocmd!
-
-    " reload vimrc when it is changed
-    autocmd! bufwritepost .vimrc source %
-
-    " normal numbers in insert mode
-    autocmd InsertEnter * :set norelativenumber
-    " relative numbers in normal mode
-    autocmd InsertLeave * :set relativenumber
-
-    " Remove trailing whitespace
-    autocmd BufWritePre * :call TrimWhiteSpace()
-
-augroup END
+" colorscheme and gui {{{
+if has('gui_running')
+    set guifont=inconsolata-dz\ for\ Powerline\ 8" set font
+    set guioptions = " remove everything gui
+    set guiheadroom=0
+    set background=light
+endif
+colorscheme solarized
 " }}}
-
-augroup filetypes " FileType specific autocommands {{{
-    autocmd!
-
-    " Programming languages
-    " mark the 80th column
-    autocmd FileType c,cpp,java,lua,python,sh setlocal colorcolumn=80
-
-    " Text files
-    " enable wrapping text files
-    autocmd FileType text setlocal wrap linebreak nolist
-augroup END
-"}}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
