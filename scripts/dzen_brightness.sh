@@ -14,9 +14,7 @@ SECS="1"            # sleep $SECS
 XPOS="1000"          # horizontal positioning
 #YPOS="30"          # vertical positioning
 HEIGHT="30"         # window height
-WIDTH="250"         # window width
-BAR_WIDTH="150"     # width of bar
-BAR_HEIGHT="2"     # height of bar
+WIDTH="220"         # window width
 ICON='^i(/home/siddharth/.icons/dzen/brightness.xbm)'
 
 #Probably do not customize
@@ -67,13 +65,13 @@ PERC=$((CURR*100/MAX))
 
 #Using named pipe to determine whether previous call still exists
 #Also prevents multiple instances
-if [ ! -e "$PIPE" ]; then
+if [[ ! -e $PIPE ]]; then
   mkfifo "$PIPE"
   (dzen2 -tw "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
    rm -f "$PIPE") &
 fi
 
-BAR=$(echo "$PERC" | gdbar -fg "$bar_fg" -bg "$bar_bg" -w "$BAR_WIDTH" -h "$BAR_HEIGHT")
+BAR=$(echo "$PERC" | gdbar -fg "$bar_fg" -bg "$bar_bg" -w "$bar_w" -h "$bar_h")
 
 #Feed the pipe!
 (echo "$ICON  $BAR  $CURR"; sleep "$SECS"  ) > "$PIPE"

@@ -20,5 +20,9 @@ highlight="#002b36"
 highlight2="#eee8d5"
 warn="#cb4b16"
 
+# gdbar width and height
+bar_h="2"
+bar_w="130"
+
 OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"
 
