@@ -13,6 +13,7 @@ Plugin 'bling/vim-airline'
 Plugin 'chrisbra/Colorizer'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'scrooloose/syntastic'
@@ -47,6 +48,7 @@ set t_Co=256
 colorscheme solarized
 
 set autochdir                      " cd to current file
+set backspace=indent,eol,start
 set cursorline                     " highlight current line
 set laststatus=2                   " Always display status bar
 set mouse=a
@@ -97,8 +99,8 @@ imap <F1>    <Nop>
 " friendly keymaps
 let mapleader="\<Space>"
 
-noremap ; :
-noremap : ;
+" noremap ; :
+" noremap : ;
 
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -119,7 +121,7 @@ nnoremap <C-H> <C-W><C-h>
 nnoremap <C-q> :bd<CR>
 
 " cycle through buffers
-nnoremap <C-tab>   :bnext<CR>
+nnoremap <S-tab>   :bnext<CR>
 
 " save with C-s
 inoremap <C-s> <Esc>:update<CR>
@@ -129,7 +131,11 @@ nnoremap <C-s> :update<CR>
 nnoremap Y y$
 
 " Clear search highlight
-nnoremap <CR> :noh<CR>
+nnoremap <Leader><Space> :noh<CR>
+
+" Substitution shortcut
+nnoremap <Leader>s  :%s
+vnoremap <Leader>s  :s
 
 " Toggle numbering
 nnoremap <F1>    :set relativenumber!<CR>
@@ -138,8 +144,17 @@ nnoremap <F1>    :set relativenumber!<CR>
 nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
 " }}}
 
+" package specific keymaps {{{
 
-" package specific options and keymappings
+" use TAB completion neocomplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" use Enter for EasyAlign
+nnoremap ga :EasyAlign
+vnoremap <Enter> :EasyAlign
+" }}}
+
+" package specific options
 
 " airline  {{{
 let g:airline_powerline_fonts = 1
@@ -164,8 +179,6 @@ let g:jedi#auto_vim_configuration = 0
 " }}}
 
 " neocomplete  {{{
-" use TAB completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:neocomplete#enable_at_startup = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
