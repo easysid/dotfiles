@@ -2,10 +2,9 @@
 
 LINES=5
 WIDTH=220
-#XPOS=800
+# XPOS=800
 
 source $(dirname $0)/dzen_popup_config
-source $(dirname $0)/mouselocation.sh
 
 KERNEL=$(uname -r)
 UPTIME=$( uptime | sed 's/.* up *//;s/[0-9]* us.*//;s/ day, /d /;s/ days, /d /;s/:/h /;s/ min//;s/,/m/;s/  / /')
@@ -19,6 +18,6 @@ echo "$PAD ^fg("$highlight")Uptime:^fg() $UPTIME"
 echo "$PAD ^fg("$highlight")Kernel:^fg() $KERNEL"
 echo "$PAD ^fg("$highlight")Pacman:^fg() $PACKAGES packages"
 echo "$PAD ^fg("$highlight")Last updated on:^fg() $UPDATE $PAD"
-) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l' \
-          -title-name 'popup_sysinfo' -fn "$FONT" ${OPTIONS}
+) | dzen2 -title-name 'popup_sysinfo' -p "$TIME" -l "$LINES" -sa 'l' \
+          -fn "$FONT" ${OPTIONS}
 

@@ -5,7 +5,6 @@ WIDTH=350
 #XPOS=900
 
 source $(dirname $0)/dzen_popup_config
-source $(dirname $0)/mouselocation.sh
 
 (
 echo "^fg($label)Diskinfo^fg()"
@@ -20,6 +19,6 @@ df -h | grep -E 'sda[567]' | while read -r F TOTAL USED AVAIL P M; do
     fi
     echo -e "$PAD ^fg("$highlight")$(printf '%-6s' $MOUNT)^fg() $BAR  $USED / $TOTAL ($AVAIL free)$PAD"
     done
-) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l' \
-          -title-name "popup_diskinfo" -fn "$FONT" ${OPTIONS}
+) | dzen2 -title-name "popup_diskinfo" -p "$TIME" -l "$LINES" -sa 'l' \
+          -fn "$FONT" ${OPTIONS}
 

@@ -5,7 +5,6 @@ WIDTH=240
 #XPOS=1000
 
 source $(dirname $0)/dzen_popup_config
-source $(dirname $0)/mouselocation.sh
 
 (
 echo "^fg($label)Netinfo^fg()"
@@ -19,6 +18,6 @@ echo -e "$PAD ^fg("$highlight")Qual: ^fg()  $BAR  $QUAL%"
 echo -e "$PAD ^fg("$highlight")Usage:  Down       Up     Total"
 echo -e "$PAD ^fg("$highlight")Month: ^fg() $MONTH"
 echo -e "$PAD ^fg("$highlight")Today: ^fg() $TODAY"
-) | dzen2 -p "$TIME" -x "$XPOS" -w "$WIDTH" -l "$LINES" -sa 'l'\
-          -title-name "popup_netinfo" -fn "$FONT" ${OPTIONS}
+) | dzen2 -title-name "popup_netinfo" -p "$TIME" -l "$LINES" -sa 'l'\
+          -fn "$FONT" ${OPTIONS}
 

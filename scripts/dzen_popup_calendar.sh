@@ -13,7 +13,6 @@ LINES=8
 #XPOS=1200
 
 source $(dirname $0)/dzen_popup_config
-source $(dirname $0)/mouselocation.sh
 
 # define pipe
 PIPE=/tmp/calendar_pipe
@@ -55,7 +54,7 @@ fi
 # read from pipe
 if [[ ! -e $PIPE ]]; then
   mkfifo "$PIPE"
-  ( dzen2 -u -x $XPOS -w $WIDTH -l $LINES -sa 'c' -title-name 'popup_calendar' -fn "$FONT" ${OPTIONS} < "$PIPE"
+  ( dzen2 -u -l $LINES -sa 'c' -title-name 'popup_calendar' -fn "$FONT" ${OPTIONS} < "$PIPE"
    rm -f "$PIPE") &
 fi
 

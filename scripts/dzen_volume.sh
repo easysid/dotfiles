@@ -7,7 +7,6 @@
 IF="Master"         # audio channel: Master|PCM
 SECS="1"            # sleep $SECS
 XPOS="1000"         # horizontal positioning
-#YPOS="30"          # vertical positioning
 HEIGHT="30"         # window height
 WIDTH="230"         # window width
 ICON='^i(/home/siddharth/.icons/dzen/volume50.xbm)'
@@ -71,7 +70,7 @@ fi
 #Also prevents multiple volume bar instances
 if [[ ! -e $PIPE ]]; then
     mkfifo "$PIPE"
-    (dzen2 -w "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
+    (dzen2 -h "$HEIGHT" -fn "$FONT" ${OPTIONS} < "$PIPE"
     rm -f "$PIPE") &
 fi
 

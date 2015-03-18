@@ -9,7 +9,6 @@
 #Customize this stuff
 SECS="1"            # sleep $SECS
 XPOS="1000"          # horizontal positioning
-#YPOS="30"          # vertical positioning
 HEIGHT="30"         # window height
 WIDTH="220"         # window width
 ICON='^i(/home/siddharth/.icons/dzen/brightness.xbm)'
@@ -64,7 +63,7 @@ PERC=$((CURR*100/MAX))
 #Also prevents multiple instances
 if [[ ! -e $PIPE ]]; then
     mkfifo "$PIPE"
-    (dzen2 -w "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
+    (dzen2 -h "$HEIGHT" -fn "$FONT" ${OPTIONS} < "$PIPE"
     rm -f "$PIPE") &
 fi
 
