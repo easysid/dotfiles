@@ -3,17 +3,17 @@
 # dvolbar - OSD Volume utility
 #
 
-source $(dirname $0)/dzen_popup_config
-
 #Customize this stuff
 IF="Master"         # audio channel: Master|PCM
 SECS="1"            # sleep $SECS
-XPOS="1000"          # horizontal positioning
+XPOS="1000"         # horizontal positioning
 #YPOS="30"          # vertical positioning
 HEIGHT="30"         # window height
 WIDTH="230"         # window width
 ICON='^i(/home/siddharth/.icons/dzen/volume50.xbm)'
 MUTEICON='^i(/home/siddharth/.icons/dzen/volume0.xbm)'
+
+source $(dirname $0)/dzen_popup_config
 
 #Probably do not customize
 PIPE="/tmp/dvolpipe"
@@ -62,7 +62,7 @@ AMIXOUT="$(amixer -M set "$IF" "$AMIXARG" | tail -n 1)"
 MUTE="$(cut -d '[' -f 4 <<<"$AMIXOUT")"
 if [[ $MUTE = "off]" ]]; then
     VOL="0"
-    ICON="^fg(#b45a5a)$MUTEICON"
+    ICON="^fg($bar_warn)$MUTEICON"
 else
     VOL="$(cut -d '[' -f 2 <<<"$AMIXOUT" | sed 's/%.*//g')"
 fi
@@ -71,7 +71,7 @@ fi
 #Also prevents multiple volume bar instances
 if [[ ! -e $PIPE ]]; then
     mkfifo "$PIPE"
-    (dzen2 -tw "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
+    (dzen2 -w "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
     rm -f "$PIPE") &
 fi
 

@@ -6,8 +6,6 @@
 #
 
 
-source $(dirname $0)/dzen_popup_config
-
 #Customize this stuff
 SECS="1"            # sleep $SECS
 XPOS="1000"          # horizontal positioning
@@ -15,6 +13,8 @@ XPOS="1000"          # horizontal positioning
 HEIGHT="30"         # window height
 WIDTH="220"         # window width
 ICON='^i(/home/siddharth/.icons/dzen/brightness.xbm)'
+
+source $(dirname $0)/dzen_popup_config
 
 #Probably do not customize
 PIPE="/tmp/dbright_pipe"
@@ -64,7 +64,7 @@ PERC=$((CURR*100/MAX))
 #Also prevents multiple instances
 if [[ ! -e $PIPE ]]; then
     mkfifo "$PIPE"
-    (dzen2 -tw "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
+    (dzen2 -w "$WIDTH" -h "$HEIGHT" -x "$XPOS" -fn "$FONT" ${OPTIONS} < "$PIPE"
     rm -f "$PIPE") &
 fi
 
