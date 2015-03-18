@@ -3,12 +3,12 @@
 # Edited for February 2015 desktop. See panel config and termcolors.
 # Edited Saturday, 14 March 2015 21:33 IST - fix color names
 
-#FONT="tamsynmod:pixelsize=11"
+# FONT="tamsynmod:pixelsize=11"
 FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
-PAD='  '
-ACT='onstart=uncollapse;button1=exit;button3=exit'
-YPOS='20'
-TIME='4'
+PAD="  "
+ACT="onstart=uncollapse;button1=exit;button3=exit"
+YPOS=20
+TIME=4
 
 # Colors
 FG="#657b83"
@@ -21,8 +21,8 @@ label="#073642"         # popup title
 highlight="#002b36"     # popup headings
 
 # gdbar width and height
-bar_h="2"
-bar_w="130"
+bar_h=2
+bar_w=130
 
 OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"
 
