@@ -160,6 +160,9 @@ nnoremap <Leader><Space> :noh<CR>
 nnoremap <Leader>s  :%s
 vnoremap <Leader>s  :s
 
+" save file as root
+cnoremap w!! w !sudo tee % > /dev/null
+
 " Toggle numbering
 nnoremap <F1>    :set relativenumber!<CR>
 
@@ -181,8 +184,20 @@ vnoremap <Enter> :EasyAlign
 " package specific options
 
 " airline  {{{
-let g:airline_powerline_fonts = 1
-"let g:airline_theme = 'wombat'
+" let g:airline_powerline_fonts = 1
+ if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+let g:airline_theme = 'hybrid'
 " }}}
 
 " ctrl-p  {{{
@@ -243,12 +258,12 @@ let g:syntastic_python_flake8_args='--ignore=W391'
 
 " colorscheme and gui {{{
 if has('gui_running')
-    set guifont=inconsolata-dz\ for\ Powerline\ 8" set font
+    set guifont=envypn\ 13 " set font
     set guioptions = " remove everything gui
     set guiheadroom=0
-    set background=light
+    " set background=light
 endif
-colorscheme solarized
+colorscheme apprentice
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

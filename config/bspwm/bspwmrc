@@ -1,8 +1,8 @@
 #! /bin/sh
 
 # config options
-bspc config border_width            2
-bspc config top_padding             15
+bspc config border_width            1
+bspc config top_padding             14
 bspc config window_gap              10
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
@@ -12,7 +12,8 @@ bspc config history_aware_focus     true
 bspc config auto_cancel             true
 
 # desktops
-bspc monitor -d main web term misc foo
+# bspc monitor -d main web term misc foo
+bspc monitor -d ek do teen char panch
 
 bspc desktop ^2 -l monocle
 
@@ -27,14 +28,14 @@ bspc rule -a nitrogen floating=on center=true
 bspc rule -a file-roller floating=on center=true
 
 # colors
-bspc config focused_border_color "#268bd2"
-bspc config normal_border_color "#fdf6e3"
-bspc config active_border_color "#fdf6e3"
+bspc config focused_border_color "#BCBCBC"
+bspc config normal_border_color "#6C6C6C"
+bspc config active_border_color "#6C6C6C"
 bspc config focused_locked_border_color "#00C7D8"
-bspc config normal_locked_border_color "#708D8F"
-bspc config active_locked_border_color "#808C8D"
-bspc config urgent_border_color "#cb4b16"
-bspc config presel_border_color "#cb4b16"
+bspc config normal_locked_border_color "#6C6C6C"
+bspc config active_locked_border_color "#6C6C6C"
+bspc config urgent_border_color "#CB4B16"
+bspc config presel_border_color "#FF8700"
 
 # Autostart apps
 compton &

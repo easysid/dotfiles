@@ -6,14 +6,14 @@
 FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
 
 # Colors
-FG="#657b83"
-BG="#fdf6e3"
+FG="#BCBCBC"
+BG="#262626"
 
-bar_bg="#d0d0d0"        # for gdbar
-bar_fg="#859900"
-bar_warn="#cb4b16"
-label="#073642"         # popup title
-highlight="#002b36"     # popup headings
+bar_bg="#4F4F4F"        # for gdbar
+bar_fg="#87AF87"
+bar_warn="#AF5f5f"
+label="#5F8787"
+highlight="#5F87AF"     # popup headings
 
 # gdbar width and height
 bar_h=2

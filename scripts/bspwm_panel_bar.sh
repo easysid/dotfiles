@@ -6,8 +6,6 @@
 
 NORMIFS=$IFS
 FIELDIFS=':'
-PAD='  '
-LPAD='                     '
 
 source $(dirname $0)/panel_config
 
