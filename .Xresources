@@ -2,7 +2,7 @@
 ! color settings
 !----------------------------------------------------
 
-#include "/home/siddharth/.config/termcolors/solarized_light"
+#include "/home/siddharth/.config/termcolors/apprentice"
 
 !---------------------------------------------------
 ! urxvt config settings
@@ -14,10 +14,10 @@ URxvt*geometry:         80x21
 !URxvt*font:             xft:dejavu sans mono for powerline:size=9:antialias=false:hinting=false:autohint=false
 !URxvt*boldFont:         xft:dejavu sans mono for powerline:bold:size=9:antialias=false:hinting=false:autohint=false
 
-URxvt*font:              xft:inconsolata\\-dz for Powerline:size=8:antialias=false:hinting=false:autohint=false
-URxvt*boldFont:          xft:inconsolata\\-dz for Powerline:bold:size=8:antialias=false:hinting=false:autohint=false
-URxvt*italicFont:        xft:inconsolata\\-dz for Powerline:italic:size=8:antialias=false:hinting=false:autohint=false
-URxvt*bolditalicFont:    xft:inconsolata\\-dz for Powerline:bold:italic:size=8:antialias=false:hinting=false:autohint=false
+URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+URxvt*italicFont:        -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+URxvt*bolditalicFont:    -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 
 !URxvt*font:              xft:Monaco for Powerline:regular:size=9:antialias=false:hinting=false:autohint=false
 !URxvt*boldFont:          xft:Monaco for Powerline:bold:size=9:antialias=false:hinting=false:autohint=false
@@ -27,7 +27,7 @@ URxvt*bolditalicFont:    xft:inconsolata\\-dz for Powerline:bold:italic:size=8:a
 ! Traditional fonts - a more traditional font setup in lieu of xft
 !URxvt*font:    tamsynmod-medium-r-normal-*-8-*-*-*-*-*-*-*
 
-URxvt*letterSpace: -1
+! URxvt*letterSpace: -1
 URxvt.savelines:        500
 URxvt*scrollBar:        false
 

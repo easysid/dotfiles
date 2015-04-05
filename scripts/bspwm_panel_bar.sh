@@ -22,7 +22,7 @@ while read -r line ; do
         T*)
             # window title
             title=$(echo ${line#?} | sed 's^\(.\{40\}\).*^\1...^')
-            title="%{F$TITLE_FG} ${title} ${LPAD} %{F-}"
+            title="%{F$TITLE_FG} ${title} ${RPAD} %{F-}"
             ;;
         W*)
             # bspwm internal state
@@ -80,5 +80,5 @@ while read -r line ; do
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l}$wm_infos %{c}$title %{r}$sys_infos "
+    printf "%s\n" "%{l}$wm_infos %{c}$title %{r}$sys_infos"
 done

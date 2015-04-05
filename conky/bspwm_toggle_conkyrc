@@ -29,7 +29,9 @@ ${if_existing /tmp/bartoggle 1}%{F\#FF6C6C6C A:toggleinfo.sh:} - %{A}\
 %{F\#FF5F875F} %{F-} ${hwmon 1 temp 1}° %{F\#FF6C6C6C}| %{F-}\
 ${else} %{F\#FF6C6C6C A:toggleinfo.sh:} + %{A}${endif}\
 ${if_existing /proc/net/route wlan0}\
-%{F\#FF8FAFD7 A:dzen_popup_toggle.sh netinfo:}%{F-} ${wireless_essid wlan0} %{A}${else}\
+%{F\#FF8FAFD7 A:dzen_popup_toggle.sh netinfo:}%{F-}\
+${execi 4 ! ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 && echo "%{F#FFAF5F5F}✘%{F#FFA0A0A0}"} \
+${wireless_essid wlan0} %{A}${else}\
 %{F\#FF6C6C6C}none %{F-}${endif}\
 %{F\#FF6C6C6C}|${if_match "${acpiacadapter}" == "on-line"}\
 %{F\#FF87AF87} %{F-} ${if_match ${battery_percent} >= 95}${else}\
