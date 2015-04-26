@@ -22,7 +22,7 @@ echo -n 1 > /tmp/bartoggle
 conky -c ~/Conky/bspwm_toggle_conkyrc > "$PANEL_FIFO" &
 
 bspwm_panel_bar.sh < "$PANEL_FIFO" \
-     | bar -p \
+     | lemonbar -p \
            -g "$geometry" \
            -f "$FONT1","$FONT2"\
            -B "$BAR_BG" \
