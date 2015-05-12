@@ -13,7 +13,6 @@ Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mhinz/vim-startify'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'tpope/vim-commentary'
@@ -195,7 +194,6 @@ let g:airline_theme = 'hybrid'
 " }}}
 
 " ctrl-p  {{{
-let g:ctrlp_reuse_window  = 'startify'
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_custom_ignore = {
@@ -221,22 +219,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-" }}}
-
-" startify {{{
-autocmd FileType startify setlocal buftype=
-let g:startify_bookmarks = [
-            \ '~/xcomp_confs',
-            \ '~/.vimrc',
-            \ ]
-let g:startify_list_order = [
-            \ ['   Bookmarks:'],
-            \ 'bookmarks',
-            \ ['   Recently used:'],
-            \ 'files',
-            \ ['   Sessions:'],
-            \ 'sessions',
-            \ ]
 " }}}
 
 " syntastic {{{
