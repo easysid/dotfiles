@@ -10,15 +10,12 @@ Plugin 'gmarik/Vundle.vim'
 
 " other plugins
 Plugin 'bling/vim-airline'
-Plugin 'chrisbra/Colorizer'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'smancill/conky-syntax.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
@@ -110,6 +107,8 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd FileType text setlocal wrap linebreak nolist colorcolumn=
     " vim commentary fix for xdefaults
     autocmd FileType xdefaults setlocal commentstring=!\ %s
+    " set conkyrc FileType
+    autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
 augroup END
 "}}}
 
@@ -174,10 +173,6 @@ nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
 
 " use TAB completion neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" use Enter for EasyAlign
-nnoremap ga :EasyAlign
-vnoremap <Enter> :EasyAlign
 " }}}
 
 
