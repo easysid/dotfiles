@@ -25,7 +25,6 @@ filetype plugin indent on
 
 " general settings {{{
 syntax on                          " syntax highlight
-set t_Co=256
 set autochdir                      " cd to current file
 set autoread
 set backspace=indent,eol,start
@@ -70,18 +69,19 @@ set wildmode=longest:full,full
 " search  {{{
 set incsearch
 set hlsearch
-set ignorecase
 set smartcase
 set showmatch
 " }}}
 
 
-" custom functions {{{
+" custom functions and commands {{{
 
 " Removes trailing spaces
 function! TrimWhiteSpace()
     %s/\s\+$//e
 endfunction
+
+command! StripSpace :call TrimWhiteSpace()
 "}}}
 
 
@@ -95,8 +95,6 @@ augroup vimrc   " vimrc autocommands {{{
     autocmd InsertEnter * :set norelativenumber
     " relative numbers in normal mode
     autocmd InsertLeave * :set relativenumber
-    " Remove trailing whitespace
-    autocmd BufWritePre * :call TrimWhiteSpace()
 augroup END
 " }}}
 
@@ -104,8 +102,9 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd!
     " text files - enable wrapping and remove colorcolumn
     autocmd FileType text setlocal wrap linebreak nolist colorcolumn=
-    " vim commentary fix for xdefaults
+    " vim commentary
     autocmd FileType xdefaults setlocal commentstring=!\ %s
+    autocmd FileType cpp setlocal commentstring=//\ %s
     " set conkyrc FileType
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
 augroup END
@@ -150,6 +149,10 @@ nnoremap <C-s> :update<CR>
 
 " Y consistent with D and C
 nnoremap Y y$
+
+" search and center
+nnoremap n nzz
+nnoremap N Nzz
 
 " Clear search highlight
 nnoremap <Leader><Space> :noh<CR>
