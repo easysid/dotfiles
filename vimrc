@@ -208,20 +208,13 @@ let g:ctrlp_custom_ignore = {
 " Jedi  {{{
 autocmd FileType python setlocal completeopt-=preview
 " fix for neocomplete
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_select_first = 0
 " }}}
 
 " neocomplete  {{{
 let g:neocomplete#enable_at_startup = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-" Fix for jedi-vim
-autocmd FileType python setlocal omnifunc=jedi#completions
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 " }}}
 
 " syntastic {{{
