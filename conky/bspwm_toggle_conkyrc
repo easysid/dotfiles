@@ -18,26 +18,33 @@ out_to_x no
 
 # icons from stlarch font
 # cpu  ram  temp  net   ac bat_full  bat_emp 
-# cpu  ram  temp  net   ac bat_full  bat_emp
+# icons from siji font
+# cpu  ram  temp  net  nonet  ac  bat_full  bat_emp 
 
 TEXT
 S\
 ${if_existing /tmp/bartoggle 1}%{F\#FF6C6C6C A:toggleinfo.sh:} - %{A}\
-%{F\#FFAF5F5F A:dzen_popup_toggle.sh sysinfo:} %{F-} ${cpu cpu0}%%%{A} \
-%{F\#FFAF5F5F A:dzen_popup_toggle.sh diskinfo:} %{F-} ${mem} %{A}\
-%{F\#FF6C6C6C}|%{F\#FF5F875F} %{F-} ${hwmon 0 temp 2}°\
-%{F\#FF5F875F} %{F-} ${hwmon 1 temp 1}° %{F\#FF6C6C6C}| %{F-}\
-${else} %{F\#FF6C6C6C A:toggleinfo.sh:} + %{A}${endif}\
+%{F\#FFbb4455 A:dzen_popup_toggle.sh sysinfo:} %{F-} ${cpu cpu0}%%%{A} \
+%{F\#FFbb4455 A:dzen_popup_toggle.sh diskinfo:} %{F-} ${mem} %{A}\
+%{F\#FF6C6C6C}|%{F\#FFBB779A} %{F-} ${hwmon 1 temp 2}°\
+%{F\#FFBB779A} %{F-} ${hwmon 2 temp 1}° %{F\#FF6C6C6C}| %{F-}\
 ${if_existing /proc/net/route wlan0}\
-%{F\#FF8FAFD7 A:dzen_popup_toggle.sh netinfo:}%{F-} \
-${execi 3 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF8c3333}*"}\
+%{F\#FFF7A248 A:dzen_popup_toggle.sh netinfo:}%{F-} \
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FFBD365F}*"}\
 ${wireless_essid wlan0} %{A}${else}\
-%{F\#FF6C6C6C}none %{F-}${endif}\
+%{F\#FF6C6C6C}✘ %{F-}${endif}\
+${else} %{F\#FF6C6C6C A:toggleinfo.sh:} + %{A}\
+${if_existing /proc/net/route wlan0}\
+%{F\#FFF7A248 A:dzen_popup_toggle.sh netinfo:} \
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FFBD365F}"}\
+ %{F-}%{A}${else}\
+%{F\#FF6C6C6C}✘ %{F-}${endif}\
+${endif}\
 %{F\#FF6C6C6C}|${if_match "${acpiacadapter}" == "on-line"}\
-%{F\#FF87AF87} %{F-} ${if_match ${battery_percent} >= 95}${else}\
+%{F\#FFCD533C} %{F-} ${if_match ${battery_percent} >= 95}${else}\
 ${battery_percent}%% ${endif}${else}\
 ${if_match ${battery_percent BAT0} <= 30}\
 %{F\#FFFF8700} %{F-} ${else}\
-%{F\#FFAF5F5F} %{F-} ${endif}${battery_percent}%% ${endif}\
-%{F\#FF6C6C6C}|%{F\#FF5F87AF A:dzen_popup_toggle.sh calendar:} ${time %a,%d %b}%{F-} ${time %H:%M}  %{A}\
+%{F\#FFbb4455} %{F-} ${endif}${battery_percent}%% ${endif}\
+%{F\#FF6C6C6C}|%{F\#FFa64477 A:dzen_popup_toggle.sh calendar:} ${time %a, %d %b}%{F-} ${time %H:%M} %{A}\
 

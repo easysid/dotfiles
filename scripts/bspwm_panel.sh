@@ -24,7 +24,7 @@ conky -c ~/Conky/bspwm_toggle_conkyrc > "$PANEL_FIFO" &
 bspwm_panel_bar.sh < "$PANEL_FIFO" \
      | lemonbar -p \
            -g "$geometry" \
-           -f "$FONT1","$FONT2"\
+           -f "$FONT1" -f "$FONT2"\
            -B "$BAR_BG" \
            -F "$BAR_FG" \
            | while read line; do eval "$line"; done &

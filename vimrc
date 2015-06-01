@@ -69,6 +69,7 @@ set wildmode=longest:full,full
 " search  {{{
 set incsearch
 set hlsearch
+set ignorecase
 set smartcase
 set showmatch
 " }}}
@@ -193,7 +194,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.paste = ''
 let g:airline_symbols.whitespace = ''
 
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'custom'
 " }}}
 
 " ctrl-p  {{{
@@ -235,7 +236,7 @@ if has('gui_running')
     set guiheadroom=0
     " set background=light
 endif
-colorscheme apprentice
+colorscheme custom
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
