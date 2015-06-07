@@ -30,15 +30,14 @@ ${if_existing /tmp/bartoggle 1}%{F\#FF6C6C6C A:toggleinfo.sh:} - %{A}\
 %{F\#FFBB779A} %{F-} ${hwmon 2 temp 1}° %{F\#FF6C6C6C}| %{F-}\
 ${if_existing /proc/net/route wlan0}\
 %{F\#FFF7A248 A:dzen_popup_toggle.sh netinfo:}%{F-} \
-${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FFBD365F}*"}\
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF6C6C6C}*"}\
 ${wireless_essid wlan0} %{A}${else}\
 %{F\#FF6C6C6C}✘ %{F-}${endif}\
 ${else} %{F\#FF6C6C6C A:toggleinfo.sh:} + %{A}\
 ${if_existing /proc/net/route wlan0}\
 %{F\#FFF7A248 A:dzen_popup_toggle.sh netinfo:} \
-${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FFBD365F}"}\
- %{F-}%{A}${else}\
-%{F\#FF6C6C6C}✘ %{F-}${endif}\
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF6C6C6C}"}\
+ %{F-}%{A}${endif}\
 ${endif}\
 %{F\#FF6C6C6C}|${if_match "${acpiacadapter}" == "on-line"}\
 %{F\#FFCD533C} %{F-} ${if_match ${battery_percent} >= 95}${else}\

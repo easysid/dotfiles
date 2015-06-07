@@ -13,7 +13,7 @@ bar_bg="#404040"        # for gdbar
 bar_fg="#ee8541"
 bar_warn="#bb4455"
 label="#bb4455"         # popup headings
-highlight="#a64477"     
+highlight="#a64477"
 
 # gdbar width and height
 bar_h=2

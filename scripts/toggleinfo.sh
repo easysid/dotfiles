@@ -5,6 +5,5 @@
 # Make sure the following file exists in autostart.
 FILE='/tmp/bartoggle'
 
-[[ $(< $FILE) -eq 0 ]] && BOOL=1 || BOOL=0
-echo -n $BOOL > $FILE
+[[ $(< $FILE) -eq 0 ]] && echo -n 1 > $FILE || echo -n 0 > $FILE
 

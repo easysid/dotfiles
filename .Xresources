@@ -51,7 +51,7 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 
 ! dzen2
-dzen2.font:      -*-tamsynmod-medium-r-normal--*-*-*-*-*-*-*-*
-dzen2.foreground: #dddddd
-dzen2.background: #989898
+dzen2.font:       -lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
+dzen2.foreground: #a0a0a0
+dzen2.background: #262626
 
