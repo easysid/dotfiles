@@ -6,14 +6,14 @@
 FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
 
 # Colors
-FG="#B0B0B0"
-BG="#232425"
+FG="#bdb99c"
+BG="#1d1f21"
 
 bar_bg="#404040"        # for gdbar
-bar_fg="#ee8541"
-bar_warn="#bb4455"
-label="#bb4455"         # popup headings
-highlight="#a64477"
+bar_fg="#808860"
+bar_warn="#a54242"
+label="#b5895b"         # popup headings
+highlight="#977b60"
 
 # gdbar width and height
 bar_h=2
@@ -34,7 +34,7 @@ function mouselocation(){
 
 PAD="  "
 ACT="onstart=uncollapse;button1=exit;button3=exit"
-YPOS=20
+YPOS=27
 TIME=4
 # Options specific to individual popups. Do not override.
 [[ $XPOS ]] || mouselocation

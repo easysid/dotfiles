@@ -160,7 +160,6 @@ nnoremap <Leader><Space> :noh<CR>
 
 " Substitution shortcut
 nnoremap <Leader>s  :%s
-vnoremap <Leader>s  :s
 
 " save file as root
 cnoremap w!! w !sudo tee % > /dev/null
@@ -182,19 +181,19 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " package specific options
 
 " airline  {{{
-" let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-" unicode symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.paste = ''
-let g:airline_symbols.whitespace = ''
+let g:airline_powerline_fonts = 1
+" if !exists('g:airline_symbols')
+" let g:airline_symbols = {}
+" endif
+" " unicode symbols
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_symbols.linenr = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.paste = ''
+" let g:airline_symbols.whitespace = ''
 
-let g:airline_theme = 'custom'
+let g:airline_theme = 'hybridline'
 " }}}
 
 " ctrl-p  {{{
@@ -231,12 +230,13 @@ let g:syntastic_python_flake8_args='--ignore=W391'
 
 " colorscheme and gui {{{
 if has('gui_running')
-    set guifont=envypn\ 13 " set font
+    set guifont=ubuntu\ mono\ derivative\ powerline\ 9.5" set font
     set guioptions = " remove everything gui
     set guiheadroom=0
     " set background=light
 endif
-colorscheme custom
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

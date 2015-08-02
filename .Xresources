@@ -2,7 +2,7 @@
 ! color settings
 !----------------------------------------------------
 
-#include "/home/siddharth/.config/termcolors/2015_june"
+#include "/home/siddharth/.config/termcolors/hybrid_vim"
 
 !---------------------------------------------------
 ! urxvt config settings
@@ -10,18 +10,16 @@
 
 URxvt*geometry:         80x21
 
-! URxvt*font:              xft:dejavu sans mono for powerline:size=9:antialias=false:hinting=false:autohint=false
-! URxvt*boldFont:          xft:dejavu sans mono for powerline:bold:size=9:antialias=false:hinting=false:autohint=false
+! URxvt*font:              xft:dejavu sans mono for powerline:size=8:antialias=false:hinting=false:autohint=false
+! URxvt*boldFont:          xft:dejavu sans mono for powerline:bold:size=8:antialias=false:hinting=false:autohint=false
 
-! URxvt*font:              xft:Monaco for Powerline:regular:size=9:antialias=false:hinting=false:autohint=false
-! URxvt*boldFont:          xft:Monaco for Powerline:bold:size=9:antialias=false:hinting=false:autohint=false
-! URxvt*italicFont:        xft:Monaco for Powerline:italic:size=9:antialias=false:hinting=false:autohint=false
-! URxvt*bolditalicFont:    xft:Monaco for Powerline:bold:italic:size=9:antialias=false:hinting=false:autohint=false
+URxvt*font:              xft:Ubuntu Mono derivative Powerline:regular:size=9.5:antialias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:Ubuntu Mono derivative Powerline:bold:size=9.5:antialias=false:hinting=false:autohint=false
 
-URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
-URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+! URxvt*font:              -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
+! URxvt*boldFont:          -xos4-terminesspowerline-bold-r-normal--12-120-72-72-c-60-iso10646-1
 
-! URxvt*letterSpace: -1
+URxvt*letterSpace: -1
 URxvt.savelines:        500
 URxvt*scrollBar:        false
 

@@ -18,13 +18,14 @@ bspc control --subscribe > "$PANEL_FIFO" &
 xtitle -sf 'T%s' > "$PANEL_FIFO" &
 #xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/A\1/p' > "$PANEL_FIFO" &
 # create the toggle file before running this conky
-echo -n 1 > /tmp/bartoggle
-conky -c ~/Conky/bspwm_toggle_conkyrc > "$PANEL_FIFO" &
+echo -n 0 > /tmp/bartoggle
+echo -n 0 > /tmp/mpdwidget
+conky -c ~/Conky/lemonbar_conkyrc > "$PANEL_FIFO" &
 
 bspwm_panel_bar.sh < "$PANEL_FIFO" \
      | lemonbar -p \
            -g "$geometry" \
-           -f "$FONT1" -f "$FONT2"\
+           -f "$ICON" -f "$FONT1"\
            -B "$BAR_BG" \
            -F "$BAR_FG" \
            | while read line; do eval "$line"; done &

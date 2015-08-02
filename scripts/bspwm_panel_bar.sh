@@ -69,16 +69,16 @@ while read -r line ; do
                         esac
                         wm_infos="${wm_infos}%{F$FG B$BG A:bspc desktop -f ${name}:}${PAD}${name}${PAD}%{A B- F-}"
                         ;;
-                    #L*)
+                    L*)
                         ## layout
-                        #layout=$(printf "[%s]" $( echo "${item#?}" | sed 's/^\(.\).*/\U\1/'))
-                        #wm_infos="${wm_infos}%{F$BG B$LAYOUT_BG}%{F$LAYOUT_FG A:bspc desktop -l next:} $layout %{A F$LAYOUT_BG B-}"
-                        #;;
+                        layout=$(printf "[%s]" $( echo "${item#?}" | sed 's/^\(.\).*/\U\1/'))
+                        wm_infos="${wm_infos} ${RPAD} %{F$LAYOUT_FG}$layout %{F-}"
+                        ;;
                 esac
                 shift
             done
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l}$wm_infos %{c}$title %{r}$sys_infos"
+    printf "%s\n" "%{l}$wm_infos ${RPAD}${PAD} $title %{r}$sys_infos"
 done

@@ -1,36 +1,39 @@
 # bspwm panel config
 
-geometry="1346x15+10"
-FONT1="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT2="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
-# FONT1="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
+geometry="1346x22+10"
+# ICON="-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+ICON="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+# FONT1="-benis-lemon-medium-r-normal--10-110-75-75-m-50-iso8859-1"
+FONT1="-spectrum-berry-medium-r-normal-sans-11-80-75-75-m-50-iso10646-1"
+# FONT1="-aaron-bitbuntufull-medium-r-normal--10-100-72-72-c-90-utf8-1"
+# FONT1="-gbdfed-creep-regular-r-normal--16-120-96-96-m-4-iso10646-1"
 
 PAD="  "
 RPAD="    "
 
 # color definitions
 
-BAR_BG="#FF232425"
-BAR_FG="#FFb0b0b0"
+BAR_BG="#FF1D1F21"
+BAR_FG="#FFbdb99c"
 
-F_O_FG="#FFf7a248"
-F_O_BG=${BAR_BG}
-F_F_FG="#FFa64477"
+F_O_FG="#FFDE935F"
+F_O_BG="#FF373B41"
+F_F_FG="#FF8C9440"
 F_F_BG=${BAR_BG}
 F_U_FG="#FFFF8700"
 F_U_BG=${BAR_BG}
-O_FG="#FFbb4455"
+O_FG="#FF977b60"
 O_BG=${BAR_BG}
-F_FG="#FF444444"
+F_FG="#FF505050"
 F_BG=${BAR_BG}
-U_FG="#FFFF8700"
-U_BG="#FF101010"
-#CLOCK_FG="#FFc7bda4"
-#CLOCK_BG="#FF25204c"
-#LAYOUT_FG="#FFAAAAAA"
-#LAYOUT_BG="#FF505050"
+U_FG="#FFA54242"
+U_BG="#FF808080"
+#CLOCK_FG="#FFC7BDA4"
+#CLOCK_BG="#FF25204C"
+LAYOUT_FG="#FF777777"
+LAYOUT_BG=${BAR_BG}
 #STATUS_FG="#FFA3A6AB"
 #STATUS_BG=${BAR_BG}
-TITLE_FG="#FFa64477"
+TITLE_FG="#FF898989"
 TITLE_BG=${BAR_BG}
 
