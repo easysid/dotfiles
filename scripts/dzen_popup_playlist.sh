@@ -1,35 +1,22 @@
-#!/bin/bash
+#! /bin/bash
 
-# ncmpcpp playlist popup using urxvt
-# Sunday, 05 July 2015 22:04 IST
-# name the file dzen_popup so that it can be toggled by the dzen toggle script.
-#
+# playlist popup for dzen2
+# using the code by /u/Mr_asdf
+# Thursday, 06 August 2015 13:33 IST
 
-size=7
-lines=15
-chars=70
-YPOS=35
-WIDTH=$((chars*size))
-# XPOS=700
+LINES=10
+WIDTH=300
+source $(dirname $0)/dzen_popup_config
 
-# function to get mouse x-coordinate
-function mouselocation(){
-    eval $(xdotool getmouselocation --shell 2> /dev/null)
-    screen_width=$(sres -W)
-    x_offset=$((WIDTH/2))
-    R_edge=$((X+x_offset))
-    XPOS=$((X-x_offset))
-    if [[ $R_edge -gt $screen_width ]]; then
-        XPOS=$((X-WIDTH))
-    fi
-}
-
-[[ $XPOS ]] || mouselocation
-
-pid=$(pgrep -f 'urxvt -name playlist')
-if [[ -z $pid ]]; then
-    urxvt -name 'playlist' -geometry "${chars}x${lines}+${XPOS}+${YPOS}" -e ncmpcpp &
-else
-    kill $pid
-fi
-
+lines=5
+pos=$(mpc -f "%position%" | head -n 1)
+first=$(( $pos - $lines ))
+[[ $first -lt 1 ]] && first=1
+(
+echo "Playlist"
+mpc playlist | grep -$lines "$(mpc current)" | while read -r song; do
+echo "$PAD^ca(1, mpc play $first)$song^ca()$PAD"
+(( first++ ))
+done
+) | dzen2 -title-name "popup_playlist" -p "$TIME" -l "$LINES" -sa 'l' -m \
+          -fn "$FONT" ${OPTIONS}

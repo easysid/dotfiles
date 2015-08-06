@@ -33,11 +33,11 @@ function mouselocation(){
 }
 
 PAD="  "
-ACT="onstart=uncollapse;button1=exit;button3=exit"
 YPOS=27
 TIME=4
 # Options specific to individual popups. Do not override.
 [[ $XPOS ]] || mouselocation
+[[ $ACT  ]] || ACT="onstart=uncollapse;button1=exit;button3=exit"
 
 # Some options below may not have been defined in this file.
 OPTIONS="-bg ${BG} -fg ${FG} -x ${XPOS} -y ${YPOS} -w ${WIDTH} -e ${ACT} -ta 'c'"
