@@ -1,22 +1,24 @@
 #! /bin/bash
 
 # playlist popup for dzen2
-# using the code by /u/Mr_asdf
 # Thursday, 06 August 2015 13:33 IST
 
-LINES=10
-WIDTH=300
-source $(dirname $0)/dzen_popup_config
-
 lines=5
-pos=$(mpc -f "%position%" | head -n 1)
-first=$(( $pos - $lines ))
-[[ $first -lt 1 ]] && first=1
+format="%position% [[%artist% - ]%title%]|[%file%]"
+pattern=$(mpc current -f %position%)
+LINES=$(( $lines*2 + 1 ))
+WIDTH=280
+
+source $(dirname $0)/dzen_popup_config
 (
-echo "Playlist"
-mpc playlist | grep -$lines "$(mpc current)" | while read -r song; do
-echo "$PAD^ca(1, mpc play $first)$song^ca()$PAD"
-(( first++ ))
+echo "^fg($label)Playlist^fg()"
+mpc playlist -f "$format" | grep -$lines "$pattern" | while read -r position song; do
+    if [[ $position -eq $pattern ]]; then
+        echo "^fg($highlight)$PAD^ca(1, mpc play $position)$song^ca()$PAD"
+        continue
+    fi
+    echo "$PAD^ca(1, mpc play $position)$song^ca()$PAD"
 done
 ) | dzen2 -title-name "popup_playlist" -p "$TIME" -l "$LINES" -sa 'l' -m \
           -fn "$FONT" ${OPTIONS}
+
