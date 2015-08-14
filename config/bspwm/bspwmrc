@@ -23,21 +23,23 @@ bspc rule -a Firefox desktop=^2
 bspc rule -a Gimp-2.8 desktop=^4 floating=on
 bspc rule -a Gimp desktop=^4 floating=on
 bspc rule -a deadbeef floating=on
-bspc rule -a playlist floating=on
 bspc rule -a transmission-gtk desktop=^5
 bspc rule -a lxappearance floating=on center=true
 bspc rule -a nitrogen floating=on center=true
 bspc rule -a file-roller floating=on center=true
 
 # colors
-bspc config focused_border_color "#ffffff"
-bspc config normal_border_color "#6C6C6C"
-bspc config active_border_color "#6C6C6C"
-bspc config focused_locked_border_color "#00C7D8"
-bspc config normal_locked_border_color "#6C6C6C"
-bspc config active_locked_border_color "#6C6C6C"
-bspc config urgent_border_color "#CB4B16"
-bspc config presel_border_color "#ee6666"
+# source the theme colors
+source ~/.scripts/theme_config
+# use the defined colors
+bspc config focused_border_color=${focused_border_color}
+bspc config normal_border_color=${normal_border_color}
+bspc config active_border_color=${active_border_color}
+bspc config focused_locked_border_color=${locked_border_color}
+bspc config normal_locked_border_color=${locked_border_color}
+bspc config active_locked_border_color=${locked_border_color}
+bspc config urgent_border_color=${urgent_border_color}
+bspc config presel_border_color=${presel_border_color}
 
 # Autostart apps
 compton &

@@ -1,24 +1,12 @@
 # config options for dzen popups
-# Edited Wednesday, 18 March 2015 18:23 IST - reorganize and add new code.
+#
 
-
-# FONT="tamsynmod:pixelsize=11"
-FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
-
-# Colors
-FG="#bdb99c"
-BG="#1d1f21"
-
-bar_bg="#404040"        # for gdbar
-bar_fg="#808860"
-bar_warn="#a54242"
-label="#b5895b"         # popup headings
-highlight="#977b60"
+# get the colors
+source $(dirname $0)/theme_config
 
 # gdbar width and height
 bar_h=2
 bar_w=130
-
 
 # function to get mouse x-coordinate
 function mouselocation(){
@@ -35,6 +23,7 @@ function mouselocation(){
 PAD="  "
 YPOS=27
 TIME=4
+
 # Options specific to individual popups. Do not override.
 [[ $XPOS ]] || mouselocation
 [[ $ACT  ]] || ACT="onstart=uncollapse;button1=exit;button3=exit"
@@ -42,3 +31,4 @@ TIME=4
 # Some options below may not have been defined in this file.
 OPTIONS="-bg ${BG} -fg ${FG} -x ${XPOS} -y ${YPOS} -w ${WIDTH} -e ${ACT} -ta 'c'"
 
+# vim:  ft=sh

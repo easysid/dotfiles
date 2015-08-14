@@ -7,7 +7,7 @@
 NORMIFS=$IFS
 FIELDIFS=':'
 
-source $(dirname $0)/panel_config
+source $(dirname $0)/theme_config
 
 while read -r line ; do
     case $line in

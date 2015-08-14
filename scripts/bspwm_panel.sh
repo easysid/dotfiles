@@ -1,6 +1,6 @@
 #! /bin/sh
 
-source $(dirname $0)/panel_config
+source $(dirname $0)/theme_config
 
 if [ $(pgrep -cx bspwm_panel.sh) -gt 1 ] ; then
     printf "%s\n" "The panel is already running." >&2
