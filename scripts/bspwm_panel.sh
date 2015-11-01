@@ -28,6 +28,7 @@ bspwm_panel_bar.sh < "$PANEL_FIFO" \
            -f "$ICON" -f "$FONT1"\
            -B "$BAR_BG" \
            -F "$BAR_FG" \
+           -a 20 \
            | while read line; do eval "$line"; done &
 wait
 
