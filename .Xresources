@@ -2,7 +2,7 @@
 ! color settings
 !----------------------------------------------------
 
-#include "/home/siddharth/.config/termcolors/hybrid_vim"
+#include "/home/siddharth/.config/termcolors/yosemite"
 
 !---------------------------------------------------
 ! urxvt config settings
@@ -13,11 +13,11 @@ URxvt*geometry:         80x21
 ! URxvt*font:              xft:dejavu sans mono for powerline:size=8:antialias=false:hinting=false:autohint=false
 ! URxvt*boldFont:          xft:dejavu sans mono for powerline:bold:size=8:antialias=false:hinting=false:autohint=false
 
-URxvt*font:              xft:Ubuntu Mono derivative Powerline:regular:size=9.5:antialias=false:hinting=false:autohint=false
-URxvt*boldFont:          xft:Ubuntu Mono derivative Powerline:bold:size=9.5:antialias=false:hinting=false:autohint=false
+URxvt*font:              xft:Fira Mono for Powerline:regular:pixelsize=11:antialias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:Fira Mono for Powerline:bold:pixelsize=11:antialias=false:hinting=false:autohint=false
 
-! URxvt*font:              -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
-! URxvt*boldFont:          -xos4-terminesspowerline-bold-r-normal--12-120-72-72-c-60-iso10646-1
+! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 
 URxvt*letterSpace: -1
 URxvt.savelines:        500
@@ -31,6 +31,10 @@ URxvt*scrollWithBuffer: true
 
 ! scroll back to the bottom on keypress
 URxvt*scrollTtyKeypress: true
+
+! scroll a single line
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
 
 ! clipboard management
 URxvt.perl-ext-common:  default,clipboard

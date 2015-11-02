@@ -281,7 +281,7 @@ song_library_format = {%n - }%t
 #
 
 # this is playlist format
-song_columns_list_format = (20)[yellow]{a} (40)[white]{t|f:Title} (30)[green]{b} (7f)[white]{l}
+song_columns_list_format = (20)[red]{a} (40)[white]{t|f:Title} (30)[green]{b} (7f)[white]{l}
 #
 ##### various settings #####
 #

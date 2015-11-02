@@ -15,13 +15,16 @@ function mouselocation(){
     x_offset=$((WIDTH/2))
     R_edge=$((X+x_offset))
     XPOS=$((X-x_offset))
+    if [[ $XPOS -lt 0 ]]; then
+        XPOS=$X
+    fi
     if [[ $R_edge -gt $screen_width ]]; then
         XPOS=$((X-WIDTH))
     fi
 }
 
 PAD="  "
-YPOS=27
+YPOS=37
 TIME=4
 
 # Options specific to individual popups. Do not override.

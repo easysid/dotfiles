@@ -7,14 +7,14 @@
 ##         Colors       ##
 ##########################
 
-FG="#bdb99c"
-BG="#1d1f21"
-color1="#b5895b"        # popup titles
-color2="#977b60"        # popup labels
-red="#a54242"           # gdbar warn
-green="#808860"         # gdbar normal
-dark_grey="#404040"     # gdbar bg
-light_grey="#808080"
+FG="#333333"
+BG="#ECECEC"
+color1="#9E3C7C"        # popup titles
+color2="#11458A"        # popup labels
+red="#9E3C7C"           # gdbar warn
+green="#2373B2"         # gdbar normal
+dark_grey="#AFAFAF"     # gdbar bg
+light_grey="#8182B9"
 
 
 ##########################
@@ -26,58 +26,63 @@ FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
 bar_bg="${dark_grey}"     # for gdbar
 bar_fg="${green}"
 bar_warn="${red}"
-label="${color1}"         # popup headings
-highlight="${color2}"
+label="${color2}"         # popup headings
+highlight="${color1}"
 
 
 ##########################
 ##  bspwm panel config  ##
 ##########################
 
-geometry="1346x22+10"
+geometry="1316x24+25+8"
 ICON="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT1="-spectrum-berry-medium-r-normal-sans-11-80-75-75-m-50-iso10646-1"
+FONT1="-ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1"
 
 PAD="  "
 RPAD="    "
+
+# Desktop symbols
+DFO=$(echo -e '\ue1c2')
+DO=$(echo -e '\ue1bc')
+DF=$(echo -e '\ue191')
 
 # color definitions
 BAR_BG="#FF${BG:1}"
 BAR_FG="#FF${FG:1}"
 
 F_O_FG="#FF${color1:1}"
-F_O_BG="#FF${dark_grey:1}"
+F_O_BG=${BAR_BG}
 F_F_FG="#FF${green:1}"
 F_F_BG=${BAR_BG}
 F_U_FG="#FF${red:1}"
 F_U_BG=${BAR_BG}
-O_FG="#FF${color2:1}"
+O_FG="#FF${color1:1}"
 O_BG=${BAR_BG}
-F_FG="#FF${dark_grey:1}"
+F_FG="#FF${light_grey:1}"
 F_BG=${BAR_BG}
 U_FG="#FF${red:1}"
 U_BG="#FF${light_grey:1}"
 #CLOCK_FG="${BAR_FG}"
 #CLOCK_BG="${BAR_BG}"
-LAYOUT_FG="#FF${light_grey:1}"
-LAYOUT_BG=${BAR_BG}
+# LAYOUT_FG="#FF${light_grey:1}"
+# LAYOUT_BG=${BAR_BG}
 #STATUS_FG="${BAR_FG}"
 #STATUS_BG=${BAR_BG}
-TITLE_FG="#FF${light_grey:1}"
-TITLE_BG=${BAR_BG}
+# TITLE_FG="#FF${light_grey:1}"
+# TITLE_BG=${BAR_BG}
 
 
 ##########################
 ##    bspwm borders     ##
 ##########################
 
-focused_border_color=${FG}
-normal_border_color=${light_grey}
-active_border_color=${light_grey}
-focused_locked_border_color=${light_grey}
-normal_locked_border_color=${light_grey}
-active_locked_border_color=${light_grey}
+focused_border_color=${color2}
+normal_border_color=${BG}
+active_border_color=${BG}
+focused_locked_border_color=${BG}
+normal_locked_border_color=${BG}
+active_locked_border_color=${BG}
 urgent_border_color=${green}
-presel_border_color=${red}
+presel_border_color="#D11E26"
 
 # vim:  ft=sh
