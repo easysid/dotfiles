@@ -108,6 +108,8 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd FileType cpp setlocal commentstring=//\ %s
     " set conkyrc FileType
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
+    " conky comments (from smancill/conky-syntax.vim)
+    autocmd filetype conkyrc syn region ConkyrcText start=/^TEXT$/ end=/\%$/ contains=ConkyrcVar,ConkyrcComment
 augroup END
 "}}}
 
@@ -160,9 +162,13 @@ nnoremap <Leader><Space> :noh<CR>
 
 " Substitution shortcut
 nnoremap <Leader>s  :%s
+vnoremap <Leader>s  :s
 
 " save file as root
 cnoremap w!! w !sudo tee % > /dev/null
+
+" edit split in new tab
+nnoremap <C-t>  :tab split <CR>
 
 " Toggle numbering
 nnoremap <F1>    :set relativenumber!<CR>
@@ -193,7 +199,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline_symbols.paste = ''
 " let g:airline_symbols.whitespace = ''
 
-let g:airline_theme = 'hybridline'
+" let g:airline_theme = 'hybridline'
 " }}}
 
 " ctrl-p  {{{
@@ -233,10 +239,13 @@ if has('gui_running')
     set guifont=ubuntu\ mono\ derivative\ powerline\ 9.5" set font
     set guioptions = " remove everything gui
     set guiheadroom=0
+    colorscheme hybrid
     " set background=light
+else
+    colorscheme shblah_light
+    let g:airline_theme = 'sol'
+
 endif
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

@@ -6,15 +6,16 @@
 
 :root {
     /* tabs */
-    --theme-bg: rgba(56,58,59,1);
-    --tabs-bg-selected: rgba(100,100,100,1);
-    --tabs-fg-selected: rgba(255,255,255,.8);
-    --tabs-bg-hover: rgba(88,88,88,.9);
+    --theme-bg: rgba(29,31,33,1);
+    --theme-fg: rgba(150,150,150,1);
+    --tabs-bg-selected: var(--theme-bg);
+    --tabs-fg-selected: rgba(210,210,210,1);
+    --tabs-bg-hover: rgba(72,75,77,1);
     --tabs-font: ubuntu mono;
     --tabs-font-size: 12px;
     /* urlbar */
     --url-bg: rgba(100,100,100,1);
-    --url-fg: rgba(255,255,255,.8);
+    --url-fg: rgba(200,200,200,1);
     --url-bg-hover: rgba(0,0,0,.3);
     --url-font: ubuntu mono;
     --url-font-size: 13px;
@@ -77,6 +78,7 @@ toolbarbutton {
 #urlbar {
     border: none !important;
     background: none !important;
+    color: var(--theme-fg) !important;
     font-family: var(--url-font) !important;
     font-size: var(--url-font-size)  !important;
     height: 20px !important;
@@ -131,7 +133,7 @@ toolbarbutton {
 /* *** Square Tabs *** */
 
 #TabsToolbar {
-    background: transparent !important;
+    background-color: var(--theme-bg) !important;
     margin-bottom: 0 !important;
     font-family: var(--tabs-font) !important;
     font-size: var(--tabs-font-size) !important;
@@ -146,6 +148,8 @@ toolbarbutton {
     max-height: 22px !important;
     min-height: 0px !important;
     margin-top: 0px !important;
+    background-color: var(--theme-bg) !important;
+
 }
 
 #TabsToolbar .tabbrowser-tab {
@@ -155,7 +159,9 @@ toolbarbutton {
     -moz-border-bottom-colors: none !important;
     border-style: none !important;
     padding: 4px 0px !important;
-    background: none !important;
+    /*    background: none !important;*/
+    background-color: var(--theme-bg) !important;
+    color: var(--theme-fg) !important;
     background-clip: padding-box !important;
     transition: all .1s !important;
     margin-left: 1px !important;
@@ -201,8 +207,9 @@ toolbarbutton {
 #PersonalToolbar,
 #nav-bar {
     background: none !important;
+    background-color: var(--theme-bg) !important;
     box-shadow: none !important;
     background-clip: padding-box !important;
-    border-radius: 0 !important;
+    border-radius: 0 !important
 }
 
