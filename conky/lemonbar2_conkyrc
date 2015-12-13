@@ -89,7 +89,7 @@ ${else} %{F\#ff606060 A:toggleinfo.sh:} + %{A}\
 #
 ${if_existing /proc/net/route wlan0}\
 %{F\#ff505050 A:dzen_popup_toggle.sh netinfo:} \
-${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#ffa0a0a0}"}\
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#ffafafaf}"}\
 ${if_match ${wireless_link_qual_perc wlan0} < 40}${else}\
 ${if_match ${wireless_link_qual_perc wlan0} <= 60}${else}\
 ${endif}${endif} %{F-}%{A}${endif}\

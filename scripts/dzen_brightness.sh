@@ -11,7 +11,7 @@ SECS="1"            # sleep $SECS
 XPOS="1000"          # horizontal positioning
 HEIGHT="30"         # window height
 WIDTH="220"         # window width
-ICON='^i(/home/siddharth/.icons/dzen/brightness.xbm)'
+icon='^i(/home/siddharth/.icons/dzen/brightness.xbm)'
 
 source $(dirname $0)/dzen_popup_config
 
@@ -70,5 +70,5 @@ fi
 BAR=$(echo "$PERC" | gdbar -fg "$bar_fg" -bg "$bar_bg" -w "$bar_w" -h "$bar_h")
 
 #Feed the pipe!
-(echo "$ICON  $BAR  $CURR"; sleep "$SECS"  ) > "$PIPE"
+(echo "$icon  $BAR  $CURR"; sleep "$SECS"  ) > "$PIPE"
 

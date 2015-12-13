@@ -9,7 +9,7 @@ SECS="1"            # sleep $SECS
 XPOS="1000"         # horizontal positioning
 HEIGHT="30"         # window height
 WIDTH="230"         # window width
-ICON='^i(/home/siddharth/.icons/dzen/volume50.xbm)'
+icon='^i(/home/siddharth/.icons/dzen/volume50.xbm)'
 MUTEICON='^i(/home/siddharth/.icons/dzen/volume0.xbm)'
 
 source $(dirname $0)/dzen_popup_config
@@ -61,7 +61,7 @@ AMIXOUT="$(amixer -M set "$IF" "$AMIXARG" | tail -n 1)"
 MUTE="$(cut -d '[' -f 4 <<<"$AMIXOUT")"
 if [[ $MUTE = "off]" ]]; then
     VOL="0"
-    ICON="^fg($bar_warn)$MUTEICON"
+    icon="^fg($bar_warn)$MUTEICON"
 else
     VOL="$(cut -d '[' -f 2 <<<"$AMIXOUT" | sed 's/%.*//g')"
 fi
@@ -77,5 +77,5 @@ fi
 BAR=$(echo "$VOL" | gdbar -fg "$bar_fg" -bg "$bar_bg" -w "$bar_w" -h "$bar_h")
 
 #Feed the pipe!
-(echo "$ICON  $BAR  $VOL%"; sleep "$SECS") > "$PIPE"
+(echo "$icon  $BAR  $VOL%"; sleep "$SECS") > "$PIPE"
 
