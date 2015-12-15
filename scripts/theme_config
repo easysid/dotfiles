@@ -1,7 +1,6 @@
 # theme_config
-# define the various colors used in lemonbar, dzen opups, and bspwm
+# define the various colors used in lemonbar, dzen popups, and bspwm
 #
-
 
 ##########################
 ##         Colors       ##
@@ -9,13 +8,12 @@
 
 FG="#333333"
 BG="#ECECEC"
-color1="#9E3C7C"        # popup titles
-color2="#11458A"        # popup labels
-red="#9E3C7C"           # gdbar warn
-green="#2373B2"         # gdbar normal
-dark_grey="#AFAFAF"     # gdbar bg
-light_grey="#8182B9"
-
+color1="#9E3C7C"
+color2="#11458A"
+red="#9E3C7C"
+green="#2373B2"
+grey1="#AFAFAF"
+grey2="#8182B9"
 
 ##########################
 ##      dzen popups     ##
@@ -23,12 +21,11 @@ light_grey="#8182B9"
 
 FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
 
-bar_bg="${dark_grey}"     # for gdbar
+bar_bg="${grey1}"         # for gdbar
 bar_fg="${green}"
 bar_warn="${red}"
-label="${color2}"         # popup headings
+titlecol="${color2}"      # popup titles
 highlight="${color1}"
-
 
 ##########################
 ##  bspwm panel config  ##
@@ -58,19 +55,18 @@ F_U_FG="#FF${red:1}"
 F_U_BG=${BAR_BG}
 O_FG="#FF${color1:1}"
 O_BG=${BAR_BG}
-F_FG="#FF${light_grey:1}"
+F_FG="#FF${grey2:1}"
 F_BG=${BAR_BG}
 U_FG="#FF${red:1}"
-U_BG="#FF${light_grey:1}"
+U_BG="#FF${grey2:1}"
 #CLOCK_FG="${BAR_FG}"
 #CLOCK_BG="${BAR_BG}"
-# LAYOUT_FG="#FF${light_grey:1}"
+# LAYOUT_FG="#FF${grey2:1}"
 # LAYOUT_BG=${BAR_BG}
 #STATUS_FG="${BAR_FG}"
 #STATUS_BG=${BAR_BG}
-# TITLE_FG="#FF${light_grey:1}"
+# TITLE_FG="#FF${grey2:1}"
 # TITLE_BG=${BAR_BG}
-
 
 ##########################
 ##    bspwm borders     ##

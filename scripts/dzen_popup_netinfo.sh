@@ -7,7 +7,7 @@ WIDTH=240
 source $(dirname $0)/dzen_popup_config
 
 (
-echo "^fg($label)Netinfo^fg()"
+echo "^fg($titlecol)Netinfo^fg()"
 QUAL=$(iwconfig wlan0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p' | bc)
 BAR=$(echo $QUAL | gdbar -bg $bar_bg -fg $bar_fg -h $bar_h -w $bar_w)
 MONTH=$(vnstat --short | grep $(date +%b) |\

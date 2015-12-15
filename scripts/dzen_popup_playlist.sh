@@ -11,7 +11,7 @@ WIDTH=280
 
 source $(dirname $0)/dzen_popup_config
 (
-echo "^fg($label)Playlist^fg()"
+echo "^fg($titlecol)Playlist^fg()"
 mpc playlist -f "$format" | grep -$lines "$pattern" | while read -r position song; do
     if [[ $position -eq $pattern ]]; then
         echo "^fg($highlight)$PAD^ca(1, mpc play $position)$song^ca()$PAD"

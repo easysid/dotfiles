@@ -42,12 +42,12 @@ fi
 # generate calender
 if [[ $MM -eq $MONTH ]] && [[ $YY -eq $YEAR ]]; then  # current month, highlight header and date
     CAL=$(cal | \
-          sed -re "1 s/^(.*[A-Za-z]+.*)$/^fg($label)\1^fg()/;\
+          sed -re "1 s/^(.*[A-Za-z]+.*)$/^fg($titlecol)\1^fg()/;\
                    2 s/^(.*[A-Za-z]+.*)$/^fg($highlight)\1^fg()/;\
                      s/(^|[ ])($TODAY)($|[ ])/\1^bg($FG)^fg($BG)\2^fg()^bg()\3/")
 else  # another month, just highlight header
     CAL=$(cal "$MM" "$YY" | \
-          sed -re "1 s/^(.*[A-Za-z]+.*)$/^fg($label)\1^fg()/;\
+          sed -re "1 s/^(.*[A-Za-z]+.*)$/^fg($titlecol)\1^fg()/;\
                    2 s/^(.*[A-Za-z]+.*)$/^fg($highlight)\1^fg()/;")
 fi
 

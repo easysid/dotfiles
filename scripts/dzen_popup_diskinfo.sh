@@ -7,7 +7,7 @@ WIDTH=350
 source $(dirname $0)/dzen_popup_config
 
 (
-echo "^fg($label)Diskinfo^fg()"
+echo "^fg($titlecol)Diskinfo^fg()"
 echo " "
 df -h | grep -E 'sda[567]' | while read -r F TOTAL USED AVAIL P M; do
     MOUNT=${M/\/*\//\/}
