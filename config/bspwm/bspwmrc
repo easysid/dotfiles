@@ -46,5 +46,5 @@ nitrogen --restore
 mpd &
 numlockx &
 xsetroot -cursor_name left_ptr
-bspwm_panel.sh &
+panel.sh &
 

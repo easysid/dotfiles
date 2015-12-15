@@ -1,0 +1,1 @@
+/home/siddharth/.config/themes/yosemite/lemonbar_panel.sh
