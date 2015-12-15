@@ -1,0 +1,114 @@
+#
+# toggle conky for lemonbar - final version (hopefully !!)
+# Sunday, 02 August 2015 11:48 IST
+#
+
+#
+######      Information   ######
+# Uses external files to store the toggle state and share it between conky and lemonbar
+# Ensure that the relevant files are present (in /tmp), before running this conky
+#
+# Uses siji font for icons https://github.com/gstk/siji
+#
+
+
+# conky settings
+background no
+update_interval 1
+cpu_avg_samples 1
+total_run_times 0
+override_utf8_locale yes
+short_units yes
+pad_percents 2
+uppercase no
+out_to_console yes
+out_to_x no
+#
+
+TEXT
+S\
+#
+# music info
+#
+%{l F\#FF505050}   \
+${if_match "${mpd_status}" == "Playing"}\
+%{A:mpc -q prev:}%{A}  %{A:mpc -q pause:}%{A}  %{A:mpc -q next:}%{A} \
+${else}\
+%{A:mpc -q prev:}%{A}  %{A:mpc -q play:}%{A}  %{A:mpc -q next:}%{A} \
+${endif} \
+%{A:dzen_popup_toggle.sh playlist:}\
+${if_match "${mpd_status}" == "Stopped"}%{F\#FFa0a0a0}<Stopped>${else} \
+${mpd_title 35}${endif}%{A}   \
+#
+######
+# System Info - Expanded part
+######
+#
+# Hide info sign
+#
+%{r}${if_existing /tmp/bartoggle 1}%{F\#ff606060 A:toggleinfo.sh:} - %{A}\
+#
+# Cpu and RAM
+#
+%{F\#FF8a8e78 A:dzen_popup_toggle.sh sysinfo:} %{F-} ${cpu cpu0}%%{A} \
+%{F\#FF8a8e78 A:dzen_popup_toggle.sh diskinfo:} %{F-} ${mem} %{A}\
+#
+# Temperatures
+#
+%{F\#ff606060}|%{F\#ffcc6666} %{F-} ${hwmon 1 temp 2}°\
+%{F\#ffcc6666} %{F-} ${hwmon 2 temp 1}° %{F\#ff606060}| %{F-}\
+${if_existing /proc/net/route wlan0}\
+#
+# Wireless
+#
+%{F\#FF505050 A:dzen_popup_toggle.sh netinfo:}\
+${if_match ${wireless_link_qual_perc wlan0} < 40}${else}\
+${if_match ${wireless_link_qual_perc wlan0} <= 60}${else}\
+${endif}${endif} %{F-}\
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#ff606060}*"}\
+${wireless_essid wlan0} %{A}${else}\
+%{F\#ff606060} %{F-}${endif}\
+#
+# Power
+#
+%{F\#ff606060}|${if_match "${acpiacadapter}" == "on-line"}\
+%{F\#ff505050} %{F-} ${battery_percent}% ${else}\
+${if_match ${battery_percent BAT0} <= 30}\
+%{F\#FFFF8700} %{F-} ${else}\
+%{F\#FFbb4455} %{F-} ${endif}${battery_percent}% ${endif}\
+%{F\#ff606060}| \
+######
+# The Condensed part
+######
+#
+# Expand sign
+#
+${else} %{F\#ff606060 A:toggleinfo.sh:} + %{A}\
+#
+# Wireless
+#
+${if_existing /proc/net/route wlan0}\
+%{F\#ff505050 A:dzen_popup_toggle.sh netinfo:} \
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#ffafafaf}"}\
+${if_match ${wireless_link_qual_perc wlan0} < 40}${else}\
+${if_match ${wireless_link_qual_perc wlan0} <= 60}${else}\
+${endif}${endif} %{F-}%{A}${endif}\
+#
+# Power
+#
+${if_match "${acpiacadapter}" == "on-line"}\
+%{F\#ff505050} %{F-} ${if_match ${battery_percent} >= 93}${else}\
+${battery_percent}% ${endif}${else}\
+${if_match ${battery_percent BAT0} <= 30}\
+%{F\#FFFF8700} %{F-} ${else}\
+%{F\#FF9e3c7c} %{F-} ${endif}${battery_percent}% ${endif}\
+${endif}\
+#
+######
+# Following is always displayed
+######
+#
+# Datetime
+#
+%{F\#ff505050 A:dzen_popup_toggle.sh calendar:} ${time %a, %d %b}%{F-} ${time %H:%M} %{A} %{B-}\
+
