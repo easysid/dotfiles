@@ -9,7 +9,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " other plugins
-Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
@@ -32,7 +31,6 @@ set clipboard=unnamedplus          " normal clipboard
 set colorcolumn=80
 set cursorline                     " highlight current line
 set hidden
-set laststatus=2                   " Always display status bar
 set mouse=a
 set nobackup                       " no swap and backup files
 set noswapfile
@@ -74,15 +72,40 @@ set smartcase
 set showmatch
 " }}}
 
+" statusline {{{
+set laststatus=2
+set statusline=\ [%n]\ %f\ %m%r%h\ %y\ [%{&ff}]    " buffer file flags type format
+set statusline+=\ %#error#%{TrailingSpaceWarning()}%*    " trailing spaces
+set statusline+=%=    " goto right hand side
+set statusline+=%l/%L,\ %-4c    " line/total lines , column
+" }}}
 
 " custom functions and commands {{{
 
-" Removes trailing spaces
-function! TrimWhiteSpace()
+" Removes trailing spaces (vimcasts)
+function! <SID>TrimWhiteSpace()
+    " Save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
     %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
 endfunction
 
-command! StripSpace :call TrimWhiteSpace()
+" Check trailing spaces for statusline
+function! TrailingSpaceWarning()
+    if !exists("b:trailing_space_warning")
+        if search('\s\+$', 'nw') != 0
+            let b:trailing_space_warning = '[trailing]'
+        else
+            let b:trailing_space_warning = ''
+        endif
+    endif
+    return b:trailing_space_warning
+endfunction
 "}}}
 
 
@@ -96,6 +119,8 @@ augroup vimrc   " vimrc autocommands {{{
     autocmd InsertEnter * :set norelativenumber
     " relative numbers in normal mode
     autocmd InsertLeave * :set relativenumber
+    " recheck trailing spaces when saving files
+    autocmd bufwritepost * unlet! b:trailing_space_warning
 augroup END
 " }}}
 
@@ -175,6 +200,10 @@ nnoremap <F1>    :set relativenumber!<CR>
 
 " Insert timestamp
 nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
+
+" Strip trailing space
+nnoremap <F6> :call <SID>TrimWhiteSpace()<CR>
+
 " }}}
 
 " package specific keymaps {{{
@@ -185,22 +214,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 " package specific options
-
-" airline  {{{
-let g:airline_powerline_fonts = 1
-" if !exists('g:airline_symbols')
-" let g:airline_symbols = {}
-" endif
-" " unicode symbols
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_symbols.linenr = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.paste = ''
-" let g:airline_symbols.whitespace = ''
-
-" let g:airline_theme = 'hybridline'
-" }}}
 
 " ctrl-p  {{{
 let g:ctrlp_working_path_mode = 'c'
@@ -243,8 +256,6 @@ if has('gui_running')
     " set background=light
 else
     colorscheme shblah_light
-    let g:airline_theme = 'sol'
-
 endif
 " }}}
 
