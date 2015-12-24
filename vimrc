@@ -28,8 +28,6 @@ set autochdir                      " cd to current file
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamedplus          " normal clipboard
-set colorcolumn=80
-set cursorline                     " highlight current line
 set hidden
 set mouse=a
 set nobackup                       " no swap and backup files
@@ -76,8 +74,7 @@ set showmatch
 set laststatus=2
 set statusline=\ [%n]\ %f\ %m%r%h\ %y\ [%{&ff}]    " buffer file flags type format
 set statusline+=\ %#error#%{TrailingSpaceWarning()}%*    " trailing spaces
-set statusline+=%=    " goto right hand side
-set statusline+=%l/%L,\ %-4c    " line/total lines , column
+set statusline+=%=%l/%L,\ %-4v    " right hand side - line/total lines , column
 " }}}
 
 " custom functions and commands {{{
@@ -126,8 +123,8 @@ augroup END
 
 augroup filetypes   " FileType specific autocommands {{{
     autocmd!
-    " text files - enable wrapping and remove colorcolumn
-    autocmd FileType text setlocal wrap linebreak nolist colorcolumn=
+    " text files - enable wrapping
+    autocmd FileType text setlocal wrap linebreak nolist
     " vim commentary
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
@@ -135,6 +132,8 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
     " conky comments (from smancill/conky-syntax.vim)
     autocmd filetype conkyrc syn region ConkyrcText start=/^TEXT$/ end=/\%$/ contains=ConkyrcVar,ConkyrcComment
+    " highlight long lines
+    autocmd WinEnter,BufEnter,FileType c,cpp,python,sh call matchadd('Error', '\%>80v.\+', -1)
 augroup END
 "}}}
 
@@ -249,8 +248,8 @@ let g:syntastic_python_flake8_args='--ignore=W391'
 
 " colorscheme and gui {{{
 if has('gui_running')
-    set guifont=ubuntu\ mono\ derivative\ powerline\ 9.5" set font
-    set guioptions = " remove everything gui
+    set guifont=monospace\ 9 " set font
+    set guioptions= " remove everything gui
     set guiheadroom=0
     colorscheme hybrid
     " set background=light
