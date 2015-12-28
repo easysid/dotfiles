@@ -1,8 +1,10 @@
 #! /bin/sh
 
+source ~/.scripts/theme_config
+
 # config options
 bspc config border_width            2
-bspc config top_padding             32
+bspc config top_padding             $(echo $geometry | sed 's/.*x//;s/+.*+/+/' | bc)
 bspc config window_gap              15
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
@@ -28,9 +30,6 @@ bspc rule -a nitrogen floating=on center=true
 bspc rule -a file-roller floating=on center=true
 
 # colors
-# source the theme colors
-source ~/.scripts/theme_config
-# use the defined colors
 bspc config focused_border_color ${focused_border_color}
 bspc config normal_border_color ${normal_border_color}
 bspc config active_border_color ${active_border_color}
