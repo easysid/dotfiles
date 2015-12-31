@@ -7,16 +7,13 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
-
 " other plugins
 Plugin 'davidhalter/jedi-vim'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
-
 call vundle#end()                  " required
 filetype plugin indent on
 " }}}
@@ -176,6 +173,9 @@ nnoremap <C-s> :update<CR>
 
 " Y consistent with D and C
 nnoremap Y y$
+
+" goto end of line
+nnoremap - $
 
 " search and center
 nnoremap n nzz
