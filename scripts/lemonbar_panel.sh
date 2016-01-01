@@ -1,1 +1,1 @@
-/home/siddharth/.config/themes/yosemite/lemonbar_panel.sh
+/home/siddharth/.config/themes/base16-mod/lemonbar_panel.sh

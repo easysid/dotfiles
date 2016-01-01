@@ -248,14 +248,15 @@ let g:syntastic_python_flake8_args='--ignore=W391'
 
 " colorscheme and gui {{{
 if has('gui_running')
-    set guifont=monospace\ 9 " set font
+    set guifont=monospace\ 8 " set font
     set guioptions= " remove everything gui
     set guiheadroom=0
-    colorscheme hybrid
-    " set background=light
-else
-    colorscheme shblah_light
+    " colorscheme hybrid
+" else
+"     colorscheme shblah_light
 endif
+set background=dark
+colorscheme base16-mod
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

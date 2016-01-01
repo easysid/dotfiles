@@ -15,7 +15,7 @@ bspc config auto_cancel             true
 
 # desktops
 # bspc monitor -d main web term misc foo
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d bhūmī vāyū agnī jal vyom
 
 bspc desktop ^2 -l monocle
 
@@ -40,7 +40,7 @@ bspc config urgent_border_color ${urgent_border_color}
 bspc config presel_border_color ${presel_border_color}
 
 # Autostart apps
-compton &
+compton --shadow-exclude '!focused' &
 nitrogen --restore
 mpd &
 numlockx &

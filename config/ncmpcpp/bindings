@@ -177,12 +177,6 @@ def_key "end"
 def_key "insert"
   select_item
 
-# def_key "space"
-#   press_space
-
-def_key "enter"
-  press_enter
-
 def_key "delete"
   delete_playlist_items
 
@@ -492,12 +486,9 @@ def_key "`"
 def_key "`"
   refetch_lyrics
 
-# def_key "`"
-  add_random_items
-
 def_key "ctrl-p"
   set_selected_items_priority
 
 def_key "q"
   quit
-#
+

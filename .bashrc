@@ -21,8 +21,8 @@ alias ...='cd ../..'
 # PS1 with error, and git info
 __set_ps1 (){
     local err="\[\033[1;31m\]" # error -- red
-    local nor="\[\033[0;37m\]" # normal -- white
-    local por="\[\033[1;34m\]" # prompt char
+    local nor="\[\033[1;30m\]" # normal -- white
+    local por="\[\033[1;30m\]" # prompt char
     local dirty="\[\033[0;34m\]" # dirty git
     local rst="\[\033[0m\]"    # Text Reset
     # random color
@@ -41,7 +41,7 @@ __set_ps1 (){
     fi
     #
     # generate prompt
-    PS1="\n \$([[ \$? != 0 ]] && echo \"$err\" || echo \"$nor\")\W ${gitinfo}${por}λ $rst"
+    PS1="\n \$([[ \$? != 0 ]] && echo \"$err\" || echo \"$nor\")\W ${gitinfo}${por}$ $rst"
 }
 # set PS1
 PROMPT_COMMAND="__set_ps1"

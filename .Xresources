@@ -2,7 +2,7 @@
 ! color settings
 !----------------------------------------------------
 
-#include "/home/siddharth/.config/termcolors/yosemite"
+#include "/home/siddharth/.config/themes/base16-mod/termcolors"
 
 !---------------------------------------------------
 ! urxvt config settings
@@ -10,16 +10,16 @@
 
 URxvt*geometry:         80x21
 
-! URxvt*font:              xft:dejavu sans mono for powerline:size=8:antialias=false:hinting=false:autohint=false
-! URxvt*boldFont:          xft:dejavu sans mono for powerline:bold:size=8:antialias=false:hinting=false:autohint=false
+! URxvt*font:              xft:monospace:size=8:antialias=false:hinting=false:autohint=false
+! URxvt*boldFont:          xft:monospace:bold:size=8:antialias=false:hinting=false:autohint=false
 
-URxvt*font:              xft:Fira Mono for Powerline:regular:pixelsize=11:antialias=false:hinting=false:autohint=false
-URxvt*boldFont:          xft:Fira Mono for Powerline:bold:pixelsize=11:antialias=false:hinting=false:autohint=false
+! URxvt*font:              xft:monaco:regular:pixelsize=10:antialias=false:hinting=false:autohint=false
+! URxvt*boldFont:          xft:monaco:bold:pixelsize=10:antialias=false:hinting=false:autohint=false
 
-! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
-! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 
-URxvt*letterSpace: -1
+! URxvt*letterSpace: -1
 URxvt.savelines:        500
 URxvt*scrollBar:        false
 

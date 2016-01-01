@@ -1,1 +1,1 @@
-/home/siddharth/.config/themes/yosemite/panel.sh
+/home/siddharth/.config/themes/base16-mod/panel.sh

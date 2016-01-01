@@ -93,7 +93,7 @@ visualizer_sync_interval = 30
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = wave
+visualizer_type = spectrum
 #
 #visualizer_look = ●▮
 #
@@ -125,7 +125,7 @@ visualizer_type = wave
 ## Time of inactivity (in seconds) after playlist
 ## highlighting will be disabled (0 = always on).
 ##
-playlist_disable_highlight_delay = 1
+playlist_disable_highlight_delay = 3
 #
 ## Defines how long messages are supposed to be visible.
 ##
@@ -281,7 +281,7 @@ song_library_format = {%n - }%t
 #
 
 # this is playlist format
-song_columns_list_format = (20)[red]{a} (40)[white]{t|f:Title} (30)[green]{b} (7f)[white]{l}
+song_columns_list_format = (20)[red]{a} (40)[white]{t|f:Title} (30)[blue]{b} (7f)[white]{l}
 #
 ##### various settings #####
 #
@@ -518,7 +518,7 @@ main_window_color = yellow
 #
 color1 = white
 #
-color2 = black
+color2 = white
 #
 main_window_highlight_color = green
 #
