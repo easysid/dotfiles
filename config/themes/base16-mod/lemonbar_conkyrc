@@ -74,11 +74,11 @@ ${else} %{F\#ff909090 A:toggleinfo.sh:} « %{A}\
 # Wireless
 #
 ${if_existing /proc/net/route wlan0}\
-%{F- A:dzen_popup_toggle.sh netinfo:} \
+%{F- A:dzen_popup_toggle.sh netinfo:}\
 ${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF808080}"}\
-${if_match ${wireless_link_qual_perc wlan0} < 40}${else}\
-${if_match ${wireless_link_qual_perc wlan0} <= 60}${else}\
-${endif}${endif} %{F-}%{A}${endif}\
+${if_match ${wireless_link_qual_perc wlan0} < 40} ${else}\
+${if_match ${wireless_link_qual_perc wlan0} < 60} ${else}\
+ ${endif}${endif} %{F-}%{A}${endif}\
 #
 # Power
 #

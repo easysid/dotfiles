@@ -15,7 +15,7 @@ bspc config auto_cancel             true
 
 # desktops
 # bspc monitor -d main web term misc foo
-bspc monitor -d bhūmī vāyū agnī jal vyom
+bspc monitor -d bhumi vayu agni jal vyom
 
 bspc desktop ^2 -l monocle
 

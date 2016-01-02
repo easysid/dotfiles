@@ -125,6 +125,7 @@ augroup filetypes   " FileType specific autocommands {{{
     " vim commentary
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
+    autocmd FileType conkyrc setlocal commentstring=#\ %s
     " set conkyrc FileType
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
     " conky comments (from smancill/conky-syntax.vim)

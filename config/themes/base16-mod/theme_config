@@ -7,7 +7,7 @@
 ##########################
 
 FG="#bebebe"
-BG="#303030"
+BG="#2a2a2a"
 ylw="#dc9656"
 blue="#7cafc2"
 red="#AB4642"
@@ -34,7 +34,7 @@ highlight="${ylw}"
 
 geometry="1166x22+100+5"
 ICON_FONT="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT1="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
+FONT1="-ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1"
 
 PAD="  "
 RPAD="    "
