@@ -1,32 +1,29 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
-/* these settings used to be in userchrome.css */
+/* These settings used to be in userchrome.css */
 
-/* Define colors */
+/* Define colors, and fonts */
 
 :root {
     /* tabs */
-    --theme-bg: rgba(29,31,33,1);
-    --theme-fg: rgba(150,150,150,1);
+    --theme-bg: #1d1d1d;
+    --theme-fg: #808080;
     --tabs-bg-selected: var(--theme-bg);
-    --tabs-fg-selected: rgba(210,210,210,1);
-    --tabs-bg-hover: rgba(72,75,77,1);
+    --tabs-fg-selected: #ab4642;
+    --tabs-bg-hover: #505050;
     --tabs-font: ubuntu mono;
     --tabs-font-size: 12px;
+
     /* urlbar */
-    --url-bg: rgba(100,100,100,1);
-    --url-fg: rgba(200,200,200,1);
-    --url-bg-hover: rgba(0,0,0,.3);
+    --url-bg: var(--theme-bg);
+    --url-fg: var(--theme-fg);
+    --url-bg-hover: #151515;
     --url-font: ubuntu mono;
     --url-font-size: 13px;
 }
 
-/* prevent the ugly white 'flash' while opening tabs */
-tabbrowser tabpanels {
-    background-color: var(--theme-bg) !important;
-}
 
-/* hide some stuff */
+/* hide various indicators, and buttons that we do not need */
 #private-browsing-indicator,
 #alltabs-button,
 .tabs-newtab-button,
@@ -41,7 +38,15 @@ tabbrowser tabpanels {
 
 /* remove the separator beside hamburger */
 #PanelUI-button {
-background-image: none !important;}
+    background-image: none !important;
+}
+
+/* hide scrollbars */
+#content browser {
+    margin-right: -14px !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 /*show tab close button on hover and focus only*/
 .tabbrowser-tab:not([selected]):not(:hover)
@@ -49,15 +54,8 @@ background-image: none !important;}
     opacity:0;
 }
 
-/* hide scrollbars */
-#content browser {
-    margin-right: -14px !important;
-    /*  margin-bottom: -14px !important;*/
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
 
-/*Frank Reduce Toolbar Height...*/
+/* Reduce Toolbar Height  - Frank @mozillazine*/
 toolbarbutton {
     padding-top: 0px !important;
     padding-bottom: 0px !important;
@@ -69,12 +67,9 @@ toolbarbutton {
     padding-bottom: 0px !important;
 }
 
-/* Remove the pesky black lines */
-#TabsToolbar:not([collapsed="true"]) + #nav-bar {
-    border-top: none !important;
-}
 
-/* urlbar changes */
+/**** URLbar ****/
+
 #urlbar {
     border: none !important;
     background: none !important;
@@ -89,7 +84,8 @@ toolbarbutton {
     border-color: transparent !important;
 }
 
-/* *** Back and forward buttons*** */
+
+/**** Back and forward buttons ****/
 
 /* always show forward button */
 #urlbar-wrapper > #forward-button {
@@ -130,7 +126,8 @@ toolbarbutton {
     0 0 2px hsla(210,54%,20%,.1) !important;
 }
 
-/* *** Square Tabs *** */
+
+/**** Square Tabs ****/
 
 #TabsToolbar {
     background-color: var(--theme-bg) !important;
@@ -159,7 +156,6 @@ toolbarbutton {
     -moz-border-bottom-colors: none !important;
     border-style: none !important;
     padding: 4px 0px !important;
-    /*    background: none !important;*/
     background-color: var(--theme-bg) !important;
     color: var(--theme-fg) !important;
     background-clip: padding-box !important;
@@ -179,7 +175,6 @@ toolbarbutton {
 #TabsToolbar .tabbrowser-tab[selected] {
     color: var(--tabs-fg-selected) !important;
     background: var(--tabs-bg-selected) !important;
-    /*   background-clip: padding-box !important;*/
 }
 
 #TabsToolbar .tabbrowser-tab:hover:not([selected]) {
@@ -211,5 +206,25 @@ toolbarbutton {
     box-shadow: none !important;
     background-clip: padding-box !important;
     border-radius: 0 !important
+}
+
+
+/**** Cleaning Up ****
+Some additional tweaking for a cleaner look */
+
+/* Remove the pesky black lines */
+#TabsToolbar:not([collapsed="true"]) + #nav-bar {
+    border-top: none !important;
+}
+
+/* remove shadow from tab scroller - Thanks to Tew @ #firefox irc */
+.tabbrowser-arrowscrollbox > .arrowscrollbox-overflow-start-indicator:not([collapsed]),
+.tabbrowser-arrowscrollbox > .arrowscrollbox-overflow-end-indicator:not([collapsed]) {
+    background-image:none !important;
+}
+
+/* prevent the ugly white 'flash' while opening tabs */
+tabbrowser tabpanels {
+    background-color: var(--theme-bg) !important;
 }
 
