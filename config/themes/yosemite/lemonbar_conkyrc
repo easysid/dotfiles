@@ -57,16 +57,16 @@ ${mpd_title 35}${endif}%{A}   \
 #
 %{F\#ff606060}|%{F\#ffcc6666} %{F-} ${hwmon 1 temp 2}°\
 %{F\#ffcc6666} %{F-} ${hwmon 2 temp 1}° %{F\#ff606060}| %{F-}\
-${if_existing /proc/net/route wlan0}\
+${if_existing /proc/net/route wlp2s0}\
 #
 # Wireless
 #
 %{F\#FF505050 A:dzen_popup_toggle.sh netinfo:}\
-${if_match ${wireless_link_qual_perc wlan0} < 40}${else}\
-${if_match ${wireless_link_qual_perc wlan0} <= 60}${else}\
+${if_match ${wireless_link_qual_perc wlp2s0} < 40}${else}\
+${if_match ${wireless_link_qual_perc wlp2s0} <= 60}${else}\
 ${endif}${endif} %{F-}\
 ${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#ff606060}*"}\
-${wireless_essid wlan0} %{A}${else}\
+${wireless_essid wlp2s0} %{A}${else}\
 %{F\#ff606060} %{F-}${endif}\
 #
 # Power
@@ -87,11 +87,11 @@ ${else} %{F\#ff606060 A:toggleinfo.sh:} + %{A}\
 #
 # Wireless
 #
-${if_existing /proc/net/route wlan0}\
+${if_existing /proc/net/route wlp2s0}\
 %{F\#ff505050 A:dzen_popup_toggle.sh netinfo:} \
 ${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#ffafafaf}"}\
-${if_match ${wireless_link_qual_perc wlan0} < 40}${else}\
-${if_match ${wireless_link_qual_perc wlan0} <= 60}${else}\
+${if_match ${wireless_link_qual_perc wlp2s0} < 40}${else}\
+${if_match ${wireless_link_qual_perc wlp2s0} <= 60}${else}\
 ${endif}${endif} %{F-}%{A}${endif}\
 #
 # Power
