@@ -1,21 +1,15 @@
-set nocompatible
-filetype off
+" vimrc
 
 " plugins {{{
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
-" other plugins
-Plugin 'davidhalter/jedi-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-surround'
-call vundle#end()                  " required
-filetype plugin indent on
+call plug#begin()
+" Plugins
+Plug 'davidhalter/jedi-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/syntastic'
+Plug 'Shougo/neocomplete.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+call plug#end()
 " }}}
 
 
