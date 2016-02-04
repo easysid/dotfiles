@@ -6,20 +6,20 @@
 
 :root {
     /* tabs */
-    --theme-bg: #1d1d1d;
-    --theme-fg: #808080;
-    --tabs-bg-selected: var(--theme-bg);
-    --tabs-fg-selected: #ab4642;
-    --tabs-bg-hover: #505050;
-    --tabs-font: ubuntu mono;
-    --tabs-font-size: 12px;
+    --theme-bg: #2f343f;
+    --theme-fg: #c0c5ce;
+    --tabs-bg-selected: #8fa1b3;
+    --tabs-fg-selected: #f9f9f9;
+    --tabs-bg-hover: #4f5b66;
+    --tabs-font: monospace;
+    --tabs-font-size: 10px;
 
     /* urlbar */
     --url-bg: var(--theme-bg);
     --url-fg: var(--theme-fg);
-    --url-bg-hover: #151515;
-    --url-font: ubuntu mono;
-    --url-font-size: 13px;
+    --url-bg-hover: var(--tabs-bg-hover);
+    --url-font: var(--tabs-font);
+    --url-font-size: 11px;
 }
 
 
@@ -223,8 +223,12 @@ Some additional tweaking for a cleaner look */
     background-image:none !important;
 }
 
+/* remove this white line (i.imgur.com/1jsi1GZ.png) - Thanks to Tew @ #firefox irc */
+#navigator-toolbox::after{
+    height: 0px !important;
+}
+
 /* prevent the ugly white 'flash' while opening tabs */
 tabbrowser tabpanels {
     background-color: var(--theme-bg) !important;
 }
-

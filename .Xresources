@@ -41,17 +41,6 @@ URxvt.perl-ext-common:  default,clipboard
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 
-!---------------------------------------------------
-! Font Rendering
-!---------------------------------------------------
-Xft.dpi: 96
-Xft.antialias: 1
-Xft.rgba: rgb
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hinting: 1
-Xft.hintstyle: hintfull
-
 ! dzen2
 dzen2.font:       -lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
 dzen2.foreground: #a0a0a0

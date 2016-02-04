@@ -1,1 +1,1 @@
-/home/siddharth/.config/themes/base16-mod/panel.sh
+/home/siddharth/.config/themes/february/panel.sh
