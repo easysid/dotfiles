@@ -33,7 +33,7 @@ if [ -n "$DISPLAY" ]; then
     wmname=$(xprop -id ${WM//* } _NET_WM_NAME | sed -re 's/.*= "(.*)"/\1/')
     fon=$(xrdb -query | sed -n 's/^UR.*\*font:\s*//p')
     if [[ $fon =~ "xft" ]]; then
-        termfn=$(echo $fon | sed -re 's/xft:((\w+\s\w+)+):.*/\1/')
+        termfn=$(echo $fon | awk -F ':' '{print $2}')
     else
         termfn=$(echo $fon | sed -re 's/^-\w+-(\w+)-.*/\1/')
     fi
