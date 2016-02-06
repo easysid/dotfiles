@@ -23,7 +23,7 @@ __set_ps1 (){
     local err="\[\033[1;31m\]" # error -- red
     local nor="\[\033[1;30m\]" # normal -- white
     local por="\[\033[1;30m\]" # prompt char
-    local dirty="\[\033[0;34m\]" # dirty git
+    local dirty="\[\033[0;33m\]" # dirty git
     local rst="\[\033[0m\]"    # Text Reset
     # random color
     # local color="\[\033[$(( $RANDOM%2 ));$(( 31+$RANDOM%7 ))m\]"
