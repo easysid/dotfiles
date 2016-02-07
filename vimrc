@@ -9,6 +9,9 @@ Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+" Colorschemes
+Plug 'romainl/Apprentice'
+Plug 'w0ng/vim-hybrid'
 call plug#end()
 " }}}
 
@@ -246,12 +249,10 @@ if has('gui_running')
     set guifont=monospace\ 8 " set font
     set guioptions= " remove everything gui
     set guiheadroom=0
-    " colorscheme hybrid
-" else
-"     colorscheme shblah_light
+    colorscheme mod8
+else
+    colorscheme mod8
 endif
-set background=dark
-colorscheme base16-mod
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
