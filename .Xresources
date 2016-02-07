@@ -2,7 +2,7 @@
 ! color settings
 !----------------------------------------------------
 
-#include "/home/siddharth/.config/themes/base16-mod/termcolors"
+#include "/home/siddharth/.config/themes/february/termcolors"
 
 !---------------------------------------------------
 ! urxvt config settings
@@ -13,13 +13,13 @@ URxvt*geometry:         80x21
 ! URxvt*font:              xft:monospace:size=8:antialias=false:hinting=false:autohint=false
 ! URxvt*boldFont:          xft:monospace:bold:size=8:antialias=false:hinting=false:autohint=false
 
-! URxvt*font:              xft:monaco:regular:pixelsize=10:antialias=false:hinting=false:autohint=false
-! URxvt*boldFont:          xft:monaco:bold:pixelsize=10:antialias=false:hinting=false:autohint=false
+URxvt*font:              xft:monaco:regular:size=8:antialias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:monaco:bold:size=8:antialias=false:hinting=false:autohint=false
 
-URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
-URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
+! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 
-! URxvt*letterSpace: -1
+URxvt*letterSpace: -1
 URxvt.savelines:        500
 URxvt*scrollBar:        false
 
@@ -42,7 +42,7 @@ URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 
 ! dzen2
-dzen2.font:       -lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
+dzen2.font:       monospace:pixelsize=10
 dzen2.foreground: #a0a0a0
 dzen2.background: #262626
 

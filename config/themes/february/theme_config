@@ -14,13 +14,12 @@ red="#bf616a"
 green="#A3BE8C"
 grey1="#4f5b66"
 grey2="#a0a0a0"
-theme_bg="#1f1f1f"
 
 ##########################
 ##      dzen popups     ##
 ##########################
 
-FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
+FONT="-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1"
 
 bar_bg="${grey1}"         # for gdbar
 bar_fg="${green}"
@@ -34,7 +33,7 @@ highlight="${ylw}"
 
 geometry="1266x22+50+5"
 ICON_FONT="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
-FONT1="-ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1"
+FONT1="$FONT"
 
 PAD="  "
 RPAD="    "
@@ -66,11 +65,11 @@ U_BG="#FF${grey2:1}"
 ##########################
 
 focused_border_color=${FG}
-normal_border_color=${theme_bg}
-active_border_color=${theme_bg}
-focused_locked_border_color=${theme_bg}
-normal_locked_border_color=${theme_bg}
-active_locked_border_color=${theme_bg}
+normal_border_color=${BG}
+active_border_color=${BG}
+focused_locked_border_color=${BG}
+normal_locked_border_color=${BG}
+active_locked_border_color=${BG}
 urgent_border_color=${green}
 presel_border_color=${red}
 
