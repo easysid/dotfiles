@@ -62,14 +62,20 @@ ${if_existing /tmp/bartoggle 1}%{F\#ff909090 A:toggleinfo.sh:} » %{A}\
 #
 # Wireless
 #
-${if_existing /proc/net/route wlp2s0}\
-%{F\#FFa0a0a0 A:dzen_popup_toggle.sh netinfo:}\
-${if_match ${wireless_link_qual_perc wlp2s0} < 40}${else}\
-${if_match ${wireless_link_qual_perc wlp2s0} <= 60}${else}\
-${endif}${endif} %{F-}\
-${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF808080}*"}\
-${wireless_essid wlp2s0} %{A}${else}\
-%{F\#FFa0a0a0} %{F-}${endif}\
+# ${if_existing /proc/net/route wlp2s0}\
+# %{F\#FFa0a0a0 A:dzen_popup_toggle.sh netinfo:}\
+# ${if_match ${wireless_link_qual_perc wlp2s0} < 40}${else}\
+# ${if_match ${wireless_link_qual_perc wlp2s0} <= 60}${else}\
+# ${endif}${endif} %{F-}\
+# ${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF808080}*"}\
+# ${wireless_essid wlp2s0} %{A}${else}\
+# %{F\#FFa0a0a0} %{F-}${endif}\
+#
+# Wired
+#
+%{F- A:dzen_popup_toggle.sh netinfo:}\
+${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF4f5b66}"} \
+%{A}\
 #
 # Power
 #
@@ -89,12 +95,16 @@ ${else} %{F\#ff909090 A:toggleinfo.sh:} « %{A}\
 #
 # Wireless
 #
-${if_existing /proc/net/route wlp2s0}\
-%{F- A:dzen_popup_toggle.sh netinfo:}\
-${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF4f5b66}"}\
-${if_match ${wireless_link_qual_perc wlp2s0} < 45} ${else}\
-${if_match ${wireless_link_qual_perc wlp2s0} < 70} ${else}\
- ${endif}${endif} %{F-}%{A}${endif}\
+# ${if_existing /proc/net/route wlp2s0}\
+# %{F- A:dzen_popup_toggle.sh netinfo:}\
+# ${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FF4f5b66}"}\
+# ${if_match ${wireless_link_qual_perc wlp2s0} < 45} ${else}\
+# ${if_match ${wireless_link_qual_perc wlp2s0} < 70} ${else}\
+#  ${endif}${endif} %{F-}%{A}${endif}\
+#
+# Wired - display only if we are disconnected
+#
+%{F-}${texeci 4 ping -c1 -w1 8.8.8.8 > /dev/null 2>&1 || echo "%{F#FFbf6a6a}  "}\
 #
 # Power
 #

@@ -6,6 +6,8 @@ WIDTH=240
 
 source $(dirname $0)/dzen_popup_config
 
+shopt -s expand_aliases
+alias vnstat='vnstat -i wlp2s0+enp4s0'
 (
 echo "^fg($titlecol)Netinfo^fg()"
 QUAL=$(iwconfig wlp2s0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p' | bc)
@@ -20,4 +22,5 @@ echo -e "$PAD ^fg("$highlight")Month: ^fg() $MONTH"
 echo -e "$PAD ^fg("$highlight")Today: ^fg() $TODAY"
 ) | dzen2 -title-name "popup_netinfo" -p "$TIME" -l "$LINES" -sa 'l'\
           -fn "$FONT" ${OPTIONS}
+unalias vntstat
 
