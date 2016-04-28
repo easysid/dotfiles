@@ -66,7 +66,7 @@ set showmatch
 
 " statusline {{{
 set laststatus=2
-set statusline=\ [%n]\ %f\ %m%r%h\ %y\ [%{&ff}]    " buffer file flags type format
+set statusline=\ [%n]\ %f\ %m%r%h\ %y\ [%{&ff}]    " buffer filename flags type format
 set statusline+=\ %#error#%{TrailingSpaceWarning()}%*    " trailing spaces
 set statusline+=%=%l/%L,\ %-4v    " right hand side - line/total lines , column
 " }}}
@@ -97,21 +97,29 @@ function! TrailingSpaceWarning()
     endif
     return b:trailing_space_warning
 endfunction
+
+" Higlight long lines
+function! HlLongLines()
+    " display a colorcolumn only if there are long lines
+    if search('\%>80v.\+', 'nw') != 0
+        setlocal colorcolumn=80
+    else
+        setlocal colorcolumn=
+    endif
+endfunction
 "}}}
 
-
-" autocommands
 
 augroup vimrc   " vimrc autocommands {{{
     autocmd!
     " reload vimrc when it is changed
-    autocmd! bufwritepost .vimrc source %
+    autocmd! BufWritePost .vimrc source %
     " normal numbers in insert mode
     autocmd InsertEnter * :set norelativenumber
     " relative numbers in normal mode
     autocmd InsertLeave * :set relativenumber
     " recheck trailing spaces when saving files
-    autocmd bufwritepost * unlet! b:trailing_space_warning
+    autocmd BufWritePost * unlet! b:trailing_space_warning
 augroup END
 " }}}
 
@@ -123,12 +131,20 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
     autocmd FileType conkyrc setlocal commentstring=#\ %s
+    " Conky
     " set conkyrc FileType
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
     " conky comments (from smancill/conky-syntax.vim)
-    autocmd filetype conkyrc syn region ConkyrcText start=/^TEXT$/ end=/\%$/ contains=ConkyrcVar,ConkyrcComment
-    " highlight long lines
-    autocmd WinEnter,BufEnter,FileType c,cpp,python,sh call matchadd('Error', '\%>80v.\+', -1)
+    autocmd FileType conkyrc syn region ConkyrcText start=/^TEXT$/ end=/\%$/ contains=ConkyrcVar,ConkyrcComment
+    " Python
+    " Jedi preview
+    autocmd FileType python setlocal completeopt-=preview
+    " highlight self keyword
+    autocmd FileType python syn keyword pythonBuiltin self
+    " abbreviation snippet
+    autocmd FileType python iabbrev <buffer> ifmain if __name__ == "__main":
+    " display a colorcolumn if there are long lines
+    autocmd BufEnter,BufWritePost *.c,*.cpp,*.py,*.sh call HlLongLines()
 augroup END
 "}}}
 
@@ -210,8 +226,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
 
-" package specific options
-
 " ctrl-p  {{{
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_cmd = 'CtrlPMRU'
@@ -222,7 +236,6 @@ let g:ctrlp_custom_ignore = {
 " }}}
 
 " Jedi  {{{
-autocmd FileType python setlocal completeopt-=preview
 " fix for neocomplete
 let g:jedi#popup_select_first = 0
 " }}}
