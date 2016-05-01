@@ -1,1 +1,0 @@
-/home/siddharth/.config/themes/february/panel.sh
