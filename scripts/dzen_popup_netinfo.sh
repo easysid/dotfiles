@@ -22,5 +22,5 @@ echo -e "$PAD ^fg("$highlight")Month: ^fg() $MONTH"
 echo -e "$PAD ^fg("$highlight")Today: ^fg() $TODAY"
 ) | dzen2 -title-name "popup_netinfo" -p "$TIME" -l "$LINES" -sa 'l'\
           -fn "$FONT" ${OPTIONS}
-unalias vntstat
+unalias vnstat
 

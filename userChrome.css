@@ -6,18 +6,20 @@
 
 :root {
     /* tabs */
-    --theme-bg: #2f343f;
-    --theme-fg: #c0c5ce;
-    --tabs-bg-selected: #8fa1b3;
-    --tabs-fg-selected: #f9f9f9;
-    --tabs-bg-hover: #4f5b66;
-    --tabs-font: monospace;
+    --theme-bg: #1c1616;
+    --theme-fg: #9b8582;
+    --tabs-bg-selected: #3b3228;
+    --tabs-fg-selected: #cdc9c8;
+    --tabs-bg-hover: var(--theme-bg);
+    --tabs-fg-hover: #ede9e8;
+    --tabs-font: fira mono;
     --tabs-font-size: 10px;
 
     /* urlbar */
     --url-bg: var(--theme-bg);
     --url-fg: var(--theme-fg);
     --url-bg-hover: var(--tabs-bg-hover);
+    --url-fg-hover: var(--tabs-fg-hover);
     --url-font: var(--tabs-font);
     --url-font-size: 11px;
 }
@@ -81,6 +83,7 @@ toolbarbutton {
 
 .urlbar-textbox-container:hover,.urlbar-textbox-container[focused] {
     background: var(--url-bg-hover) !important;
+    color: var(--url-fg-hover) !important;
     border-color: transparent !important;
 }
 
@@ -179,6 +182,7 @@ toolbarbutton {
 
 #TabsToolbar .tabbrowser-tab:hover:not([selected]) {
     background-color: var(--tabs-bg-hover) !important;
+    color: var(--url-fg-hover) !important;
 }
 
 #TabsToolbar .tab-background {
@@ -232,3 +236,4 @@ Some additional tweaking for a cleaner look */
 tabbrowser tabpanels {
     background-color: var(--theme-bg) !important;
 }
+

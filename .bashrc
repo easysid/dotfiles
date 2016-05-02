@@ -32,7 +32,7 @@ __set_ps1 (){
     local gitinfo=
     local branch=$(git symbolic-ref HEAD --short 2> /dev/null)
     if [[ $branch ]]; then
-        x=$(git status --porcelain)
+        local x=$(git status --porcelain)
         if [[ $x ]]; then
             gitinfo="${nor}(${dirty}${branch}${nor}) "
         else
