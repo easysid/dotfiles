@@ -5,8 +5,12 @@
 # Monday, 14 December 2015 21:30 IST
 #
 
+export dotdir="$HOME/Workspace/dotfiles"
+cd "$dotdir"
+
 createlinks () {
-    themedir="$HOME/.config/themes/$1"
+    theme="config/themes/$1"
+    themedir="$dotdir/$theme"
     err="\033[1;31m"
     rst="\033[0m"
     declare -a filelist=(
@@ -15,8 +19,8 @@ createlinks () {
         "termcolors"
         "theme_config"
     )
-    if [[ -d $themedir ]]; then
-        cd ${themedir}
+    if [[ -d $theme ]]; then
+        cd ${theme}
         for i in "${filelist[@]}"; do
             if [[ -f $i ]]; then
                 echo -e "$i exists"
@@ -28,24 +32,27 @@ createlinks () {
         done
         # Now create links
         echo
-        ln -svf "$themedir/panel.sh" "$HOME/.scripts/"
-        ln -svf "$themedir/lemonbar_panel.sh" "$HOME/.scripts/"
-        ln -svf "$themedir/theme_config" "$HOME/.scripts/"
+        cd "$dotdir/scripts"
+        ln -svf "../$theme/panel.sh" .
+        ln -svf "../$theme/lemonbar_panel.sh" .
+        ln -svf "../$theme/theme_config" .
+        ln -svf "../$theme/termcolors" .
         # if conkyrc files exist, link them to ~/Conky
+        cd "$dotdir"
         find ${themedir} -type f -name '*conkyrc' -exec ln -svf {} "$HOME/Conky/" \;
         # change xcolors and update xrdb
-        sed -i "s%^#include.*%#include \"${themedir}/termcolors\"%" ~/.Xresources
+        # sed -i "s%^#include.*%#include \"${themedir}/termcolors\"%" ~/.Xresources
         xrdb merge ~/.Xresources
     else
-        echo -e "${err}Error:${rst} $themedir does not exist."
+        echo -e "${err}Error:${rst} $theme does not exist."
         exit 101
     fi
 }
 
 if [[ $# -eq 0 ]]; then
-    ls $HOME/.config/themes
-    read -rp 'Enter the theme name: ' theme
-    createlinks $theme
+    ls $dotdir/config/themes
+    read -rp 'Enter the theme name: ' themename
+    createlinks $themename
 else
    createlinks $1
 fi
