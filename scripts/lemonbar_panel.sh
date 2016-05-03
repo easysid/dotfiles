@@ -1,0 +1,1 @@
+../config/themes/flwr/lemonbar_panel.sh
