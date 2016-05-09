@@ -1,68 +1,60 @@
 #
 # bspwm hotkeys
 #
-
-super + alt + Escape
-    bspc quit
-
-#
 #--- windows ---#
 #
 
 # close focussed window
 super + w
-    bspc window -c
+    bspc node -c
 
 # toogle pseudo tiled
 super + shift + t
-    bspc window -t pseudo_tiled
+    bspc node -t ~pseudo_tiled
 
 # toggle floating window
 super + shift + f
-    bspc window -t floating
+    bspc node -t ~floating
 
 # swap with last window
 super + apostrophe
-    bspc window -s last
+    bspc node -s last
 
 # move into biggest space
 super + b
-    bspc window -s biggest
+    bspc node -s biggest
 
 # cycle windows forward backward
 alt + {_,shift + }Tab
-    bspc window -f {next,prev}
+    bspc node -f {next,prev}
 
 # focus or swap windows
 super + {_,shift + }{h,j,k,l}
-    bspc window -{f,s} {left,down,up,right}
+    bspc node -{f,s} {west,south,north,east}
 
 # Same thing with arrow keys
 super + {_,shift + }{Left,Down,Up,Right}
-    bspc window -{f,s} {left,down,up,right}
+    bspc node -{f,s} {west,south,north,east}
 
 # preselect the splitting area
 super + ctrl + {h,j,k,l}
-    bspc window -p {left,down,up,right}
+    bspc node -p ~{west,south,north,east}
 
 # same thing with arrow keys
 super + ctrl + {Left,Down,Up,Right}
-    bspc window -p {left,down,up,right}
+    bspc node -p ~{west,south,north,east}
 
 # move the window into the selected area
-super + shift + {w,s,a,d}
-    bspc window -w {up,down,left,right}
+super + shift + {a,s,w,d}
+    bspc node -n {west,south,north,east}
 
-# resize window
+# expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
-    bspc window -e {left -10,down +10,up -10,right +10}
+    bspc node @{west -r -10,south -r +10,north -r -10,east -r +10}
 
+# contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
-    bspc window -e {right -10,up +10,down -10,left +10}
-
-# set split ratio of window
-super + ctrl + {1-9}
-    bspc window -r 0.{1-9}
+    bspc node @{east -r -10,north -r +10,south -r -10,west -r +10}
 
 #
 #--- common ---#
@@ -70,11 +62,11 @@ super + ctrl + {1-9}
 
 # focus last window, desktop
 super + {grave,Tab}
-    bspc {window,desktop} -f last
+    bspc {node,desktop} -f last
 
 # focus desktop / send window to desktop
 super + {_,shift + }{1-9,0}
-    bspc {desktop -f,window -d} ^{1-9,10}
+    bspc {desktop -f,node -d} ^{1-9,10}
 
 #
 #--- desktop ---#
@@ -86,15 +78,15 @@ super + t
 
 # balance the desktop (adjust split area)
 super + shift + b
-    bspc desktop -B
+    bspc node @focused:/ -B
 
 # rotate the leaves of the tree
 super + bracket{left,right}
-    bspc desktop -R {270,90}
+    bspc node @focused:/ -R {270,90}
 
 # flip the desktop tree
 super + shift + bracket{left,right}
-    bspc desktop -F {horizontal,vertical}
+    bspc node @focused:/ -F {horizontal,vertical}
 
 # adjust window gap
 super + {KP_Add, KP_Subtract}
