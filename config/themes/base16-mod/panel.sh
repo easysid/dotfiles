@@ -12,7 +12,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-bspc control --subscribe > "$PANEL_FIFO" &
+bspc subscribe > "$PANEL_FIFO" &
 
 ## create the toggle file before running this conky
 echo -n 0 > /tmp/bartoggle
