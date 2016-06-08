@@ -17,7 +17,6 @@ alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-
 # PS1 with error, and git info
 __set_ps1 (){
     local err="\[\033[1;31m\]" # error -- red
@@ -57,29 +56,4 @@ export HISTIGNORE="cd *:ls:ls *:history*:cat *:clear:pwd:..:..."
 
 # disable flow control
 stty -ixon
-
-# urxvt dynamic title
-# from https://mg.pov.lt/blog/bash-prompt.html
-# case "$TERM" in
-#     xterm*|rxvt*)
-#         PROMPT_COMMAND=${PROMPT_COMMAND}';printf "\033]0;❭❭  %s\007" "${PWD}"'
-
-#         show_command_in_title_bar()
-#         {
-#             case "$BASH_COMMAND" in
-#                 *\033]0*|*\\e]0*)
-#                     # nested escapes confuse the terminal, so don't output them.
-#                     ;;
-#                 *\033*|*\007*|*\\e*)
-#                     ;;
-#                 *)
-#                     printf "\e]0;❭❭ %s\a" "${BASH_COMMAND}"
-#                     ;;
-#             esac
-#         }
-#         trap show_command_in_title_bar DEBUG
-#         ;;
-#     *)
-#         ;;
-# esac
 

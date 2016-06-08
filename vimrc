@@ -4,17 +4,12 @@
 call plug#begin()
 " Plugins
 Plug 'davidhalter/jedi-vim'
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-" Colorschemes
-Plug 'romainl/Apprentice'
-Plug 'w0ng/vim-hybrid'
 call plug#end()
 " }}}
-
 
 " general settings {{{
 syntax on                          " syntax highlight
@@ -31,22 +26,19 @@ set number
 set showcmd
 set splitbelow                     " new splits below and to the right
 set splitright
-" }}}
 
-" tabs  {{{
+" tabs
 set tabstop=4                      " Set tab=4 spaces
 set shiftwidth=4
 set expandtab                      " Use spaces instead of tabs
 set smarttab
-" }}}
 
-" code folding  {{{
+" code folding
 set foldmethod=indent
 set foldnestmax=2
 set nofoldenable
-" }}}
 
-" wildmode  {{{
+" wildmode
 set completeopt=longest,menuone
 set wildignore+=*.bmp,*.jpg,*.jpeg,*.png,*.gif
 set wildignore+=*.exe,*.dll,*.manifest,*.gz
@@ -54,9 +46,8 @@ set wildignore+=*.so,*.swp,*.zip,*.o,*.pyc,*.javac,*.out,*.luac,*.class
 set wildignore+=*/Downloads/*,*/temp/*,*/Documents/*,*/Pictures/*,*/Videos/*
 set wildmenu
 set wildmode=longest:full,full
-" }}}
 
-" search  {{{
+" search
 set incsearch
 set hlsearch
 set ignorecase
@@ -109,7 +100,6 @@ function! HlLongLines()
 endfunction
 "}}}
 
-
 augroup vimrc   " vimrc autocommands {{{
     autocmd!
     " reload vimrc when it is changed
@@ -148,7 +138,6 @@ augroup filetypes   " FileType specific autocommands {{{
 augroup END
 "}}}
 
-
 " keymappings  {{{
 
 " remove keymaps
@@ -156,9 +145,6 @@ imap <F1>    <Nop>
 
 " friendly keymaps
 let mapleader="\<Space>"
-
-noremap ; :
-noremap : ;
 
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -205,17 +191,14 @@ vnoremap <Leader>s  :s
 " save file as root
 cnoremap w!! w !sudo tee % > /dev/null
 
-" edit split in new tab
-nnoremap <C-t>  :tab split <CR>
+" Strip trailing space
+nnoremap <F1> :call <SID>TrimWhiteSpace()<CR>
 
 " Toggle numbering
-nnoremap <F1>    :set relativenumber!<CR>
+nnoremap <F2>    :set relativenumber!<CR>
 
 " Insert timestamp
 nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
-
-" Strip trailing space
-nnoremap <F6> :call <SID>TrimWhiteSpace()<CR>
 
 " }}}
 
@@ -223,16 +206,6 @@ nnoremap <F6> :call <SID>TrimWhiteSpace()<CR>
 
 " use TAB completion neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}}
-
-
-" ctrl-p  {{{
-let g:ctrlp_working_path_mode = 'c'
-let g:ctrlp_cmd = 'CtrlPMRU'
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$|\/images',
-            \ 'file': '\.(dat|DS_Store)$'
-            \ }
 " }}}
 
 " Jedi  {{{
@@ -256,16 +229,13 @@ let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=W391'
 " }}}
 
-
 " colorscheme and gui {{{
 if has('gui_running')
     set guifont=monospace\ 8 " set font
     set guioptions= " remove everything gui
     set guiheadroom=0
-    colorscheme mod8
-else
-    colorscheme mod8
 endif
+colorscheme mod8
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
