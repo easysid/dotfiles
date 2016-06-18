@@ -1,6 +1,6 @@
 #! /bin/sh
 
-source $(dirname $0)/theme_config
+. "$(dirname $0)/theme_config"
 
 if [ $(pgrep -cx panel.sh) -gt 1 ] ; then
     printf "%s\n" "The panel is already running." >&2
@@ -25,6 +25,6 @@ lemonbar_panel.sh < "$PANEL_FIFO" \
            -B "$BAR_BG" \
            -F "$BAR_FG" \
            -a 20 \
-           | while read line; do eval "$line"; done &
+           | sh
 wait
 
