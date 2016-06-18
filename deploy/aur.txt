@@ -1,12 +1,7 @@
-compton-git
 conky-lua
-lemonbar
+lemonbar-git
 ncmpcpp-custom
-packer
-powerdown-git
-python-autopep8
-python-pygame-hg
+rxvt-unicode-24bit
 sres-git
-sutils-git
 xtitle-git
 xwinfo-git
