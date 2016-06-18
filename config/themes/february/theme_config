@@ -6,14 +6,14 @@
 ##         Colors       ##
 ##########################
 
-FG="#c0c5ce"
-BG="#2f343f"
-ylw="#ebcb8b"
-blue="#8fa1b3"
-red="#bf616a"
-green="#A3BE8C"
-grey1="#4f5b66"
-grey2="#a0a0a0"
+foreground="c0c5ce"
+background="2f343f"
+ylw="ebcb8b"
+blue="8fa1b3"
+red="bf616a"
+green="A3BE8C"
+grey1="4f5b66"
+grey2="a0a0a0"
 
 ##########################
 ##      dzen popups     ##
@@ -21,11 +21,13 @@ grey2="#a0a0a0"
 
 FONT="-lucy-tewi-medium-r-normal--11-90-100-100-c-60-iso10646-1"
 
-bar_bg="${grey1}"         # for gdbar
-bar_fg="${green}"
-bar_warn="${red}"
-titlecol="${red}"      # popup titles
-highlight="${ylw}"
+BG="#${background}"
+FG="#${foreground}"
+bar_bg="#${grey1}"         # for gdbar
+bar_fg="#${green}"
+bar_warn="#${red}"
+titlecol="#${red}"      # popup titles
+highlight="#${ylw}"
 
 ##########################
 ##  bspwm panel config  ##
@@ -39,26 +41,26 @@ PAD="  "
 RPAD="    "
 
 # Desktop symbols
-DFO=$(echo -e '\ue000')
-DO=$(echo -e '\ue0e7')
-DF=$(echo -e '\ue0f7')
+DFO="\356\200\200"
+DO="\356\203\247"
+DF="\356\203\267"
 
 # color definitions
-BAR_BG="#FF${BG:1}"
-BAR_FG="#FF${FG:1}"
+BAR_BG="#FF${background}"
+BAR_FG="#FF${foreground}"
 
 F_O_FG=${BAR_FG}
 F_O_BG=${BAR_BG}
-F_F_FG="#FF${blue:1}"
+F_F_FG="#FF${blue}"
 F_F_BG=${BAR_BG}
-F_U_FG="#FF${red:1}"
+F_U_FG="#FF${red}"
 F_U_BG=${BAR_BG}
 O_FG=${BAR_FG}
 O_BG=${BAR_BG}
-F_FG="#FF${grey1:1}"
+F_FG="#FF${grey1}"
 F_BG=${BAR_BG}
-U_FG="#FF${red:1}"
-U_BG="#FF${grey2:1}"
+U_FG="#FF${red}"
+U_BG="#FF${grey2}"
 
 ##########################
 ##    bspwm borders     ##
