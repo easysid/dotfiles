@@ -36,6 +36,7 @@ bspc config presel_feedback_color ${presel_border_color}
 compton &
 nitrogen --restore
 mpd &
+urxvtd &
 numlockx &
 xsetroot -cursor_name left_ptr
 panel.sh &

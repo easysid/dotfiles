@@ -10,19 +10,12 @@
 
 URxvt*geometry:         80x21
 
-! URxvt*font:              xft:monospace:size=8:antialias=false:hinting=false:autohint=false
-! URxvt*boldFont:          xft:monospace:bold:size=8:antialias=false:hinting=false:autohint=false
-
-! URxvt*font:              xft:monaco:regular:size=8:antialias=false:hinting=false:autohint=false
-! URxvt*boldFont:          xft:monaco:bold:size=8:antialias=false:hinting=false:autohint=false
-
-URxvt*font:              xft:fira mono:regular:size=8:antialias=false:hinting=false:autohint=false
-URxvt*boldFont:          xft:fira mono:bold:size=8:antialias=false:hinting=false:autohint=false
+URxvt*font:              xft:fira mono:medium:size=8.5:antialias=false:hinting=false:autohint=false
+URxvt*boldFont:          xft:fira mono:bold:size=8.5:antialias=false:hinting=false:autohint=false
 
 ! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 ! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
 
-URxvt*letterSpace: -1
 URxvt.savelines:        500
 URxvt*scrollBar:        false
 
