@@ -73,6 +73,6 @@ focused_locked_border_color=${BG}
 normal_locked_border_color=${BG}
 active_locked_border_color=${BG}
 urgent_border_color=${green}
-presel_border_color=${red}
+presel_color="#${red}"
 
 # vim:  ft=sh

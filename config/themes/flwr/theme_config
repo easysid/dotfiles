@@ -70,6 +70,6 @@ U_BG="#FF${grey2}"
 focused_border_color=${FG}
 normal_border_color="#3b3228"
 active_border_color=${BG}
-presel_border_color=${red}
+presel_color="#${red}"
 
 # vim:  ft=sh

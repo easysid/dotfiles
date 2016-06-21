@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # info.sh - displays info about wm, font, gtk theme
 # copied from z3bra's blog
@@ -28,7 +28,7 @@ f2=$'\e[0;37m'
 kernel=$(uname -rmo)
 system=$(sed 's/\s*[\(\\]\+.*$//' /etc/issue)
 
-if [ -n "$DISPLAY" ]; then
+if [[ -n $DISPLAY ]]; then
     WM=$(xprop -root _NET_SUPPORTING_WM_CHECK)
     wmname=$(xprop -id ${WM//* } _NET_WM_NAME | sed -re 's/.*= "(.*)"/\1/')
     fon=$(xrdb -query | sed -n 's/^UR.*\*font:\s*//p')
