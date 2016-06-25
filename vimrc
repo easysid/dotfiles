@@ -13,7 +13,6 @@ call plug#end()
 
 " general settings {{{
 syntax on                          " syntax highlight
-set autochdir                      " cd to current file
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamedplus          " normal clipboard
@@ -31,7 +30,6 @@ set splitright
 set tabstop=4                      " Set tab=4 spaces
 set shiftwidth=4
 set expandtab                      " Use spaces instead of tabs
-set smarttab
 
 " code folding
 set foldmethod=indent
@@ -48,6 +46,7 @@ set wildmenu
 set wildmode=longest:full,full
 
 " search
+set gdefault
 set incsearch
 set hlsearch
 set ignorecase
@@ -65,7 +64,7 @@ set statusline+=%=%l/%L,\ %-4v    " right hand side - line/total lines , column
 " custom functions and commands {{{
 
 " Removes trailing spaces (vimcasts)
-function! <SID>TrimWhiteSpace()
+function! TrimWhiteSpace()
     " Save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -75,6 +74,7 @@ function! <SID>TrimWhiteSpace()
     " Clean up: restore previous search history, and cursor position
     let @/=_s
     call cursor(l, c)
+    update
 endfunction
 
 " Check trailing spaces for statusline
@@ -103,7 +103,7 @@ endfunction
 augroup vimrc   " vimrc autocommands {{{
     autocmd!
     " reload vimrc when it is changed
-    autocmd! BufWritePost .vimrc source %
+    autocmd BufWritePost .vimrc source %
     " normal numbers in insert mode
     autocmd InsertEnter * :set norelativenumber
     " relative numbers in normal mode
@@ -132,7 +132,7 @@ augroup filetypes   " FileType specific autocommands {{{
     " highlight self keyword
     autocmd FileType python syn keyword pythonBuiltin self
     " abbreviation snippet
-    autocmd FileType python iabbrev <buffer> ifmain if __name__ == "__main":
+    autocmd FileType python iabbrev <buffer> ifm if __name__ == "__main__":
     " display a colorcolumn if there are long lines
     autocmd BufEnter,BufWritePost *.c,*.cpp,*.py,*.sh call HlLongLines()
 augroup END
@@ -148,8 +148,6 @@ let mapleader="\<Space>"
 
 inoremap jk <Esc>
 inoremap kj <Esc>
-vnoremap jk <Esc>gV
-vnoremap kj <Esc>gV
 
 " navigate wrapped lines
 nnoremap <silent> j gj
@@ -188,17 +186,17 @@ nnoremap <Leader><Space> :noh<CR>
 nnoremap <Leader>s  :%s
 vnoremap <Leader>s  :s
 
-" save file as root
-cnoremap w!! w !sudo tee % > /dev/null
-
 " Strip trailing space
-nnoremap <F1> :call <SID>TrimWhiteSpace()<CR>
+nnoremap <F1> :call TrimWhiteSpace()<CR>
 
 " Toggle numbering
 nnoremap <F2>    :set relativenumber!<CR>
 
 " Insert timestamp
-nnoremap <F5> "=strftime("%A, %d %B %Y %H:%M %Z")<C-M>p
+iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
+
+" Autoclose braces
+inoremap {<CR> {<CR>}<Esc>O
 
 " }}}
 
@@ -222,9 +220,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 " syntastic {{{
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '!'
-let g:syntastic_full_redraws = 1
-let g:syntastic_auto_jump = 2     " Jump to syntax errors
-let g:syntastic_auto_loc_list = 1 " Auto-open the error list
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--ignore=W391'
 " }}}
