@@ -134,3 +134,8 @@ Print
 # exit
 super + F4
     exit-box.sh
+
+# detail panel
+super + F1
+    detail_panel.sh
+
