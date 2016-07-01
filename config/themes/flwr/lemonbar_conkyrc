@@ -104,7 +104,7 @@ ${if_match ${battery_percent} < 90}${battery_percent}% ${endif}\
 ${else}\
 ${if_match ${battery_percent BAT0} <= 30}%{F\#FFcf3939}  ${battery_percent}% \
 ${else}${if_match ${battery_percent BAT0} <= 70}%{F-}  ${battery_percent}% \
-${else}%{F-}  ${endif}${endif}${endif}\
+${else}%{F-}  ${endif}${endif}${endif} \
 ${endif}\
 #
 ######
@@ -113,5 +113,5 @@ ${endif}\
 #
 # Datetime
 #
-%{F- A:dzen_popup_toggle.sh calendar:} ${time %H:%M} %{A} %{F- B-}\
+%{F- A:dzen_popup_toggle.sh calendar:}${time %H:%M} %{A} %{F- B-}\
 

@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. "$HOME/.scripts/theme_config"
+. ~/.scripts/theme_config
 
 # config options
 bspc config border_width            2
@@ -33,11 +33,11 @@ bspc config active_border_color ${active_border_color}
 bspc config presel_feedback_color ${presel_color}
 
 # Autostart apps
+numlock.sh &
 compton &
-[ ! -s ~/.config/mpd/pid ] && mpd
-nitrogen --restore
 urxvtd &
-numlockx &
+nitrogen --restore
+[ ! -s ~/.config/mpd/pid ] && mpd
 xsetroot -cursor_name left_ptr
 panel.sh &
 

@@ -1,1 +1,1 @@
-../config/themes/flwr/lemonbar_panel.sh
+../config/themes/onedark/lemonbar_panel.sh
