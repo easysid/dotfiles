@@ -13,7 +13,7 @@ HEIGHT="30"         # window height
 WIDTH="220"         # window width
 icon='^i(/home/siddharth/.icons/dzen/brightness.xbm)'
 
-source $(dirname $0)/dzen_popup_config
+. dzen_popup_config
 
 #Probably do not customize
 PIPE="/tmp/dbright_pipe"

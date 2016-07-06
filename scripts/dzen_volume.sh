@@ -12,7 +12,7 @@ WIDTH="230"         # window width
 icon='^i(/home/siddharth/.icons/dzen/volume50.xbm)'
 MUTEICON='^i(/home/siddharth/.icons/dzen/volume0.xbm)'
 
-source $(dirname $0)/dzen_popup_config
+. dzen_popup_config
 
 #Probably do not customize
 PIPE="/tmp/dvolpipe"

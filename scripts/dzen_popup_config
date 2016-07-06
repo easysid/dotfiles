@@ -2,7 +2,7 @@
 #
 
 # get the colors
-source $(dirname $0)/theme_config
+. theme_config
 
 # gdbar width and height
 bar_h=2

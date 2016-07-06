@@ -8,7 +8,7 @@ format="%position% [[%artist% - ]%title%]|[%file%]"
 pattern=$(mpc current -f %position%)
 LINES=$(( $songs*2 + 1 ))
 WIDTH=280
-source $(dirname $0)/dzen_popup_config
+. dzen_popup_config
 
 # expand list if there aren't sufficient songs before current one
 [[ $pattern -lt $songs ]] && songs=$(( $songs*2 - $pattern ))

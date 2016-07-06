@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. "$(dirname $0)/theme_config"
+. theme_config
 
 if [ $(pgrep -cx panel.sh) -gt 1 ] ; then
     printf "%s\n" "The panel is already running." >&2

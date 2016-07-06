@@ -12,7 +12,7 @@ WIDTH=150
 LINES=8
 #XPOS=1200
 
-source $(dirname $0)/dzen_popup_config
+. dzen_popup_config
 
 # define pipe
 PIPE=/tmp/calendar_pipe

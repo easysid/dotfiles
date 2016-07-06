@@ -4,7 +4,7 @@ LINES=5
 WIDTH=350
 #XPOS=900
 
-source $(dirname $0)/dzen_popup_config
+. dzen_popup_config
 
 (
 echo "^fg($titlecol)Diskinfo^fg()"

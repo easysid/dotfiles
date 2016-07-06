@@ -8,7 +8,7 @@
 
 trap "trap - TERM; kill 0" INT TERM QUIT EXIT
 
-. ~/.scripts/theme_config
+. theme_config
 
 # bar geometry
 o=${IFS}

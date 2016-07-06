@@ -8,7 +8,7 @@ WIDTH=300
 HEIGHT=82
 TIME=8
 
-source $HOME/.scripts/dzen_popup_config
+. dzen_popup_config
 
 # define pipe
 PIPE=/tmp/musicinfo_pipe

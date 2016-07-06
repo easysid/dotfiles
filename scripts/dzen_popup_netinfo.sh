@@ -4,7 +4,7 @@ LINES=5
 WIDTH=240
 #XPOS=1000
 
-source $(dirname $0)/dzen_popup_config
+. dzen_popup_config
 
 shopt -s expand_aliases
 alias vnstat='vnstat -i wlp2s0+enp4s0'
