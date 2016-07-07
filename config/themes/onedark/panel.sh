@@ -21,6 +21,7 @@ lemonbar_panel.sh < "$PANEL_FIFO" \
            -f "$ICON_FONT" -f "$FONT1"\
            -B "$BAR_BG" \
            -F "$BAR_FG" \
+           -n 'bspwm_panel' \
            -a 20 \
            -u 2 \
            | sh
