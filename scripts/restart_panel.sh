@@ -1,8 +1,7 @@
 #!/bin/bash
 
 pkill -x panel.sh
-pkill bar
-pkill conky
+pkill lemonbar
 
 # launch panel
 panel.sh &

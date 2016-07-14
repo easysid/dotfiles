@@ -1,34 +1,29 @@
-#!/bin/bash
+#!/bin/sh
 # Multiple Exit Script using Zenity for non GDM installs
-# Requires zenity 
-# 
+# Requires zenity
+#
 ######## This part is the Exit Type picker  ##########
-
 title="EXIT"
-exit_type=`zenity  --width="200" --height="200" --text="What do you want to do?" \
+exit_type=$(zenity  --width="200" --height="200" --text="What do you want to do?" \
 --title="$title" --list --radiolist --column '' --column ''   \
     TRUE "Shutdown" \
     FALSE "Reboot" \
     FALSE "Logout" \
-    | sed 's/ max//g' `
+    | sed 's/ max//g')
 
-
-
-######### This part takes the selection and applies it!  #############
-if [ "$exit_type" = "Logout" ]
-then
-        # Do logout here.
-        openbox --exit
-
-elif [ "$exit_type" = "Reboot" ]
-then
-        # Do Reboot here.
+######### This part takes the selection and applies it  #############
+case "$exit_type" in
+    Logout)
+        bspc quit
+        ;;
+    Reboot)
         systemctl reboot
-
-elif [ "$exit_type" = "Shutdown" ]
-then
-        # Do Shutdown here.
+        ;;
+    Shutdown)
         systemctl poweroff
-else
+        ;;
+    *)
         exit 0
-fi
+        ;;
+esac
+
