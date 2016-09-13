@@ -72,7 +72,7 @@ void print_short_info(char *format)
             sprintf(tmp, STR_BATF" ");
         strcat(status, tmp);
         if (c < 70){
-            sprintf(tmp,"%d ", c);
+            sprintf(tmp,"%d%% ", c);
             strcat(status, tmp);
         }
 
