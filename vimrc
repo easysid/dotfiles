@@ -56,9 +56,17 @@ set showmatch
 
 " statusline {{{
 set laststatus=2
-set statusline=\ [%n]\ %f\ %m%r%h\ %y\ [%{&ff}]    " buffer filename flags type format
-set statusline+=\ %#error#%{TrailingSpaceWarning()}%*    " trailing spaces
-set statusline+=%=%l/%L,\ %-4v    " right hand side - line/total lines , column
+set statusline=\ [%n]\ %f\ %m%r%h\ %y\           " buffer filename flags type
+set statusline+=%#error#                         " change color
+set statusline+=%{TrailingSpaceWarning()}        " trailing spaces
+set statusline+=%{MixedIndentWarning()}          " mixed indent warning
+set statusline+=%*                               " reset color
+set statusline+=%=                               " goto right hand side
+set statusline+=%#warningmsg#                    " change color
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}    " display file format if it's not unix
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}     " display encoding if it's not utf-8
+set statusline+=%*\                              " reset color
+set statusline+=%l/%L,\ %-4v                     " line/total lines , column
 " }}}
 
 " custom functions and commands {{{
@@ -89,6 +97,18 @@ function! TrailingSpaceWarning()
     return b:trailing_space_warning
 endfunction
 
+" Check mixed indent
+function! MixedIndentWarning()
+    if !exists("b:mixed_indent_warning")
+        if (search('^\t', 'nw') != 0 && search('^\s', 'nw') != 0)
+            let b:mixed_indent_warning = '[mixed]'
+        else
+            let b:mixed_indent_warning = ''
+        endif
+    endif
+    return b:mixed_indent_warning
+endfunction
+
 " Higlight long lines
 function! HlLongLines()
     " display a colorcolumn only if there are long lines
@@ -108,8 +128,9 @@ augroup vimrc   " vimrc autocommands {{{
     autocmd InsertEnter * :set norelativenumber
     " relative numbers in normal mode
     autocmd InsertLeave * :set relativenumber
-    " recheck trailing spaces when saving files
+    " recheck trailing spaces and indent when saving files
     autocmd BufWritePost * unlet! b:trailing_space_warning
+    autocmd BufWritePost * unlet! b:mixed_indent_warning
 augroup END
 " }}}
 
@@ -126,6 +147,8 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
     " conky comments (from smancill/conky-syntax.vim)
     autocmd FileType conkyrc syn region ConkyrcText start=/^TEXT$/ end=/\%$/ contains=ConkyrcVar,ConkyrcComment
+    " Makefile
+    autocmd FileType make setlocal noexpandtab
     " Python
     " Jedi preview
     autocmd FileType python setlocal completeopt-=preview
@@ -192,11 +215,11 @@ nnoremap <F1> :call TrimWhiteSpace()<CR>
 " Toggle numbering
 nnoremap <F2>    :set relativenumber!<CR>
 
-" Insert timestamp
-iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
-
 " Autoclose braces
 inoremap {<CR> {<CR>}<Esc>O
+
+" Insert timestamp
+iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
 
 " }}}
 
@@ -232,7 +255,8 @@ if has('gui_running')
     set guioptions= " remove everything gui
     set guiheadroom=0
 endif
-colorscheme mod8
+set termguicolors
+colorscheme onedark
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
