@@ -19,7 +19,7 @@ echo -n 0 > /tmp/bartoggle
 conky -c ~/Conky/lemonbar_conkyrc > "$PANEL_FIFO" &
 
 lemonbar_panel.sh < "$PANEL_FIFO" \
-     | lemonbar -p \
+     | lemonbar -p -d \
            -g "$geometry" \
            -f "$ICON_FONT" -f "$FONT1"\
            -B "$BAR_BG" \

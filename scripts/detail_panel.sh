@@ -20,7 +20,7 @@ EOF
 IFS=${o}
 geometry="${l}x${y}+$((x+gx-l))+${gy}"
 
-sysinfo -f "%{r}" -l | lemonbar -p \
+sysinfo -f "%{r}" -l | lemonbar -p -d \
         -g "$geometry" \
         -f "$ICON_FONT" -f "$FONT1"\
         -B "$BAR_BG" \
