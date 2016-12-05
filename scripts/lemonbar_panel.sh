@@ -1,1 +1,0 @@
-../config/themes/onedark/lemonbar_panel.sh

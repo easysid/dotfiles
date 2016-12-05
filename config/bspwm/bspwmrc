@@ -4,7 +4,8 @@
 
 # config options
 bspc config border_width            2
-bspc config top_padding             $(echo $geometry | sed 's/.*x//;s/+.*+/+/' | bc)
+# bspc config top_padding             $(echo $geometry | sed 's/.*x//;s/+.*+/+/' | bc)
+bspc config left_padding            28
 bspc config window_gap              15
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
@@ -12,8 +13,8 @@ bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
 
 # desktops
-bspc monitor -d main web term misc foo
-# bspc monitor -d bhumi vayu agni jal vyom
+# bspc monitor -d main web term misc foo
+bspc monitor -d     
 
 bspc desktop ^2 -l monocle
 

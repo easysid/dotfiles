@@ -1,1 +1,1 @@
-../config/themes/onedark/panel.sh
+/home/siddharth/.config/themes/candra/panel.sh

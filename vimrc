@@ -8,6 +8,7 @@ Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'morhetz/gruvbox'
 call plug#end()
 " }}}
 
@@ -256,7 +257,7 @@ if has('gui_running')
     set guiheadroom=0
 endif
 set termguicolors
-colorscheme onedark
+colorscheme paramount
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

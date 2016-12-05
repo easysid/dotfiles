@@ -1,6 +1,9 @@
 #! /bin/sh
 #
-# bar input parser for bspwm  Sunday, 01 November 2015 11:42 IST
+# vertical dzen input parser for bspwm
+# uses ocelot-dzen https://github.com/poinck/ocelot-dzen
+# Monday, 28 November 2016 22:36 IST
+
 
 #screen_width=$(sres -W)
 
@@ -9,11 +12,24 @@ FIELDIFS=':'
 
 . theme_config
 
+
 while read -r line ; do
     case $line in
-        S*)
-            # sysinfos
-            sys_infos="${line#?}"
+        B*)
+            # battery
+            bat="${line#?}"
+            ;;
+        N*)
+            # network
+            net="${line#?}"
+            ;;
+        C*)
+            #clock
+            clk="${line#?}"
+            read -r h m p << EOF
+            $clk
+EOF
+            clk="$h\n$m\n$p"
             ;;
         W*)
             # bspwm internal state
@@ -29,30 +45,30 @@ while read -r line ; do
                         case $item in
                             O*)
                                 # focused occupied desktop
-                                desk="%{F- B- U$UN_1 +u} ${name} %{F- B- -u}"
+                                desk="^fg($F_O_FG)${name}^fg()"
                                 ;;
                             F*)
                                 # focused free desktop
-                                desk="%{F- B- U$UN_2 +u} ${name} %{F- B- -u}"
+                                desk="^fg($F_F_FG)${name}^fg()"
                                 ;;
                             U*)
                                 # focused urgent desktop
-                                desk="%{F$F_U_FG B$F_U_BG} ${name} %{F- B-}"
+                                desk="^fg($F_U_FG)${name}^fg()"
                                 ;;
                             o*)
                                 # occupied desktop
-                                desk="%{F$O_FG B$O_BG} ${name} %{F- B-}"
+                                desk="^fg($O_FG)${name}^fg()"
                                 ;;
                             f*)
                                 # free desktop
-                                desk="%{F$F_FG B$F_BG} ${name} %{F- B-}"
+                                desk="^fg($F_FG)${name}^fg()"
                                 ;;
                             u*)
                                 # urgent desktop
-                                desk="%{F$U_FG B$U_BG} ${name} %{F- B-}"
+                                desk="^fg($U_FG)${name}^fg()"
                                 ;;
                         esac
-                        wm_infos="${wm_infos}%{A:bspc desktop -f ${name}:}${desk} %{A}"
+                        wm_infos="${wm_infos}^ca(1, bspc desktop -f ${name})^fn($ICN)${desk}^fn()^ca()\n\n\n"
                         ;;
                 esac
                 shift
@@ -60,6 +76,6 @@ while read -r line ; do
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l}$wm_infos %{r}$sys_infos"
+    printf "\n^p1()\n${wm_infos}\n\n\n\n${net}\n\n${bat}\n\n${clk}\n\n"
 done
 

@@ -24,7 +24,8 @@ function mouselocation(){
 }
 
 PAD="  "
-YPOS=$(( $(bspc config -m LVDS top_padding)+5 ))
+# YPOS=$(( $(bspc config -m LVDS top_padding)+5 ))
+YPOS=28
 TIME=4
 
 # Options specific to individual popups. Do not override.

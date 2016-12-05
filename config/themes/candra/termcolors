@@ -1,0 +1,46 @@
+! color settings
+!----------------------------------------------------
+! easysid - candra
+! Sunday, 27 November 2016 21:48 IST
+! copied from paramount.vim and xero blaquemagick
+!
+
+*background:  #262626
+*foreground:  #c6c6c6
+
+! BLACK
+*color0:      #707070
+*color8:      #707070
+
+! red
+*.color1:       #2e9e9e
+*.color9:       #2e9e9e
+
+! green
+*.color2:       #dddddd
+*.color10:      #dddddd
+
+! yellow
+*.color3:       #999999
+*.color11:      #999999
+
+! blue
+*.color4:       #999999
+*.color12:      #999999
+
+! magenta
+*.color5:       #999999
+*.color13:      #999999
+
+! cyan
+*.color6:       #a790d5
+*.color14:      #a790d5
+
+! white
+*.color7:  #c6c6c6
+*.color15: #c6c6c6
+! man pages
+*colorBD: 1
+*colorUL: 4
+
+! vim: ft=xdefaults

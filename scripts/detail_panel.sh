@@ -9,7 +9,7 @@
 trap "trap - TERM; kill 0" INT TERM QUIT EXIT
 
 . theme_config
-
+echo $ICON_FONT $FONT1
 # bar geometry
 o=${IFS}
 IFS='x+'
