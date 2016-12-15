@@ -2,6 +2,3 @@ conky-lua
 lemonbar-git
 ncmpcpp-custom
 rxvt-unicode-24bit
-sres-git
-xtitle-git
-xwinfo-git

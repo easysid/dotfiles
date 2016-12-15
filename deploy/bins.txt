@@ -1,0 +1,8 @@
+mpdinfo
+ocelot-dzen
+sres
+sysinfo
+txtw
+xdo
+xtitle
+xwinfo

@@ -1,6 +1,7 @@
 alsa-utils
 android-tools
 android-udev
+ario
 autoconf
 automake
 bash
@@ -19,7 +20,6 @@ dash
 device-mapper
 dhcpcd
 diffutils
-dunst
 dzen2
 e2fsprogs
 fakeroot
@@ -60,8 +60,8 @@ iputils
 less
 libtool
 licenses
-linux
-linux-headers
+linux-lts
+linux-lts-headers
 lm_sensors
 logrotate
 lvm2
@@ -80,7 +80,6 @@ nano
 netctl
 nitrogen
 ntfs-3g
-numlockx
 p7zip
 pacman
 patch
@@ -104,6 +103,7 @@ thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
 tlp
+transmission-cli
 transmission-gtk
 tumbler
 unrar
