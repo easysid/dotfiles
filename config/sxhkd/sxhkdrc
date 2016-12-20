@@ -85,9 +85,6 @@ super + z
 super + p
     lxtask
 
-super + n
-    nitrogen --no-recurse --sort=alpha
-
 # make sxhkd reload its configuration files:
 super + shift + Escape
     pkill -USR1 -x sxhkd
@@ -115,7 +112,7 @@ Print
 
 # exit
 super + F4
-    exit-box.sh
+    turnoff.sh
 
 # detail panel
 super + F1
