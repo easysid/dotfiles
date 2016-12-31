@@ -6,7 +6,6 @@ autoconf
 automake
 bash
 bash-completion
-bc
 binutils
 bison
 bspwm
@@ -17,6 +16,7 @@ compton
 coreutils
 cryptsetup
 dash
+deadbeef
 device-mapper
 dhcpcd
 diffutils
@@ -124,6 +124,6 @@ xorg-xinit
 xorg-xlsfonts
 xorg-xprop
 xtrlock
+youtube-dl
 zathura-djvu
 zathura-pdf-poppler
-zenity

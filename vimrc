@@ -8,7 +8,6 @@ Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'morhetz/gruvbox'
 call plug#end()
 " }}}
 
@@ -17,6 +16,7 @@ syntax on                          " syntax highlight
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamedplus          " normal clipboard
+set cursorline
 set hidden
 set mouse=a
 set nobackup                       " no swap and backup files
@@ -38,7 +38,7 @@ set foldnestmax=2
 set nofoldenable
 
 " wildmode
-set completeopt=longest,menuone
+set completeopt=longest
 set wildignore+=*.bmp,*.jpg,*.jpeg,*.png,*.gif
 set wildignore+=*.exe,*.dll,*.manifest,*.gz
 set wildignore+=*.so,*.swp,*.zip,*.o,*.pyc,*.javac,*.out,*.luac,*.class
@@ -47,7 +47,6 @@ set wildmenu
 set wildmode=longest:full,full
 
 " search
-set gdefault
 set incsearch
 set hlsearch
 set ignorecase
@@ -152,7 +151,7 @@ augroup filetypes   " FileType specific autocommands {{{
     autocmd FileType make setlocal noexpandtab
     " Python
     " Jedi preview
-    autocmd FileType python setlocal completeopt-=preview
+    autocmd FileType python setlocal completeopt-=longest,preview
     " highlight self keyword
     autocmd FileType python syn keyword pythonBuiltin self
     " abbreviation snippet
@@ -214,7 +213,7 @@ vnoremap <Leader>s  :s
 nnoremap <F1> :call TrimWhiteSpace()<CR>
 
 " Toggle numbering
-nnoremap <F2>    :set relativenumber!<CR>
+nnoremap <F2> :set relativenumber!<CR>
 
 " Autoclose braces
 inoremap {<CR> {<CR>}<Esc>O
@@ -230,34 +229,32 @@ iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
-" Jedi  {{{
+" package specific options  {{{
+
+" Jedi
 " fix for neocomplete
 let g:jedi#popup_select_first = 0
-" }}}
 
-" neocomplete  {{{
+" neocomplete
 let g:neocomplete#enable_at_startup = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-" }}}
 
-" syntastic {{{
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
+" syntastic
+let g:syntastic_error_symbol = 'EE'
+let g:syntastic_warning_symbol = 'WW'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--ignore=W391'
 " }}}
 
 " colorscheme and gui {{{
 if has('gui_running')
-    set guifont=monospace\ 8 " set font
+    set guifont=monospace\ 9 " set font
     set guioptions= " remove everything gui
     set guiheadroom=0
 endif
 set termguicolors
-colorscheme paramount
+colorscheme base16-default
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable

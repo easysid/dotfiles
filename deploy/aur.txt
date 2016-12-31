@@ -1,4 +1,5 @@
 conky-lua
 lemonbar-git
 ncmpcpp-custom
+python-pygame
 rxvt-unicode-24bit
