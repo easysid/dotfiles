@@ -6,12 +6,12 @@
 
 :root {
     /* tabs */
-    --theme-bg: #1c1616;
-    --theme-fg: #9b8582;
-    --tabs-bg-selected: #3b3228;
-    --tabs-fg-selected: #cdc9c8;
-    --tabs-bg-hover: var(--theme-bg);
-    --tabs-fg-hover: #ede9e8;
+    --theme-bg: #1d1d1d;
+    --theme-fg: #aaaaaa;
+    --tabs-bg-selected: #282828;
+    --tabs-fg-selected: #7cafc2;
+    --tabs-bg-hover: #383838;
+    --tabs-fg-hover: #ffffff;
     --tabs-font: fira mono;
     --tabs-font-size: 10px;
 

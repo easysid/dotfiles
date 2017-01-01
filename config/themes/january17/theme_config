@@ -1,0 +1,79 @@
+# theme_config
+# define the various colors used in lemonbar, dzen popups, and bspwm
+#
+
+##########################
+##         Colors       ##
+##########################
+
+foreground="bebebe"
+background="2a2a2a"
+ylw="dc9656"
+blue="7cafc2"
+red="AB4642"
+green="A1B56C"
+grey1="707070"
+grey2="c0c0c0"
+theme_bg="#1f1f1f"
+
+##########################
+##      dzen popups     ##
+##########################
+
+FONT="-lucy-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1"
+
+BG="#${background}"
+FG="#${foreground}"
+bar_bg="#${grey1}"         # for gdbar
+bar_fg="#${green}"
+bar_warn="#${red}"
+titlecol="#${red}"      # popup titles
+highlight="#${ylw}"
+
+##########################
+##  bspwm panel config  ##
+##########################
+
+geometry="1366x21+0+0"
+ICON_FONT="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
+FONT1="-ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1"
+
+PAD="  "
+RPAD="    "
+
+# Desktop symbols
+DFO="▄▄▄▄▄"
+DO="▄▄▄▄▄"
+DF="▄▄▄▄▄"
+
+# color definitions
+BAR_BG="#40707070"
+BAR_FG="#FFF0F0F0"
+
+F_O_FG="#FFFFFFFF"
+F_O_BG=${BAR_BG}
+F_F_FG="#F086c1b9"
+F_F_BG=${BAR_BG}
+F_U_FG="#FF${red}"
+F_U_BG=${BAR_BG}
+O_FG=#FF${grey2}
+O_BG=${BAR_BG}
+F_FG="#FF${grey1}"
+F_BG=${BAR_BG}
+U_FG="#FF${red}"
+U_BG="${BAR_BG}"
+
+##########################
+##    bspwm borders     ##
+##########################
+
+focused_border_color=${FG}
+normal_border_color=${theme_bg}
+active_border_color=${theme_bg}
+focused_locked_border_color=${theme_bg}
+normal_locked_border_color=${theme_bg}
+active_locked_border_color=${theme_bg}
+urgent_border_color=${green}
+presel_color="#${red}"
+
+# vim:  ft=sh

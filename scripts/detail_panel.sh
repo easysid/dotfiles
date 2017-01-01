@@ -9,16 +9,17 @@
 trap "trap - TERM; kill 0" INT TERM QUIT EXIT
 
 . theme_config
-echo $ICON_FONT $FONT1
 # bar geometry
-o=${IFS}
-IFS='x+'
-l=400
-read -r x y gx gy << EOF
-$geometry
-EOF
-IFS=${o}
-geometry="${l}x${y}+$((x+gx-l))+${gy}"
+# o=${IFS}
+# IFS='x+'
+# l=400
+# read -r x y gx gy << EOF
+# $geometry
+# EOF
+# IFS=${o}
+# geometry="${l}x${y}+$((x+gx-l))+${gy}"
+geometry='400x25+960+738'
+BAR_BG="#FF${background}"
 
 sysinfo -f "%{r}" -l | lemonbar -p -d \
         -g "$geometry" \

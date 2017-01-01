@@ -1,1 +1,1 @@
-/home/siddharth/.config/themes/candra/panel.sh
+../config/themes/january17/panel.sh

@@ -10,7 +10,7 @@ shopt -s expand_aliases
 alias vnstat='vnstat -i wlp2s0+enp4s0'
 (
 echo "^fg($titlecol)Netinfo^fg()"
-QUAL=$((iwconfig wlp2s0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p'))
+# QUAL=$((iwconfig wlp2s0 | sed -n 's@.*Quality=\([0-9]*/[0-9]*\).*@100\*\1@p'))
 BAR=$(echo $QUAL | gdbar -bg $bar_bg -fg $bar_fg -h $bar_h -w $bar_w)
 MONTH=$(vnstat --short | grep "\<$(date +%b)\>" |\
     awk '{ gsub("iB",""); printf "%s%-4s %s%-3s %s%-3s",$3,$4,$6,$7,$9,$10}')

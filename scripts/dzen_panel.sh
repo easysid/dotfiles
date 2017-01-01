@@ -1,1 +1,0 @@
-/home/siddharth/.config/themes/candra/dzen_panel.sh

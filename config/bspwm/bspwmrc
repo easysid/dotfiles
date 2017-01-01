@@ -4,8 +4,7 @@
 
 # config options
 bspc config border_width            2
-# bspc config top_padding             $(($(echo $geometry | sed 's/.*x//;s/+.*+/+/')))
-bspc config left_padding            28
+bspc config top_padding             $(($(echo $geometry | sed 's/.*x//;s/+.*+/+/')))
 bspc config window_gap              15
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
@@ -13,8 +12,8 @@ bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
 
 # desktops
-# bspc monitor -d main web term misc foo
-bspc monitor -d     
+bspc monitor -d main web term misc foo
+# bspc monitor -d     
 
 bspc desktop ^2 -l monocle
 
@@ -38,7 +37,7 @@ numlock.sh &
 compton &
 urxvtd &
 nitrogen --restore
-[ ! -s ~/.config/mpd/pid ] && mpd
+# [ ! -s ~/.config/mpd/pid ] && mpd
 xsetroot -cursor_name left_ptr
 panel.sh &
 
