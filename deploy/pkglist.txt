@@ -10,7 +10,6 @@ binutils
 bison
 bspwm
 bzip2
-cairo-infinality-ultimate
 calibre
 compton
 coreutils
@@ -31,7 +30,6 @@ findutils
 firefox
 flake8
 flex
-fontconfig-infinality-ultimate
 gawk
 gcc
 gcc-libs
@@ -50,7 +48,6 @@ gucharmap
 gvfs-mtp
 gvim
 gzip
-ibfonts-meta-base
 id3v2
 imagemagick
 inetutils
@@ -79,6 +76,7 @@ mpv
 nano
 netctl
 nitrogen
+noto-fonts
 ntfs-3g
 p7zip
 pacman
@@ -105,6 +103,9 @@ thunar-volman
 tlp
 transmission-cli
 transmission-gtk
+ttf-dejavu
+ttf-liberation
+ttf-symbola
 tumbler
 unrar
 urxvt-perls
