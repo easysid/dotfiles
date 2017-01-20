@@ -1,7 +1,6 @@
 alsa-utils
 android-tools
 android-udev
-ario
 autoconf
 automake
 bash
@@ -70,8 +69,6 @@ man-db
 man-pages
 mdadm
 mesa-vdpau
-mpc
-mpd
 mpv
 nano
 netctl
@@ -112,7 +109,6 @@ urxvt-perls
 usbutils
 util-linux
 viewnior
-vlc
 vnstat
 which
 wpa_actiond
