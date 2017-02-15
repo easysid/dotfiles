@@ -6,11 +6,11 @@
 
 :root {
     /* tabs */
-    --theme-bg: #1d1d1d;
-    --theme-fg: #aaaaaa;
-    --tabs-bg-selected: #282828;
-    --tabs-fg-selected: #7cafc2;
-    --tabs-bg-hover: #383838;
+    --theme-bg: #1d1f21;
+    --theme-fg: #a29491;
+    --tabs-bg-selected: #373b41;
+    --tabs-fg-selected: #c5c8c6;
+    --tabs-bg-hover: #282a2e;
     --tabs-fg-hover: #ffffff;
     --tabs-font: fira mono;
     --tabs-font-size: 10px;
@@ -86,7 +86,6 @@ toolbarbutton {
     color: var(--url-fg-hover) !important;
     border-color: transparent !important;
 }
-
 
 /**** Back and forward buttons ****/
 
@@ -230,6 +229,12 @@ Some additional tweaking for a cleaner look */
 /* remove this white line (i.imgur.com/1jsi1GZ.png) - Thanks to Tew @ #firefox irc */
 #navigator-toolbox::after{
     height: 0px !important;
+    border: none !important;
+}
+
+/* fix FF 51 separator in urlbar */
+.urlbar-input-box, #urlbar-display-box {
+    border-inline-start: none !important;
 }
 
 /* prevent the ugly white 'flash' while opening tabs */

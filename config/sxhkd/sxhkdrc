@@ -115,6 +115,6 @@ super + F4
     turnoff.sh
 
 # detail panel
-super + F1
-    detail_panel.sh
+# super + F1
+#     detail_panel.sh
 

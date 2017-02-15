@@ -157,7 +157,7 @@ augroup filetypes   " FileType specific autocommands {{{
     " abbreviation snippet
     autocmd FileType python iabbrev <buffer> ifm if __name__ == "__main__":
     " display a colorcolumn if there are long lines
-    autocmd BufEnter,BufWritePost *.c,*.cpp,*.py,*.sh call HlLongLines()
+    autocmd BufEnter,BufWritePost *.c,*.cpp,*.lua,*.py,*.sh call HlLongLines()
 augroup END
 "}}}
 
@@ -254,7 +254,8 @@ if has('gui_running')
     set guiheadroom=0
 endif
 set termguicolors
-colorscheme base16-default
+set background=dark
+colorscheme hybrid
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:foldenable
