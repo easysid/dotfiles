@@ -237,6 +237,12 @@ Some additional tweaking for a cleaner look */
     border-inline-start: none !important;
 }
 
+/* FF53 broke center align in tabs. Fix (from /r/firefox) */
+.tab-label {
+    -moz-box-flex: 1 !important;
+    text-align: center !important;
+}
+
 /* prevent the ugly white 'flash' while opening tabs */
 tabbrowser tabpanels {
     background-color: var(--theme-bg) !important;

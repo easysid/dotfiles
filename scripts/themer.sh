@@ -15,7 +15,6 @@ createlinks () {
     rst="\033[0m"
     declare -a filelist=(
         "panel.sh"
-        "lemonbar_panel.sh"
         "termcolors"
         "theme_config"
     )
@@ -34,14 +33,12 @@ createlinks () {
         echo
         cd "$dotdir/scripts"
         ln -svf "../$theme/panel.sh" .
-        ln -svf "../$theme/lemonbar_panel.sh" .
         ln -svf "../$theme/theme_config" .
         ln -svf "../$theme/termcolors" .
         # if conkyrc files exist, link them to ~/Conky
         cd "$dotdir"
         find ${themedir} -type f -name '*conkyrc' -exec ln -svf {} "$HOME/Conky/" \;
         # change xcolors and update xrdb
-        # sed -i "s%^#include.*%#include \"${themedir}/termcolors\"%" ~/.Xresources
         xrdb merge ~/.Xresources
     else
         echo -e "${err}Error:${rst} $theme does not exist."

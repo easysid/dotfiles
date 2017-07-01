@@ -1,1 +1,1 @@
-/home/siddharth/.config/themes/feb17/panel.sh
+../config/themes/july17/panel.sh
