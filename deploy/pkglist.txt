@@ -17,7 +17,9 @@ dash
 deadbeef
 device-mapper
 dhcpcd
+dialog
 diffutils
+dkms
 dzen2
 e2fsprogs
 fakeroot
@@ -78,6 +80,7 @@ ntfs-3g
 p7zip
 pacman
 patch
+pavucontrol
 pciutils
 pcmciautils
 perl
@@ -85,6 +88,8 @@ pkg-config
 pkgfile
 procps-ng
 psmisc
+pulseaudio
+rxvt-unicode
 sed
 shadow
 sudo
@@ -116,10 +121,13 @@ xdotool
 xf86-input-synaptics
 xf86-video-ati
 xorg-server
-xorg-server-utils
+xorg-xev
 xorg-xinit
+xorg-xinput
 xorg-xlsfonts
 xorg-xprop
+xorg-xrandr
+xorg-xsetroot
 xtrlock
 youtube-dl
 zathura-djvu

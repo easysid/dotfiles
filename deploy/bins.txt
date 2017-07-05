@@ -1,8 +1,10 @@
+longinfo
 mpdinfo
 ocelot-dzen
 sres
-sysinfo
+sysinfo_material
 txtw
 xdo
+xft-lemonbar
 xtitle
 xwinfo
