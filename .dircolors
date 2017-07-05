@@ -1,0 +1,373 @@
+# Designed for dircolors (GNU coreutils) 5.97
+#
+
+
+# Insatllation instructions:
+# This file goes in the /etc directory, and must be world readable.
+# You can copy this file to .dir_colors in your $HOME directory to override
+# the system defaults.
+
+# COLOR needs one of these arguments: 'tty' colorizes output to ttys, but not
+# pipes. 'all' adds color characters to all output. 'none' shuts colorization
+# off.
+COLOR tty
+
+# Below, there should be one TERM entry for each termtype that is colorizable
+TERM ansi
+TERM color_xterm
+TERM color-xterm
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM dvtm
+TERM dvtm-256color
+TERM Eterm
+TERM eterm-color
+TERM fbterm
+TERM gnome
+TERM gnome-256color
+TERM jfbterm
+TERM konsole
+TERM konsole-256color
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM mlterm
+TERM nxterm
+TERM putty
+TERM putty-256color
+TERM rxvt
+TERM rxvt-256color
+TERM rxvt-cygwin
+TERM rxvt-cygwin-native
+TERM rxvt-unicode
+TERM rxvt-unicode256
+TERM rxvt-unicode-256color
+TERM screen
+TERM screen-16color
+TERM screen-16color-bce
+TERM screen-16color-s
+TERM screen-16color-bce-s
+TERM screen-256color
+TERM screen-256color-bce
+TERM screen-256color-s
+TERM screen-256color-bce-s
+TERM screen-bce
+TERM screen-w
+TERM screen.linux
+TERM screen.xterm-new
+TERM st
+TERM st-meta
+TERM st-256color
+TERM st-meta-256color
+TERM vt100
+TERM xterm
+TERM xterm-new
+TERM xterm-16color
+TERM xterm-256color
+TERM xterm-88color
+TERM xterm-color
+TERM xterm-debian
+TERM xterm-termite
+
+# EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
+EIGHTBIT 1
+
+
+### By file type
+
+# global default
+NORMAL 00
+# normal file
+FILE 00
+# directory
+DIR 01;32
+# symbolic link
+LINK 01;36
+
+# pipe, socket, block device, character device (blue bg)
+FIFO 04;40;31 # pipe
+SOCK 04;31;35 # socket
+DOOR 04;01;35 # door
+BLK  04;33;01 # block device driver
+CHR  04;30;44 # character device driver
+
+#############################################################################
+### By file attributes
+
+ORPHAN 41;01;37 # symlink to nonexistent file, or non-stat'able file
+SETUID 37;41 # file that is setuid (u+s)
+SETGID 30;43 # file that is setgid (g+s)
+CAPABILITY 30;41 # file with capability
+STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 34;40 # dir that is other-writable (o+w) and not sticky
+STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
+
+# files with execute permission
+EXEC 01;31  # Unix
+.cmd 00;31  # Win
+.exe 00;31  # Win
+.com 00;31  # Win
+.bat 00;31  # Win
+.reg 00;31  # Win
+.app 00;31  # OSX
+
+#############################################################################
+### By extension
+
+### Text formats
+
+# Text that we can edit with a regular editor
+.txt  0;00
+.org  0;00
+.md   0;00
+.mkd  0;00
+
+# Source text
+.h       0;00
+.c       0;00
+.C       0;00
+.cc      0;00
+.cpp     0;00
+.cxx     0;00
+.objc    0;00
+.sh      0;00
+.csh     0;00
+.zsh     0;00
+.el      0;00
+.vim     0;00
+.java    0;00
+.pl      0;00
+.pm      0;00
+.py      0;00
+.rb      0;00
+.hs      0;00
+.php     0;00
+.htm     0;00
+.html    0;00
+.shtml   0;00
+.erb     0;00
+.haml    0;00
+.xml     0;00
+.rdf     0;00
+.css     0;00
+.sass    0;00
+.scss    0;00
+.less    0;00
+.js      0;00
+.coffee  0;00
+.man     0;00
+.0       0;00
+.1       0;00
+.2       0;00
+.3       0;00
+.4       0;00
+.5       0;00
+.6       0;00
+.7       0;00
+.8       0;00
+.9       0;00
+.l       0;00
+.n       0;00
+.p       0;00
+.pod     0;00
+.tex     0;00
+.go      0;00
+
+
+### Multimedia formats
+
+# Image
+.bmp   0;32
+.cgm   0;32
+.dl    0;32
+.dvi   0;32
+.emf   0;32
+.eps   0;32
+.gif   0;32
+.jpeg  0;32
+.jpg   0;32
+.JPG   0;32
+.mng   0;32
+.pbm   0;32
+.pcx   0;32
+.pdf   0;32
+.pgm   0;32
+.png   0;32
+.PNG   0;32
+.ppm   0;32
+.pps   0;32
+.ppsx  0;32
+.ps    0;32
+.svg   0;32
+.svgz  0;32
+.tga   0;32
+.tif   0;32
+.tiff  0;32
+.xbm   0;32
+.xcf   0;32
+.xpm   0;32
+.xwd   0;32
+.xwd   0;32
+.yuv   0;32
+
+# Audio
+.aac   0;33
+.au    0;33
+.flac  0;33
+.mid   0;33
+.midi  0;33
+.mka   0;33
+.mp3   0;33
+.mpa   0;33
+.mpeg  0;33
+.mpg   0;33
+.ogg   0;33
+.ra    0;33
+.wav   0;33
+
+# Video
+.anx   0;33
+.asf   0;33
+.avi   0;33
+.axv   0;33
+.flc   0;33
+.fli   0;33
+.flv   0;33
+.gl    0;33
+.m2v   0;33
+.m4v   0;33
+.mkv   0;33
+.mov   0;33
+.MOV   0;33
+.mp4   0;33
+.mp4v  0;33
+.mpeg  0;33
+.mpg   0;33
+.nuv   0;33
+.ogm   0;33
+.ogv   0;33
+.ogx   0;33
+.qt    0;33
+.rm    0;33
+.rmvb  0;33
+.swf   0;33
+.vob   0;33
+.webm  0;33
+.wmv   0;33
+### Misc
+
+# Binary document formats and multimedia source
+.doc   0;35
+.docx  0;35
+.rtf   0;35
+.dot   0;35
+.dotx  0;35
+.xls   0;35
+.xlsx  0;35
+.ppt   0;35
+.pptx  0;35
+.fla   0;35
+.psd   0;35
+
+# Archives, compressed
+.7z   0;35
+.apk  0;35
+.arj  0;35
+.bin  0;35
+.bz   0;35
+.bz2  0;35
+.cab  0;35
+.deb  0;35
+.dmg  0;35
+.gem  0;35
+.gz   0;35
+.iso  0;35
+.jar  0;35
+.msi  0;35
+.rar  0;35
+.rpm  0;35
+.tar  0;35
+.tbz  0;35
+.tbz2 0;35
+.tgz  0;35
+.tx   0;35
+.war  0;35
+.xpi  0;35
+.xz   0;35
+.z    0;35
+.Z    0;35
+.zip  0;35
+
+# For testing
+.ANSI-30-black         30
+.ANSI-01;30-brblack    01;30
+.ANSI-31-red           31
+.ANSI-01;31-brred      01;31
+.ANSI-32-green         32
+.ANSI-01;32-brgreen    01;32
+.ANSI-33-yellow        33
+.ANSI-01;33-bryellow   01;33
+.ANSI-34-blue          34
+.ANSI-01;34-brblue     01;34
+.ANSI-35-magenta       35
+.ANSI-01;35-brmagenta  01;35
+.ANSI-36-cyan          36
+.ANSI-01;36-brcyan     01;36
+.ANSI-37-white         37
+.ANSI-01;37-brwhite    01;37
+
+#############################################################################
+# Your customizations
+
+# Unimportant text files
+# For universal scheme, use brightgreen 01;32
+# For optimal on light bg (but too prominent on dark bg), use white 01;34
+#.log 01;32
+#*~ 01;32
+#*# 01;32
+
+# Unimportant non-text files
+# For universal scheme, use brightcyan 37
+# For optimal on dark bg (but too prominent on light bg), change to 37
+.bak 37
+.BAK 37
+.old 37
+.OLD 37
+.org_archive 37
+.off 37
+.OFF 37
+.dist 37
+.DIST 37
+.orig 37
+.ORIG 37
+.swp 37
+.swo 37
+*,v 37
+#.bak 37
+#.BAK 37
+#.old 37
+#.OLD 37
+#.org_archive 37
+#.off 37
+#.OFF 37
+#.dist 37
+#.DIST 37
+#.orig 37
+#.ORIG 37
+#.swp 37
+#.swo 37
+#*,v 37
+

@@ -37,7 +37,7 @@ highlight="#${ylw}"
 ##########################
 
 geometry="1366x26+0+0"
-TEXT_FONT1="fira mono:medium:size=9"
+TEXT_FONT1="fira mono:bold:size=9"
 ICON_FONT1="material\-design\-iconic\-font:size=14"
 ICON_FONT2="fontAwesome:size=11"
 
