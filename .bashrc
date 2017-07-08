@@ -16,12 +16,7 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
-
-# simple function for aur
-aur () {
-    cd /tmp
-    git clone "https://aur.archlinux.org/${1}.git" && cd "$1"
-}
+alias python='/usr/bin/python3'
 
 # PS1 with error, and git info
 __set_ps1 (){
@@ -50,9 +45,6 @@ __set_ps1 (){
 }
 # set PS1
 PROMPT_COMMAND="__set_ps1"
-
-# create command not found hook
-source /usr/share/doc/pkgfile/command-not-found.bash
 
 # history settings
 export HISTSIZE=2000
