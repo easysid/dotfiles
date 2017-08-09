@@ -71,7 +71,8 @@ super + shift + bracket{left,right}
 #
 
 super + x
-    urxvtc
+    termite
+    # urxvtc
 
 super + space
     gmrun

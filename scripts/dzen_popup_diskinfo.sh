@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LINES=5
+LINES=4
 WIDTH=350
 #XPOS=900
 
@@ -9,7 +9,7 @@ WIDTH=350
 (
 echo "^fg($titlecol)Diskinfo^fg()"
 echo " "
-df -h | grep -E 'sda[125]' | while read -r F TOTAL USED AVAIL P M; do
+df -h | grep -E 'sda[12]' | while read -r F TOTAL USED AVAIL P M; do
     MOUNT=${M/\/*\//\/}
     USE=${P%\%}
     if [ "$USE" -gt 75 ]; then

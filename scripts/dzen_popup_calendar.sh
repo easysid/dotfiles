@@ -20,6 +20,10 @@ PIPE=/tmp/calendar_pipe
 # if terminated by TERM
 trap "rm -f $PIPE" SIGTERM
 
+function mcal () {
+    ncal -b -h $@
+}
+
 TODAY=$(expr `date +'%d'` + 0)
 MONTH="10#$(date +'%m')"
 YEAR="10#$(date +'%Y')"
@@ -41,12 +45,12 @@ fi
 
 # generate calender
 if [[ $MM -eq $MONTH ]] && [[ $YY -eq $YEAR ]]; then  # current month, highlight header and date
-    CAL=$(cal | \
+    CAL=$(mcal | \
           sed -re "1 s/^(.*[A-Za-z]+.*)$/^fg($titlecol)\1^fg()/;\
                    2 s/^(.*[A-Za-z]+.*)$/^fg($highlight)\1^fg()/;\
                      s/(^|[ ])($TODAY)($|[ ])/\1^bg($FG)^fg($BG)\2^fg()^bg()\3/")
 else  # another month, just highlight header
-    CAL=$(cal "$MM" "$YY" | \
+    CAL=$(mcal "$MM" "$YY" | \
           sed -re "1 s/^(.*[A-Za-z]+.*)$/^fg($titlecol)\1^fg()/;\
                    2 s/^(.*[A-Za-z]+.*)$/^fg($highlight)\1^fg()/;")
 fi

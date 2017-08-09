@@ -5,7 +5,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # set custom PATH
-export PATH="${PATH}:${HOME}/.scripts:${HOME}/.bin"
+export PATH="${PATH}:${HOME}/.scripts:${HOME}/.local/bin"
 
 # baspwm FIFO
 export PANEL_FIFO="/tmp/panel_fifo"

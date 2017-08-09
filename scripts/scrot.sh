@@ -11,7 +11,8 @@ k=$(($k - 1))
 sleep 1
 done
 k=$(date +%y%m%d_%H%M%S)
-imlib2_grab ~/shot$k.png
-echo "Saved as $HOME/shot$k.png"
+# imlib2_grab ~/shot$k.png
+import -window root ~/shot$k.png
+# echo "Saved as $HOME/shot$k.png"
 
 
