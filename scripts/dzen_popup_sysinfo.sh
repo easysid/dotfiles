@@ -8,9 +8,8 @@ WIDTH=220
 
 KERNEL=$(uname -r)
 UPTIME=$( uptime | sed 's/.* up *//;s/[0-9]* us.*//;s/ day, /d /;s/ days, /d /;s/:/h /;s/ min//;s/,/m/;s/  / /')
-PACKAGES=$(pacman -Q | wc -l)
-UPDATE=$(awk '/upgraded/ {line=$0;} END { $0=line; gsub(/[\[\]]/,"",$0); \
-              printf "%s %s",$1,$2;}' /var/log/pacman.log)
+PACKAGES=$(dpkg -l | grep -c '^ii')
+UPDATE=$(awk '/upgrade/ {line=$0;} END {$0=line; print $1}' /var/log/dpkg.log)
 
 (
 echo "^fg($titlecol)Sysinfo^fg()"

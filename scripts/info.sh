@@ -26,7 +26,7 @@ f1=$'\e[1;37m'
 f2=$'\e[0;37m'
 
 kernel=$(uname -rmo)
-system=$(sed 's/\s*[\(\\]\+.*$//' /etc/issue)
+system=$(lsb_release -sd)
 
 if [[ -n $DISPLAY ]]; then
     WM=$(xprop -root _NET_SUPPORTING_WM_CHECK)
@@ -46,8 +46,8 @@ else
     systfn="none"
 fi
 
-pkgnum=$(pacman -Q | wc -l)
-birthd=$(sed -n '1s/^\[\([0-9-]*\).*$/\1/p' /var/log/pacman.log | tr - .)
+pkgnum=$(dpkg -l | grep -c '^ii')
+birthd=$(awk 'NR==1 {print $1}' /var/log/dpkg.log)
 
 cat << EOF
 
