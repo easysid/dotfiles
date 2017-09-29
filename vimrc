@@ -27,6 +27,8 @@ set number
 set showcmd
 set splitbelow                     " new splits below and to the right
 set splitright
+set modeline
+set modelines=2
 
 " tabs
 set tabstop=4                      " Set tab=4 spaces
@@ -254,7 +256,8 @@ if has('gui_running')
     set guioptions= " remove everything gui
     set guiheadroom=0
 endif
-let g:onedark_termcolors=16
+set termguicolors
+" let g:onedark_termcolors=16
 colorscheme onedark
 " }}}
 
