@@ -53,22 +53,22 @@ cat << EOF
 
 
 
-    ${c00}▉▉  | ${f1}OS ${f0}........... $f2$system
-    ${c08}  ▉▉| ${f1}name ${f0}......... $f2$HOSTNAME
-    ${c01}▉▉  | ${f1}birth day${f0}..... $f2$birthd
-    ${c09}  ▉▉| ${f1}packages ${f0}..... $f2$pkgnum
-    ${c02}▉▉  |
-    ${c10}  ▉▉| ${f1}kernel ${f0}....... $f2$kernel
-    ${c03}▉▉  | ${f1}wm ${f0}........... $f2$wmname
-    ${c11}  ▉▉| ${f1}shell ${f0}........ $f2$SHELL
-    ${c04}▉▉  |
-    ${c12}  ▉▉| ${f1}terminal ${f0}..... $f2$TERM
-    ${c05}▉▉  | ${f1}term font ${f0}.... $f2$termfn
-    ${c13}  ▉▉| ${f1}system font ${f0}.. $f2$systfn
-    ${c06}▉▉  |
-    ${c14}  ▉▉| ${f1}gtk theme ${f0}.... $f2$gtktheme
-    ${c07}▉▉  | ${f1}icon theme ${f0}... $f2$icons
-    ${c15}  ▉▉|
+    ${c00}██  | ${f1}OS ${f0}........... $f2$system
+    ${c08}  ██| ${f1}name ${f0}......... $f2$HOSTNAME
+    ${c01}██  | ${f1}birth day${f0}..... $f2$birthd
+    ${c09}  ██| ${f1}packages ${f0}..... $f2$pkgnum
+    ${c02}██  |
+    ${c10}  ██| ${f1}kernel ${f0}....... $f2$kernel
+    ${c03}██  | ${f1}wm ${f0}........... $f2$wmname
+    ${c11}  ██| ${f1}shell ${f0}........ $f2$SHELL
+    ${c04}██  |
+    ${c12}  ██| ${f1}terminal ${f0}..... $f2$TERM
+    ${c05}██  | ${f1}term font ${f0}.... $f2$termfn
+    ${c13}  ██| ${f1}system font ${f0}.. $f2$systfn
+    ${c06}██  |
+    ${c14}  ██| ${f1}gtk theme ${f0}.... $f2$gtktheme
+    ${c07}██  | ${f1}icon theme ${f0}... $f2$icons
+    ${c15}  ██|
 
 
 
