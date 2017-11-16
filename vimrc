@@ -4,10 +4,10 @@
 call plug#begin()
 " Plugins
 Plug 'davidhalter/jedi-vim'
-Plug 'scrooloose/syntastic'
 Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 call plug#end()
 " }}}
 
@@ -241,12 +241,6 @@ let g:jedi#popup_select_first = 0
 let g:neocomplete#enable_at_startup = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" syntastic
-let g:syntastic_error_symbol = 'EE'
-let g:syntastic_warning_symbol = 'WW'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 " }}}
 
 " colorscheme and gui {{{
