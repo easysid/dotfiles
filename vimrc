@@ -1,17 +1,13 @@
 " vimrc
-
-" plugins {{{
+" plugins
 call plug#begin()
-" Plugins
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'roxma/nvim-completion-manager' | Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
-" }}}
 
-" general settings {{{
-syntax on                          " syntax highlight
+" general settings
 set autoread
 set backspace=indent,eol,start
 set clipboard=unnamedplus          " normal clipboard
@@ -27,35 +23,27 @@ set splitbelow                     " new splits below and to the right
 set splitright
 set modeline
 set modelines=2
-
 " tabs
 set tabstop=4                      " Set tab=4 spaces
 set shiftwidth=4
 set expandtab                      " Use spaces instead of tabs
-
 " code folding
 set foldmethod=indent
 set foldnestmax=2
 set nofoldenable
-
 " wildmode
 set completeopt=longest
-set wildignore+=*.bmp,*.jpg,*.jpeg,*.png,*.gif
-set wildignore+=*.exe,*.dll,*.manifest,*.gz
-set wildignore+=*.so,*.swp,*.zip,*.o,*.pyc,*.javac,*.out,*.luac,*.class
-set wildignore+=*/Downloads/*,*/temp/*,*/Documents/*,*/Pictures/*,*/Videos/*
+set wildignore+=*.so,*.o,*.pyc,*.javac,*.out,*.luac,*.class,*.bmp,*.jpg,*.jpeg,*.png
 set wildmenu
 set wildmode=longest:full,full
-
 " search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 set showmatch
-" }}}
 
-" statusline {{{
+" statusline
 set laststatus=2
 set statusline=\ [%n]\ %f\ %m%r%h\ %y\           " buffer filename flags type
 set statusline+=%#error#                         " change color
@@ -68,10 +56,8 @@ set statusline+=%{&ff!='unix'?'['.&ff.']':''}    " display file format if it's n
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}     " display encoding if it's not utf-8
 set statusline+=%*\                              " reset color
 set statusline+=%l/%L,\ %-4v                     " line/total lines , column
-" }}}
 
-" custom functions and commands {{{
-
+" custom functions and commands
 " Removes trailing spaces (vimcasts)
 function! TrimWhiteSpace()
     " Save last search, and cursor position.
@@ -119,117 +105,78 @@ function! HlLongLines()
         setlocal colorcolumn=
     endif
 endfunction
-"}}}
 
-augroup vimrc   " vimrc autocommands {{{
+augroup vimrc   " autocommands
     autocmd!
-    " reload vimrc when it is changed
-    autocmd BufWritePost .vimrc source %
-    " normal numbers in insert mode
-    autocmd InsertEnter * :set norelativenumber
-    " relative numbers in normal mode
-    autocmd InsertLeave * :set relativenumber
     " recheck trailing spaces and indent when saving files
     autocmd BufWritePost * unlet! b:trailing_space_warning
     autocmd BufWritePost * unlet! b:mixed_indent_warning
-augroup END
-" }}}
 
-augroup filetypes   " FileType specific autocommands {{{
-    autocmd!
     " text files - enable wrapping
     autocmd FileType text setlocal wrap linebreak nolist
     " vim commentary
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
-    autocmd FileType conkyrc setlocal commentstring=#\ %s
-    " Conky
-    " set conkyrc FileType
+    " conkyrc - set FileType
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
-    " conky comments (from smancill/conky-syntax.vim)
-    autocmd FileType conkyrc syn region ConkyrcText start=/^TEXT$/ end=/\%$/ contains=ConkyrcVar,ConkyrcComment
     " Makefile
     autocmd FileType make setlocal noexpandtab
-    " Python
-    " Jedi preview
-    autocmd FileType python setlocal completeopt-=longest,preview
-    " highlight self keyword
+    " python - highlight self keyword
     autocmd FileType python syn keyword pythonBuiltin self
-    " abbreviation snippet
+    " python - abbreviation snippet
     autocmd FileType python iabbrev <buffer> ifm if __name__ == "__main__":
     " display a colorcolumn if there are long lines
     autocmd BufEnter,BufWritePost *.c,*.cpp,*.lua,*.py,*.sh call HlLongLines()
 augroup END
-"}}}
 
-" keymappings  {{{
-
+" keymappings
 " remove keymaps
 imap <F1>    <Nop>
-
 " friendly keymaps
 let mapleader="\<Space>"
-
 inoremap jk <Esc>
 inoremap kj <Esc>
-
 " navigate wrapped lines
 nnoremap <silent> j gj
 nnoremap <silent> k gk
-
 " split navigation
 nnoremap <C-J> <C-W><C-j>
 nnoremap <C-K> <C-W><C-k>
 nnoremap <C-L> <C-W><C-l>
 nnoremap <C-H> <C-W><C-h>
-
 " Delete current buffer
 nnoremap <C-q> :bd<CR>
-
 " cycle through buffers
 nnoremap <S-tab>   :bnext<CR>
-
 " save with C-s
 inoremap <C-s> <Esc>:update<CR>
 nnoremap <C-s> :update<CR>
-
 " Y consistent with D and C
 nnoremap Y y$
-
 " goto end of line
 nnoremap - $
-
 " search and center
 nnoremap n nzz
 nnoremap N Nzz
-
 " Clear search highlight
 nnoremap <Leader><Space> :noh<CR>
-
 " Substitution shortcut
 nnoremap <Leader>s  :%s
 vnoremap <Leader>s  :s
-
 " Strip trailing space
 nnoremap <F1> :call TrimWhiteSpace()<CR>
-
 " Toggle numbering
 nnoremap <F2> :set relativenumber!<CR>
-
 " Autoclose braces
 inoremap {<CR> {<CR>}<Esc>O
-
 " Insert timestamp
 iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
-
 " Tab completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}}
 
-" package specific options  {{{
-" }}}
+" package specific options
 
-" colorscheme and gui {{{
+" colorscheme and gui
 if has('gui_running')
     set guifont=monospace\ 9 " set font
     set guioptions= " remove everything gui
@@ -240,6 +187,4 @@ if (&t_Co == 256)
 endif
 set background=light
 colorscheme PaperColor
-" }}}
 
-" vim:foldmethod=marker:foldlevel=0:foldenable
