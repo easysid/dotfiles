@@ -3,11 +3,10 @@
 " plugins {{{
 call plug#begin()
 " Plugins
-Plug 'davidhalter/jedi-vim'
-Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
+Plug 'roxma/nvim-completion-manager' | Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 " }}}
 
@@ -223,24 +222,11 @@ inoremap {<CR> {<CR>}<Esc>O
 " Insert timestamp
 iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
 
-" }}}
-
-" package specific keymaps {{{
-
-" use TAB completion neocomplete
+" Tab completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
 " package specific options  {{{
-
-" Jedi
-" fix for neocomplete
-let g:jedi#popup_select_first = 0
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
 " }}}
 
 " colorscheme and gui {{{
