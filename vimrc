@@ -44,18 +44,17 @@ set smartcase
 set showmatch
 
 " statusline
+" file flags [trail] [mixed] <-> unix | utf-8 | filetype line/total, column
 set laststatus=2
-set statusline=\ [%n]\ %f\ %m%r%h\ %y\           " buffer filename flags type
-set statusline+=%#error#                         " change color
-set statusline+=%{TrailingSpaceWarning()}        " trailing spaces
-set statusline+=%{MixedIndentWarning()}          " mixed indent warning
-set statusline+=%*                               " reset color
-set statusline+=%=                               " goto right hand side
-set statusline+=%#warningmsg#                    " change color
-set statusline+=%{&ff!='unix'?'['.&ff.']':''}    " display file format if it's not unix
-set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}     " display encoding if it's not utf-8
-set statusline+=%*\                              " reset color
-set statusline+=%l/%L,\ %-4v                     " line/total lines , column
+set statusline=\ %F                                            " filename
+set statusline+=\ %m%r%h                                       " flags
+set statusline+=\ %#error#%{TrailingSpaceWarning()}%*
+set statusline+=\ %#error#%{MixedIndentWarning()}%*
+set statusline+=%=                                             " goto right hand side
+set statusline+=%{&ff!='unix'?&ff.'\ \|\ ':''}                 " format if not unix
+set statusline+=%{&fenc!='utf-8'&&&fenc!=''?&fenc.'\ \|\ ':''} " encoding if not utf-8
+set statusline+=%{&ft}\                                        " filetype
+set statusline+=%5l/%L,\ %-4v                                  " line/total, col
 
 " custom functions and commands
 " Removes trailing spaces (vimcasts)
