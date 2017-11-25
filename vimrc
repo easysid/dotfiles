@@ -10,38 +10,34 @@ call plug#end()
 " general settings
 set autoread
 set backspace=indent,eol,start
-set clipboard=unnamedplus          " normal clipboard
+set clipboard=unnamedplus    " normal clipboard
+set ttimeoutlen=50           " fast escape
 set cursorline
 set hidden
 set mouse=a
-set nobackup                       " no swap and backup files
-set noswapfile
-set nowrap                         " do not wrap lines
-set number
+set nowrap                   " do not wrap lines
 set showcmd
-set splitbelow                     " new splits below and to the right
-set splitright
-set modeline
-set modelines=2
-" tabs
-set tabstop=4                      " Set tab=4 spaces
+set nobackup noswapfile      " no swap and backup files
+set number relativenumber
+set splitbelow splitright    " new splits below and to the right
+set modeline modelines=2
+set tabstop=4                " Set tab=4 spaces
 set shiftwidth=4
-set expandtab                      " Use spaces instead of tabs
-" code folding
-set foldmethod=indent
+set expandtab                " Use spaces instead of tabs
+set foldmethod=indent        " code folding
 set foldnestmax=2
 set nofoldenable
-" wildmode
-set completeopt=longest
-set wildignore+=*.so,*.o,*.pyc,*.javac,*.out,*.luac,*.class,*.bmp,*.jpg,*.jpeg,*.png
-set wildmenu
-set wildmode=longest:full,full
 " search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 set showmatch
+" wildmode
+set completeopt=longest
+set wildignore+=*.so,*.o,*.pyc,*.javac,*.out,*.luac,*.class,*.bmp,*.jpg,*.jpeg,*.png
+set wildmenu
+set wildmode=longest:full,full
 
 " statusline
 " file flags [trail] [mixed] <-> unix | utf-8 | filetype line/total, column
@@ -105,12 +101,11 @@ function! HlLongLines()
     endif
 endfunction
 
-augroup vimrc   " autocommands
+augroup vimrc
     autocmd!
     " recheck trailing spaces and indent when saving files
     autocmd BufWritePost * unlet! b:trailing_space_warning
     autocmd BufWritePost * unlet! b:mixed_indent_warning
-
     " text files - enable wrapping
     autocmd FileType text setlocal wrap linebreak nolist
     " vim commentary
@@ -120,12 +115,18 @@ augroup vimrc   " autocommands
     autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
     " Makefile
     autocmd FileType make setlocal noexpandtab
-    " python - highlight self keyword
-    autocmd FileType python syn keyword pythonBuiltin self
-    " python - abbreviation snippet
-    autocmd FileType python iabbrev <buffer> ifm if __name__ == "__main__":
     " display a colorcolumn if there are long lines
     autocmd BufEnter,BufWritePost *.c,*.cpp,*.lua,*.py,*.sh call HlLongLines()
+augroup END
+
+augroup Python
+    autocmd!
+    " highlight self keyword
+    autocmd FileType python syn keyword pythonBuiltin self
+    " use yapf for formatting
+    autocmd FileType python setlocal equalprog=yapf
+    " abbreviation snippet
+    autocmd FileType python iabbrev <buffer> ifm if __name__ == "__main__":
 augroup END
 
 " keymappings
@@ -143,6 +144,12 @@ nnoremap <C-J> <C-W><C-j>
 nnoremap <C-K> <C-W><C-k>
 nnoremap <C-L> <C-W><C-l>
 nnoremap <C-H> <C-W><C-h>
+" Quickfix
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+" Location List
+nnoremap [l :lprevious<CR>
+nnoremap ]l :lnext<CR>
 " Delete current buffer
 nnoremap <C-q> :bd<CR>
 " cycle through buffers
@@ -168,16 +175,19 @@ nnoremap <F1> :call TrimWhiteSpace()<CR>
 nnoremap <F2> :set relativenumber!<CR>
 " Autoclose braces
 inoremap {<CR> {<CR>}<Esc>O
-" Insert timestamp
-iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
 " Tab completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Insert timestamp
+iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
 
 " package specific options
+" ALE
+let g:ale_sign_column_always = 1
+let g:ale_open_list='on save'
 
 " colorscheme and gui
 if has('gui_running')
-    set guifont=monospace\ 9 " set font
+    set guifont=fira\ mono\ medium\ 9 " set font
     set guioptions= " remove everything gui
     set guiheadroom=0
 endif
@@ -186,4 +196,3 @@ if (&t_Co == 256)
 endif
 set background=light
 colorscheme PaperColor
-
