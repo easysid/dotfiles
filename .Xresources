@@ -39,6 +39,15 @@ URxvt.keysym.Shift-Down: command:\033]721;1\007
 ! URxvt.keysym.M-c:   perl:clipboard:copy
 ! URxvt.keysym.M-v:   perl:clipboard:paste
 
+! fontconfig
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
 ! dzen2
 dzen2.font:       monospace:pixelsize=10
 dzen2.foreground: #a0a0a0

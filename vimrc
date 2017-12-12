@@ -189,5 +189,4 @@ let g:ale_open_list='on save'
 if (&t_Co == 256)
     set termguicolors
 endif
-set background=light
-colorscheme PaperColor
+colorscheme nord

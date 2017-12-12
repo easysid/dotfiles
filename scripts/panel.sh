@@ -1,1 +1,1 @@
-../config/themes/july17/panel.sh
+../config/themes/nord/panel.sh
