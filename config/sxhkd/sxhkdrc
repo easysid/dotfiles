@@ -74,6 +74,9 @@ super + x
     termite
     # urxvtc
 
+super + c
+    clone_termite.sh
+
 super + space
     gmrun
 
@@ -91,14 +94,14 @@ super + shift + Escape
     pkill -USR1 -x sxhkd
 
 # Volume control
-XF86AudioRaiseVolume
-    dzen_volume.sh -i 5
+# XF86AudioRaiseVolume
+#     dzen_volume.sh -i 5
 
-XF86AudioLowerVolume
-    dzen_volume.sh -d 5
+# XF86AudioLowerVolume
+#     dzen_volume.sh -d 5
 
-XF86AudioMute
-    dzen_volume.sh -t
+# XF86AudioMute
+#     dzen_volume.sh -t
 
 # Brightness control
 XF86MonBrightnessUp
