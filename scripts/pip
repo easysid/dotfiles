@@ -1,0 +1,25 @@
+#! /bin/sh
+
+# a simple wrapper script around pip3
+# to make --user as default for certain commands
+# Saturday, 09 December 2017 13:18 IST
+
+if [ $# -eq 0 ]; then
+    pip3 --help
+    exit 101
+fi
+
+echo "Using the pip wrapper ..."
+echo
+
+command="$1"
+oldargs="$@"
+shift
+case $command in
+    install|uninstall|list)
+        pip3 $command --user $@
+        ;;
+    *)
+        pip3 $oldargs
+        ;;
+esac
