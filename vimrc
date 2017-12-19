@@ -2,7 +2,6 @@
 " plugins
 call plug#begin()
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 Plug 'roxma/nvim-completion-manager' | Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
@@ -111,8 +110,6 @@ augroup vimrc
     " vim commentary
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
-    " conkyrc - set FileType
-    autocmd BufNewFile,BufRead *conkyrc* set filetype=conkyrc
     " Makefile
     autocmd FileType make setlocal noexpandtab
     " display a colorcolumn if there are long lines
@@ -153,7 +150,9 @@ nnoremap ]l :lnext<CR>
 " Delete current buffer
 nnoremap <C-q> :bd<CR>
 " cycle through buffers
-nnoremap <S-tab>   :bnext<CR>
+" nnoremap <S-tab>   :bnext<CR>
+" buffer navigation /r/vim
+nnoremap gb :ls<CR>:buffer<Space>
 " save with C-s
 inoremap <C-s> <Esc>:update<CR>
 nnoremap <C-s> :update<CR>
@@ -183,7 +182,7 @@ iabbrev _date <C-r>=strftime("%A, %d %B %Y %H:%M %Z")
 " package specific options
 " ALE
 let g:ale_sign_column_always = 1
-let g:ale_open_list='on save'
+let g:ale_open_list='on_save'
 
 " colorscheme
 if (&t_Co == 256)
