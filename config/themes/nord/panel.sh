@@ -84,7 +84,7 @@ while read -r line ; do
             IFS=$NORMIFS
             ;;
     esac
-    printf "%s\n" "%{l}  $wm_infos %{c} $clock  %{r} ${sys_infos}${netinfo}  ${batcal}  "
+    printf "%s\n" "%{l}  $wm_infos %{c} $clock  %{r} ${sys_infos}  ${netinfo}   ${batcal}  "
 done < "$PANEL_FIFO" \
      | xft-lemonbar -p -d \
            -g "$geometry" \

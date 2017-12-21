@@ -16,7 +16,6 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias python='/usr/bin/python3'
 
 # PS1 with error, and git info
 #__set_ps1 (){

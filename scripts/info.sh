@@ -26,17 +26,18 @@ f1=$'\e[1;37m'
 f2=$'\e[0;37m'
 
 kernel=$(uname -rmo)
-system=$(lsb_release -sd)
+system=$(sed 's/\s*[\(\\]\+.*$//' /etc/issue)
 
 if [[ -n $DISPLAY ]]; then
     WM=$(xprop -root _NET_SUPPORTING_WM_CHECK)
     wmname=$(xprop -id ${WM//* } _NET_WM_NAME | sed -re 's/.*= "(.*)"/\1/')
-    fon=$(xrdb -query | sed -n 's/^UR.*\*font:\s*//p')
-    if [[ $fon =~ "xft" ]]; then
-        termfn=$(echo $fon | awk -F ':' '{print $2}')
-    else
-        termfn=$(echo $fon | sed -re 's/^-\w+-(\w+)-.*/\1/')
-    fi
+    # fon=$(xrdb -query | sed -n 's/^UR.*\*font:\s*//p')
+    # if [[ $fon =~ "xft" ]]; then
+    #     termfn=$(echo $fon | awk -F ':' '{print $2}')
+    # else
+    #     termfn=$(echo $fon | sed -re 's/^-\w+-(\w+)-.*/\1/')
+    # fi
+    termfn=$(sed -n 's/^font = \(.*\)/\1/p' .config/termite/config )
     systfn=$(sed -n 's/^.*font.*"\(.*\)".*$/\1/p' ~/.gtkrc-2.0)
     gtktheme=$(sed -n 's/^gtk-theme.*"\(.*\)".*$/\1/p' ~/.gtkrc-2.0)
     icons=$(sed -n 's/^.*icon.*"\(.*\)".*$/\1/p' ~/.gtkrc-2.0)
@@ -46,8 +47,8 @@ else
     systfn="none"
 fi
 
-pkgnum=$(dpkg -l | grep -c '^ii')
-birthd=$(awk 'NR==1 {print $1}' /var/log/dpkg.log)
+pkgnum=$(pacman -Q | wc -l)
+birthd=$(date -d $(sed -n '1s/^\[\([0-9-]*\).*$/\1/p' /var/log/pacman.log) +'%d-%B-%Y')
 
 cat << EOF
 

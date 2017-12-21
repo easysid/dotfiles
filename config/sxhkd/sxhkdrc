@@ -72,7 +72,6 @@ super + shift + bracket{left,right}
 
 super + x
     termite
-    # urxvtc
 
 super + c
     clone_termite.sh
@@ -93,23 +92,6 @@ super + p
 super + shift + Escape
     pkill -USR1 -x sxhkd
 
-# Volume control
-# XF86AudioRaiseVolume
-#     dzen_volume.sh -i 5
-
-# XF86AudioLowerVolume
-#     dzen_volume.sh -d 5
-
-# XF86AudioMute
-#     dzen_volume.sh -t
-
-# Brightness control
-XF86MonBrightnessUp
-    dzen_brightness.sh up
-
-XF86MonBrightnessDown
-    dzen_brightness.sh down
-
 # screenshot
 Print
     scrot.sh 0
@@ -117,8 +99,4 @@ Print
 # exit
 super + F4
     turnoff.sh
-
-# detail panel
-# super + F1
-#     detail_panel.sh
 
