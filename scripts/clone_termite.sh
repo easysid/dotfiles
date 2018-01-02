@@ -5,9 +5,10 @@
 # Tuesday, 12 December 2017 21:40 IST
 #
 
-bash_pid=$(xprop -id $(bspc query -N -n) _NET_WM_PID | awk '{print $3+5}')
+DIR=$HOME
+win_id="$(bspc query -N -n)"
+bash_pid=$(xprop -id $win_id _NET_WM_PID | awk '{print $3+5}')
 if [ -e "/proc/$bash_pid/cwd" ]; then
-    termite -d "$(readlink /proc/$bash_pid/cwd)" &
-else
-    termite &
+    DIR="$(readlink /proc/$bash_pid/cwd)"
 fi
+termite -d "$DIR" &

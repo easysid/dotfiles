@@ -66,14 +66,18 @@ super + bracket{left,right}
 super + shift + bracket{left,right}
     bspc node @focused:/ -F {horizontal,vertical}
 
+# select all nodes
+super + a
+    bspc node -f @/
+
 #
 #--- application launchers ---#
 #
 
-super + x
-    termite
+# super + x
+#     termite
 
-super + c
+super + x
     clone_termite.sh
 
 super + space
