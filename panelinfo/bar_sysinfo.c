@@ -1,11 +1,12 @@
 /*
- * sysinfo_december_17.c
+ * bar_sysinfo.c
  * generate sys infos for my lemonbar config
  *
- * easysid - Monday, 11 December 2017 20:54 IST
+ * easysid - Wednesday, 03 January 2018 17:49 IST
  *
  * show info only when it exceeds a threshold
  * - move network to a different file. I could use threads instead
+ * - use an external control for debug
  *
  * broadly copied from https://github.com/TrilbyWhite/dwmsys_status
  * and other sources on the internet.
@@ -16,6 +17,7 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+
 
 #define STR_SEP      "    "
 
@@ -49,7 +51,6 @@
 #define STR_BAT     "%%{F#FFFAFAFA}\uf116%%{F-} %ld%%"
 #define STR_BATC     "%%{F#FFe02b18}LOW BATTERY  %ld%%%%{F-}"
 
-
 /* input files */
 #define CPU_FILE       "/proc/stat"
 #define RAM_FILE       "/proc/meminfo"
@@ -60,12 +61,14 @@
 
 /* Control values for thresholds */
 #define LIM_CPU 40
-#define LIM_RAM 1600
+#define LIM_RAM 1900
 #define LIM_TMP 55
 #define LIM_BAT_LOW 30
 #define CYCLES_COUNT 10
 
-const int debug_flag = 0;
+/* detail control */
+#define DEBUGFILE "/tmp/bar_sysinfo_debug.txt"
+int DEBUG = 0;
 
 
 void print_long_info()
@@ -93,6 +96,10 @@ void print_long_info()
     // infinite loop
     for (;;) {
         tmp[0] = sys_status[0] = bat_cal[0] = '\0';
+        // Read DEBUG status
+        infile = fopen(DEBUGFILE, "r");
+        fscanf(infile, "%d", &DEBUG);
+        fclose(infile);
 
         // CPU
         infile = fopen(CPU_FILE, "r");
@@ -111,7 +118,7 @@ void print_long_info()
             show_cpu = cpu_count = 1;
         else
             show_cpu = 0;
-        if (show_cpu == 1 || cpu_count < CYCLES_COUNT || debug_flag) {
+        if (show_cpu || cpu_count < CYCLES_COUNT || DEBUG) {
             sprintf(tmp, STR_CPU, used);
             strcat(sys_status, tmp);
             strcat(sys_status, STR_SEP);
@@ -127,7 +134,7 @@ void print_long_info()
             show_ram = ram_count = 1;
         else
             show_ram = 0;
-        if (show_ram == 1 || ram_count < CYCLES_COUNT || debug_flag) {
+        if (show_ram || ram_count < CYCLES_COUNT || DEBUG) {
             if (used >= 1000)
                 sprintf(tmp, STR_RAM_G, used/1024);
             else
@@ -148,10 +155,10 @@ void print_long_info()
             show_temp = temp_count = 1;
         else
             show_temp = 0;
-        if (show_temp == 1 || temp_count < CYCLES_COUNT || debug_flag) {
+        if (show_temp || temp_count < CYCLES_COUNT || DEBUG) {
             sprintf(tmp, STR_TEMP, a);
             strcat(sys_status, tmp);
-            /* strcat(sys_status, STR_SEP); */
+            strcat(sys_status, STR_SEP);
         }
 
         // Battery
@@ -161,7 +168,7 @@ void print_long_info()
         infile = fopen(BAT_CAP_FILE, "r");
         fscanf(infile, "%ld\n", &c);
         fclose(infile);
-        if (a == 1) {
+        if (a) {
             sprintf(tmp, STR_CHG, c);
         }
         else {
@@ -170,8 +177,11 @@ void print_long_info()
             else
                 sprintf(tmp, STR_BAT, c);
         }
-        strcat(bat_cal, tmp);
-        strcat(bat_cal, STR_SEP);
+        // show only if less than 50%
+        if (a == 0 || c < 55 || DEBUG) {
+            strcat(bat_cal, tmp);
+            strcat(bat_cal, STR_SEP);
+        }
 
         // calendar
         time(&now);
@@ -198,6 +208,10 @@ void print_long_info()
 
 int main()
 {
+    FILE *dfile;
+    dfile = fopen(DEBUGFILE, "w");
+    fprintf(dfile, "%d", DEBUG);
+    fclose(dfile);
     print_long_info();
     return 0;
 }

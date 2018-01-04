@@ -14,4 +14,4 @@ export PANEL_FIFO="/tmp/panel_fifo"
 export NO_AT_BRIDGE=1
 
 # start X
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 && $(tty) == '/dev/tty1' ]] && exec startx &> /dev/null
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 && $(tty) == '/dev/tty1' ]] && exec startx > /dev/null

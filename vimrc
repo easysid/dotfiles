@@ -188,4 +188,5 @@ let g:ale_open_list='on_save'
 if (&t_Co == 256)
     set termguicolors
 endif
-colorscheme nord
+set background=light
+colorscheme solarized8

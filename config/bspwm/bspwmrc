@@ -4,20 +4,19 @@
 
 # config options
 bspc config border_width            2
-bspc config top_padding             21 #$(($(echo $geometry | sed 's/.*x//;s/+.*+/+/')))
+bspc config top_padding             $PANEL_HEIGHT
 bspc config window_gap              15
 bspc config split_ratio             0.50
 bspc config borderless_monocle      true
 bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
+bspc config initial_polarity        second_child # new split to the right
 
 # desktops
 bspc monitor -d main web term misc foo
-# bspc monitor -d     
-
-bspc desktop ^2 -l monocle
 
 # Rules
+bspc desktop ^2 -l monocle
 bspc rule -a Firefox desktop=^2
 bspc rule -a Gimp desktop=^4
 bspc rule -a Gimp-2.8 desktop=^4
@@ -33,12 +32,10 @@ bspc config active_border_color ${active_border_color}
 bspc config presel_feedback_color ${presel_color}
 
 # Autostart apps
+xsetroot -cursor_name left_ptr
 numlock.sh &
 compton &
-# urxvtd &
 nitrogen --restore
-# [ ! -s ~/.config/mpd/pid ] && mpd
-xsetroot -cursor_name left_ptr
 panel.sh &
 firefox -private-window &
 

@@ -7,38 +7,22 @@ scrollback_lines = 10000
 cursor_blink = off
 
 [colors]
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# title      Nord Termite                                    +
-# project    nord-termite                                    +
-# version    0.2.0                                           +
-# repository https://github.com/arcticicestudio/nord-termite +
-# author     Arctic Ice Studio                               +
-# email      development@arcticicestudio.com                 +
-# copyright  Copyright (C) 2016                              +
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-foreground = #D8DEE9
-background = #2E3440
-foreground_bold = #D8DEE9
-cursor = #D8DEE9
-cursor_foreground = #2E3440
-highlight = #4C566A
-
-color0  = #3B4252
-color1  = #BF616A
-color2  = #A3BE8C
-color3  = #EBCB8B
-color4  = #81A1C1
-color5  = #B48EAD
-color6  = #88C0D0
-color7  = #E5E9F0
-color8  = #4C566A
-color9  = #BF616A
-color10 = #A3BE8C
-color11 = #EBCB8B
-color12 = #81A1C1
-color13 = #B48EAD
-color14 = #8FBCBB
-color15 = #ECEFF4
-
-# vim: ft=conf
+# Solarized light
+background = #FDF6E3
+foreground = #657B83
+color0  = #EEE8D5
+color1  = #DC322F
+color2  = #859900
+color3  = #B58900
+color4  = #268BD2
+color5  = #D33682
+color6  = #2AA198
+color7  = #073642
+color8  = #FDF6E3
+color9  = #DC322F
+color10 = #859900
+color11 = #B58900
+color12 = #268BD2
+color13 = #D33682
+color14 = #2AA198
+color15 = #002B36

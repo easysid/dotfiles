@@ -47,7 +47,7 @@ alias ...='cd ../..'
 __powerline_ps1 () {
     local status=$?
     # define colors
-    local text='\[[38;5;0m\]' # text color black
+    local text='\[[1;30m\]' # text color black
     local nor_bg='\[[44m\]'   # normal bg blue
     local nor_fg='\[[34m\]'   # normal fg blue
     local err_bg='\[[41m\]'   # error bg red
