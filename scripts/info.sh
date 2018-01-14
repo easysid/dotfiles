@@ -37,7 +37,7 @@ if [[ -n $DISPLAY ]]; then
     # else
     #     termfn=$(echo $fon | sed -re 's/^-\w+-(\w+)-.*/\1/')
     # fi
-    termfn=$(sed -n 's/^font = \(.*\)/\1/p' .config/termite/config )
+    termfn=$(sed -n 's/^font = \(.*\)/\1/p' ~/.config/termite/config )
     systfn=$(sed -n 's/^.*font.*"\(.*\)".*$/\1/p' ~/.gtkrc-2.0)
     gtktheme=$(sed -n 's/^gtk-theme.*"\(.*\)".*$/\1/p' ~/.gtkrc-2.0)
     icons=$(sed -n 's/^.*icon.*"\(.*\)".*$/\1/p' ~/.gtkrc-2.0)
@@ -51,7 +51,6 @@ pkgnum=$(pacman -Q | wc -l)
 birthd=$(date -d $(sed -n '1s/^\[\([0-9-]*\).*$/\1/p' /var/log/pacman.log) +'%d-%B-%Y')
 
 cat << EOF
-
 
 
     ${c00}██  | ${f1}OS ${f0}........... $f2$system
@@ -70,7 +69,6 @@ cat << EOF
     ${c14}  ██| ${f1}gtk theme ${f0}.... $f2$gtktheme
     ${c07}██  | ${f1}icon theme ${f0}... $f2$icons
     ${c15}  ██|
-
 
 
 EOF

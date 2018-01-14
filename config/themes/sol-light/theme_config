@@ -6,7 +6,7 @@
 ##         Colors       ##
 ##########################
 
-foreground="ABB2BF"
+foreground="FAFBFC"
 background="282C34"
 yellow="EBCB8B"
 red="DC322F"
@@ -68,7 +68,7 @@ U_BG=${F_U_BG}
 ##    bspwm borders     ##
 ##########################
 
-focused_border_color="#263238"
+focused_border_color="#00BCD4"
 normal_border_color="${FG}"
 active_border_color=${FG}
 presel_color="#${red}"

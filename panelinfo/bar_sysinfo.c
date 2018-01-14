@@ -67,7 +67,7 @@
 #define CYCLES_COUNT 10
 
 /* detail control */
-#define DEBUGFILE "/tmp/bar_sysinfo_debug.txt"
+#define DEBUGFILE "/tmp/bar_sysinfo_toggle"
 int DEBUG = 0;
 
 
@@ -186,16 +186,18 @@ void print_long_info()
         // calendar
         time(&now);
         lt = localtime(&now);
-        strftime(str, sizeof(str), "%a, %d %b", lt);
-        sprintf(tmp, STR_CAL, str);
-        strcat(bat_cal, tmp);
+        /* strftime(str, sizeof(str), "%a, %d %b", lt); */
+        /* strftime(str, sizeof(str), "%a, %d %b", lt); */
+        /* sprintf(tmp, STR_CAL, str); */
+        /* strcat(bat_cal, tmp); */
 
         // Clock
-        strftime(str, sizeof(str), "%l:%M %p", lt);
+        strftime(str, sizeof(str), "%I:%M %p", lt);
         sprintf(tmp, STR_CLK, str);
+        strcat(bat_cal, tmp);
 
         printf("%c %s\n", format, sys_status);
-        printf("%s\n", tmp);
+        /* printf("%s\n", tmp); */
         printf("B %s\n", bat_cal);
         fflush(stdout);
         cpu_count++;
