@@ -147,12 +147,13 @@ nnoremap ]q :cnext<CR>
 " Location List
 nnoremap [l :lprevious<CR>
 nnoremap ]l :lnext<CR>
+" buffer navigation
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
+" goto buffer /r/vim
+nnoremap gb :ls<CR>:buffer<Space>
 " Delete current buffer
 nnoremap <C-q> :bd<CR>
-" cycle through buffers
-" nnoremap <S-tab>   :bnext<CR>
-" buffer navigation /r/vim
-nnoremap gb :ls<CR>:buffer<Space>
 " save with C-s
 inoremap <C-s> <Esc>:update<CR>
 nnoremap <C-s> :update<CR>
@@ -163,6 +164,9 @@ nnoremap - $
 " search and center
 nnoremap n nzz
 nnoremap N Nzz
+" show total matches
+nnoremap * *<C-O>:%s///gn<CR>``
+nnoremap <Leader>m :%s///gn<CR>
 " Clear search highlight
 nnoremap <Leader><Space> :noh<CR>
 " Substitution shortcut
