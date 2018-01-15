@@ -19,7 +19,6 @@ set showcmd
 set nobackup noswapfile      " no swap and backup files
 set number relativenumber
 set splitbelow splitright    " new splits below and to the right
-set modeline modelines=2
 set tabstop=4                " Set tab=4 spaces
 set shiftwidth=4
 set expandtab                " Use spaces instead of tabs
@@ -110,8 +109,6 @@ augroup vimrc
     " vim commentary
     autocmd FileType xdefaults setlocal commentstring=!\ %s
     autocmd FileType cpp setlocal commentstring=//\ %s
-    " Makefile
-    autocmd FileType make setlocal noexpandtab
     " display a colorcolumn if there are long lines
     autocmd BufEnter,BufWritePost  *.{c,cpp,lua,py,sh} call HlLongLines()
 augroup END
@@ -191,6 +188,10 @@ let g:ale_open_list='on_save'
 " colorscheme
 if (&t_Co == 256)
     set termguicolors
+    " cursor shape. insert - ibeam, normal - block, replace - underline
+    let &t_SI = "\<Esc>[6 q"
+    let &t_EI = "\<Esc>[2 q"
+    let &t_SR = "\<Esc>[4 q"
 endif
 set background=light
 colorscheme solarized8
