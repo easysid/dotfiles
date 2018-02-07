@@ -80,6 +80,9 @@ super + a
 super + x
     clone_termite.sh
 
+super + s
+    scratchpad.sh toggle
+
 super + space
     gmrun
 
@@ -99,6 +102,10 @@ super + shift + Escape
 # screenshot
 Print
     scrot.sh 0
+
+# detail panel
+super + F1
+    toggleinfo.sh
 
 # exit
 super + F4
