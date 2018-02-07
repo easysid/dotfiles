@@ -4,7 +4,7 @@ font = fira mono medium 9
 # scrollback buffer - 0 = disabled,  negative value = infinite scrollback
 scrollback_lines = 10000
 # "system", "on" or "off"
-cursor_shape = ibeam
+# cursor_shape = block
 cursor_blink = off
 
 [colors]

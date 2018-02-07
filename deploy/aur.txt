@@ -1,3 +1,0 @@
-conky-lua
-lemonbar-git
-python-pygame

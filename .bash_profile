@@ -7,7 +7,10 @@
 # set custom PATH
 export PATH="${PATH}:${HOME}/.scripts:${HOME}/.local/bin"
 
-# baspwm FIFO
+# editor
+export EDITOR=vim
+
+# bspwm FIFO
 export PANEL_FIFO="/tmp/panel_fifo"
 
 # fix accesibility DBus errors

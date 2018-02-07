@@ -93,7 +93,7 @@ case "$TERM" in
         PROMPT_COMMAND="__powerline_ps1"
         ;;
     *)
-        PS1='\[\e[1;37m\]┌─$([ $? -eq 0 ] || echo "(\[\e[1;31m\]fail\[\e[1;37m)─")(\t)─(\u@\h)─(\w)\n└─> '
+        PS1='\[\e[1;37m\]┌─$([ $? -eq 0 ] || echo "(\[\e[1;31m\]fail\[\e[1;37m\])─")(\t)─(\u@\h)─(\w)\n└─>\[\e[0m\] '
         ;;
 esac
 
