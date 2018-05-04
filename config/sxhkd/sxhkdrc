@@ -80,9 +80,6 @@ super + a
 super + x
     clone_termite.sh
 
-super + s
-    scratchpad.sh toggle
-
 super + space
     gmrun
 
