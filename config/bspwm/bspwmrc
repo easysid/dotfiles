@@ -37,7 +37,7 @@ bspc config presel_feedback_color ${presel_color}
 # Autostart apps
 xsetroot -cursor_name left_ptr
 numlock.sh &
-compton &
+allow_rgb10_configs=false compton &
 nitrogen --restore
 panel.sh &
 firefox -private-window &
