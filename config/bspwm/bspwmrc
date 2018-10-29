@@ -20,8 +20,8 @@ bspc monitor -d main web term misc foo
 bspc desktop ^2 -l monocle
 bspc rule -a Firefox desktop=^2
 bspc rule -a Gimp desktop=^4
-bspc rule -a Gimp-2.8 desktop=^4
-bspc rule -a Transmission-gtk desktop=^5
+bspc rule -a Gimp-2.10 desktop=^4
+# bspc rule -a Transmission-gtk desktop=^5
 bspc rule -a Lxappearance state=floating center=true
 bspc rule -a Nitrogen state=floating center=true
 bspc rule -a File-roller state=floating center=true

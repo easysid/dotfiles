@@ -17,4 +17,8 @@ export PANEL_FIFO="/tmp/panel_fifo"
 export NO_AT_BRIDGE=1
 
 # start X
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 && $(tty) == '/dev/tty1' ]] && exec startx > /dev/null
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 && $(tty) == '/dev/tty1' ]]; then
+    exec startx &> /dev/null
+else
+    echo "Not starting GUI on $(tty)"
+fi
