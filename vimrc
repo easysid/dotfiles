@@ -3,7 +3,7 @@
 call plug#begin()
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
-Plug 'roxma/nvim-completion-manager' | Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'ncm2/ncm2' | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 
 " general settings
@@ -33,6 +33,7 @@ set smartcase
 set showmatch
 " wildmode
 set completeopt=longest
+"set completeopt=noinsert,menuone,noselect
 set wildignore+=*.so,*.o,*.pyc,*.javac,*.out,*.luac,*.class,*.bmp,*.jpg,*.jpeg,*.png
 set wildmenu
 set wildmode=longest:full,full
@@ -111,6 +112,8 @@ augroup vimrc
     autocmd FileType cpp setlocal commentstring=//\ %s
     " display a colorcolumn if there are long lines
     autocmd BufEnter,BufWritePost  *.{c,cpp,lua,py,sh} call HlLongLines()
+    " enable ncm2 for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
 augroup END
 
 augroup Python
