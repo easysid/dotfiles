@@ -14,7 +14,7 @@ mkfifo "$PANEL_FIFO"
 
 bspc subscribe > "$PANEL_FIFO" &
 
-sysinfo_material > "$PANEL_FIFO" &
+sysinfo > "$PANEL_FIFO" &
 
 NORMIFS=$IFS
 FIELDIFS=':'

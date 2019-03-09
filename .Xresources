@@ -1,55 +1,8 @@
-!----------------------------------------------------
-! color settings
-!----------------------------------------------------
-
-#include "/home/siddharth/.scripts/termcolors"
-
-!---------------------------------------------------
-! urxvt config settings
-!---------------------------------------------------
-
-URxvt*geometry:         80x21
-
-URxvt*font:              xft:fira mono:medium:size=9
-URxvt*boldFont:          xft:fira mono:bold:size=9
-
-! URxvt*font:              -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
-! URxvt*boldFont:          -ypn-envypn-medium-r-normal--13-130-75-75-c-90-iso8859-1
-
-URxvt*letterSpace: -2
-
-URxvt.savelines:        500
-URxvt*scrollBar:        false
-
-! do not scroll with output
-URxvt*scrollTtyOutput:  false
-
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
-
-! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
-
-! scroll a single line
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
-
-! clipboard management
-! URxvt.perl-ext-common:  default,clipboard
-! URxvt.keysym.M-c:   perl:clipboard:copy
-! URxvt.keysym.M-v:   perl:clipboard:paste
-
 ! fontconfig
-Xft.dpi: 96
+Xft.dpi: 144
 Xft.antialias: true
 Xft.hinting: true
 Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
-
-! dzen2
-dzen2.font:       monospace:pixelsize=10
-dzen2.foreground: #a0a0a0
-dzen2.background: #262626
-

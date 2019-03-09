@@ -193,5 +193,5 @@ if (&t_Co == 256)
     let &t_EI = "\<Esc>[2 q"
     let &t_SR = "\<Esc>[4 q"
 endif
-set background=light
-colorscheme solarized8
+" set background=light
+" colorscheme solarized8

@@ -1,0 +1,7 @@
+! assign Super to Alt Left
+
+remove mod1 = Alt_L
+clear mod4
+keycode 64 = Super_L
+add mod4 = Super_L
+

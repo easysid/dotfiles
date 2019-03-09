@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Script to toggle status info in bar. Expand or contract.
 
@@ -6,5 +6,5 @@
 # FILE='/tmp/bartoggle'
 FILE='/tmp/bar_sysinfo_toggle'
 
-[[ $(< $FILE) -eq 0 ]] && echo -n 1 > $FILE || echo -n 0 > $FILE
+[ "$(cat $FILE)" -eq 0 ] && echo -n 1 > $FILE || echo -n 0 > $FILE
 

@@ -35,9 +35,11 @@ bspc config presel_feedback_color ${presel_color}
 
 # Autostart apps
 xsetroot -cursor_name left_ptr
-numlock.sh &
-allow_rgb10_configs=false compton &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#numlock.sh &
+# allow_rgb10_configs=false compton &
+compton &
 nitrogen --restore
-panel.sh &
+restart_panel.sh &
 firefox -private-window &
 

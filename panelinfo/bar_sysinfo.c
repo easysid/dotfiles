@@ -44,7 +44,7 @@
 /* temperatures */
 #define STR_TEMP     "%%{F#FFFAFAFA}\uf161%%{F-} %ld°"
 /* clock and calendar*/
-#define STR_CLK      "C %%{F-}%s"
+#define STR_CLK      "%%{F-}%s"
 #define STR_CAL      "%%{F#FFFAFAFA}\uf331%%{F-} %s"
 /* ac and battery status */
 #define STR_CHG      "%%{F#FFFAFAFA}\uf114%%{F-} %ld%%"
@@ -54,15 +54,15 @@
 /* input files */
 #define CPU_FILE       "/proc/stat"
 #define RAM_FILE       "/proc/meminfo"
-#define AC_ADP_FILE    "/sys/class/power_supply/ADP1/online"
+#define AC_ADP_FILE    "/sys/class/power_supply/AC0/online"
 #define BAT_CAP_FILE   "/sys/class/power_supply/BAT0/capacity"
-#define CPU_TEMP_FILE  "/sys/class/hwmon/hwmon1/temp2_input"
+#define CPU_TEMP_FILE  "/sys/class/hwmon/hwmon3/temp1_input"
 #define INTERVAL       1
 
 /* Control values for thresholds */
 #define LIM_CPU 40
-#define LIM_RAM 1900
-#define LIM_TMP 55
+#define LIM_RAM 5900
+#define LIM_TMP 50
 #define LIM_BAT_LOW 30
 #define CYCLES_COUNT 10
 
@@ -177,8 +177,8 @@ void print_long_info()
             else
                 sprintf(tmp, STR_BAT, c);
         }
-        // show only if less than 50%
-        if (a == 0 || c < 55 || DEBUG) {
+        // show only if less than 90%
+        if (a == 0 || c < 90 || DEBUG) {
             strcat(bat_cal, tmp);
             strcat(bat_cal, STR_SEP);
         }

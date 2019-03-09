@@ -74,9 +74,6 @@ super + a
 #--- application launchers ---#
 #
 
-# super + x
-#     termite
-
 super + x
     clone_termite.sh
 
@@ -92,10 +89,6 @@ super + z
 super + p
     lxtask
 
-# make sxhkd reload its configuration files:
-super + shift + Escape
-    pkill -USR1 -x sxhkd
-
 # screenshot
 Print
     scrot.sh 0
@@ -107,4 +100,15 @@ super + F1
 # exit
 super + F4
     turnoff.sh
+
+# make sxhkd reload its configuration files:
+super + shift + Escape
+    pkill -USR1 -x sxhkd
+
+# brightness keys
+XF86MonBrightnessDown
+    brightness.sh down
+
+XF86MonBrightnessUp
+    brightness.sh up
 

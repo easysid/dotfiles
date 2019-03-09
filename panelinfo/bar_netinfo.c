@@ -32,7 +32,7 @@ void netinfo()
     show_net = 1;
     count = 0;
     struct timeval timeout;
-    timeout.tv_sec = 2;
+    timeout.tv_sec = INTERVAL;
     timeout.tv_usec = 0;
     struct sockaddr_in GOOG = {AF_INET, htons(53), {inet_addr(_GOOGLE)}, {0}};
     struct sockaddr_in ROUT = {AF_INET, htons(80), {inet_addr(_ROUTER)}, {0}};
